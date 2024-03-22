@@ -1,0 +1,45 @@
+# waypoint_num: 8
+# waypoint0: {x: 0.0, y: 0.0, z: -1.55}
+# waypoint1: {x: 14.81, y: -1.08 , z: -2.37} #14.87
+# waypoint2: {x: 37.54, y: -11.77, z: -0.79}
+# waypoint3: {x: 67.38, y: -12.64, z: 0.14}
+# waypoint4: {x: 93.97, y: -8.28, z: 0.47}
+# waypoint5: {x: 113.95, y: -35.70, z: -0.34}
+# waypoint6: {x: 121.18, y: -67.61, z: -4.00}
+# waypoint7: {x: 121.80, y: -96.0, z: -7.37}
+
+
+# waypoint_num: 2
+# waypoint0: {x: 0.0, y: 0.0, z: -0.02}
+# waypoint1: {x: 0.0, y: 0.0, z: -0.02}
+# waypoint1: {x: 14.46, y: 0.30 , z: -1.73}
+# waypoint2: {x: 27.89, y: 0.30, z: -4.51}
+# waypoint3: {x: 47.22, y: 0.33, z: -1.16}
+# waypoint4: {x: 60.30, y: 1.42, z: -2.09}
+# waypoint5: {x: 61.74, y: 17.84, z: -4.58}
+# waypoint6: {x: 66.26, y: 33.01, z: -4.58}
+# waypoint7: {x: 73.84, y: 42.54, z: -4.58}
+# waypoint8: {x: 67.45, y: 54.83, z: -4.58}
+# waypoint9: {x: 61.79, y: 69.16, z: -4.58}
+# waypoint10: {x: 42.50, y: 69.62, z: -7.41}
+# waypoint11: {x: 40.50, y: 69.62, z: -8.41}
+
+waypoint_num: 3
+waypoint0: {x: 0.0, y: 0.0, z: -0.02}
+waypoint1: {x: 0.0, y: 0.0, z: -0.03}
+waypoint2: {x: 0.0, y: 0.0, z: -0.04}
+# waypoint1: {x: 15.44, y: 6.55, z: -2.16}
+# waypoint2: {x: 47.68, y: 9.05 , z: -8.09}
+# waypoint3: {x: 87.65, y: 9.84, z: -5.47}
+# waypoint4: {x: 108.03, y: 34.25, z: -9.52}
+# waypoint5: {x: 96.11, y: 48.94, z: -7.14}
+# waypoint6: {x: 72.96, y: 44.72, z: -4.43}
+# waypoint7: {x: 53.85, y: 35.27, z: -12.42}
+# waypoint8: {x: 32.06, y: 54.53, z: -14.14}
+# waypoint9: {x: -25.37, y: 79.35, z: -28.70}
+# waypoint10: {x: -42.83, y: 98.83, z: -35.38}
+# waypoint11: {x: -7.97, y: 123.52, z: -50.52}
+# waypoint12: {x: -8.47, y: 53.18, z: -11.66}
+# waypoint13: {x: 2.82, y: 97.03, z: -37.84}
+max_vel: 20
+max_acc: 8
