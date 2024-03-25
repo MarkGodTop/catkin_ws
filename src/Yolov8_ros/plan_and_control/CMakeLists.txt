@@ -5,6 +5,8 @@ project(plan_and_control)
 
  set(OpenCV_DIR /usr/lib/x86_64-linux-gnu/cmake/opencv4/)
 find_package(Eigen3 REQUIRED)
+find_package(yaml-cpp REQUIRED)
+include_directories(${YAML_CPP_INCLUDE_DIR})
 include_directories(${EIGEN3_INCLUDE_DIR})
 find_package(catkin REQUIRED COMPONENTS
   geometry_msgs
@@ -58,4 +60,5 @@ target_link_libraries(trajectory_replan_node
    ${catkin_LIBRARIES}
    ${OpenCV_LIBS}
    trajectory_generator
+   yaml-cpp
 )

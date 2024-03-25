@@ -1,5 +1,7 @@
 #include "plan_and_control/trajectory_replan_node.h"
-
+#include <fstream>
+#include <json/json.h>
+#include <yaml-cpp/yaml.h>
 
 TrajectoryReplanNode::TrajectoryReplanNode(const ros::NodeHandle &nh, const ros::NodeHandle &nh_private) 
 :nh_(nh), nh_private_(nh_private), got_circle_flag_(false) {
@@ -70,14 +72,14 @@ void TrajectoryReplanNode::depthImageCallback(const sensor_msgs::ImageConstPtr& 
         float y_center_rgb = (yolo_->bounding_boxes[i].ymin + yolo_->bounding_boxes[i].ymax) / 2.0f;
         std::cout << "x_center_rgb:" << x_center_rgb << std::endl;
         std::cout << "y_center_rgb:" << y_center_rgb << std::endl;
-        Eigen::Vector3d camera_coord_rgb(x_center_rgb, y_center_rgb, 1.0);
-        Eigen::Matrix3d k_depth; 
-        Eigen::Matrix3d k_rgb;
-        Eigen::Vector3d camera_coord_world = k_depth.inverse() * camera_coord_rgb;
         depth_ptr_ = cv_bridge::toCvCopy(msg, sensor_msgs::image_encodings::TYPE_32FC1);
         Mat depth = depth_ptr_->image;
+        int y = y_center_rgb;
+        int x = x_center_rgb;
+        cout << "x:" << x <<endl;
+        cout << "y:" << y <<endl;
         // float depth_value = depth.ptr<float>(int(camera_coord_depth[1]))[int(camera_coord_depth[0])];
-        float depth_value = depth.ptr<float>(int(y_center_rgb))[int(x_center_rgb)];
+        float depth_value = depth.ptr<float>(y)[x];
         Eigen::Vector3d pixel_and_depth(x_center_rgb, y_center_rgb, depth_value);
         std::cout << "pixel_and_depth:" << pixel_and_depth << std::endl;
         Eigen::Vector3d point_w = transformPixel2World(pixel_and_depth);
@@ -436,7 +438,38 @@ int main(int argc, char **argv) {
     ros::NodeHandle nh;
     ros::NodeHandle nh_private("~");
     namedWindow("depth2gray");
-  
+    // Json::Value root;
+    // Json::CharReaderBuilder builder;
+    // std::ifstream i("~/mnt/d/AirSim/ros/1.json", std::ifstream::binary);
+    // std::string errs;
+    // if (!Json::parseFromStream(builder, i, &root, &errs)) {
+    //     std::cerr << "Error opening or parsing JSON file: " << errs << std::endl;
+    //     return 1;
+    // }
+    // i.close();
+    // Json::Value path_data = root["PathData"];
+    // YAML::Node node;
+    // int index = 0;
+    // for (const auto& point : path_data) {
+    //     YAML::Node point_node;
+    //     point_node["x"] = point["PointX"].asDouble();
+    //     point_node["y"] = point["PointY"].asDouble();
+    //     point_node["z"] = point["PointZ"].asDouble();
+    //     std::string key = "waypoint" + std::to_string(index);
+    //     node[key] = point_node;
+    //     ++index;
+    // }
+    // // Write to YAML file
+    // std::ofstream yaml_file("../config/waypoints.yaml");
+    // if (!yaml_file.is_open()) {
+    //     std::cerr << "Error opening YAML file for writing." << std::endl;
+    //     return 1;
+    // }
+    // yaml_file << "waypoint_num: " << index << "\n";
+    // for (const auto& pair : node) {
+    //     yaml_file << pair.first.as<std::string>() << ": {x: " << pair.second["x"].as<double>() << ", y: " << pair.second["y"].as<double>() << ", z: " << pair.second["z"].as<double>() << "}\n";
+    // }
+    // yaml_file.close();
     TrajectoryReplanNode trajectory_replan_node(nh, nh_private);
 
     ros::spin();

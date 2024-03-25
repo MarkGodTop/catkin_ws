@@ -79,7 +79,7 @@ public:
                                  pixel_and_depth(2));
         // cout << "ceicle Center in pixel:" << point_p.transpose() << endl;
         Eigen::Matrix3d K;
-        K << 128.2, 0.0, 128.0, 0.0, 128.2, 72.0, 0.0, 0.0, 1.0;
+        K << 400.7, 0.0, 400.0, 0.0, 400.7, 300.0, 0.0, 0.0, 1.0;
         Eigen::Vector3d point_c = K.inverse() * point_p;
         // Eigen::Vector3d point_c = point_p;
         //cout << "ceicle Center in camera:" << point_c.transpose() << endl;

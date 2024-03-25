@@ -17,6 +17,7 @@ set(CMAKE_TARGET_DEFINITIONS_CXX
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
+  "/home/ros20/miniconda3/include"
   "/usr/local/include/eigen3"
   "/home/ros20/yolov8/catkin_ws/src/Yolov8_ros/plan_and_control/include"
   "/home/ros20/yolov8/catkin_ws/devel/include"

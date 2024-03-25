@@ -578,6 +578,9 @@ visualization_msgs_DIR:PATH=/opt/ros/noetic/share/visualization_msgs/cmake
 //The directory containing a CMake configuration file for xmlrpcpp.
 xmlrpcpp_DIR:PATH=/opt/ros/noetic/share/xmlrpcpp/cmake
 
+//The directory containing a CMake configuration file for yaml-cpp.
+yaml-cpp_DIR:PATH=/home/ros20/miniconda3/lib/cmake/yaml-cpp
+
 //Value Computed by CMake
 yolov8_ros_BINARY_DIR:STATIC=/home/ros20/yolov8/catkin_ws/build/Yolov8_ros/yolov8_ros
 
