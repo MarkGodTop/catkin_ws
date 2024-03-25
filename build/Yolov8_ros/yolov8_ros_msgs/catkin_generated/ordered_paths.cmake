@@ -1,1 +1,1 @@
-set(ORDERED_PATHS "/opt/ros/noetic/include;/usr/include")
+set(ORDERED_PATHS "/opt/ros/noetic/lib")
