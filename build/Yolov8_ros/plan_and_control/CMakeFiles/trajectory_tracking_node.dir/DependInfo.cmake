@@ -17,7 +17,6 @@ set(CMAKE_TARGET_DEFINITIONS_CXX
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
-  "/home/ros20/miniconda3/include"
   "/usr/local/include/eigen3"
   "/home/ros20/yolov8/catkin_ws/src/Yolov8_ros/plan_and_control/include"
   "/home/ros20/yolov8/catkin_ws/devel/include"
@@ -25,6 +24,11 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "/home/ros20/yolov8/catkin_ws/src/Yolov8_ros/trajectory_generator/include"
   "/opt/ros/noetic/include"
   "/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp"
+  "/mnt/d/AirSim/AirLib/deps/eigen3"
+  "/mnt/d/AirSim/AirLib/include"
+  "/mnt/d/AirSim/external/rpclib/rpclib-2.3.0/include"
+  "/mnt/d/AirSim/MavLinkCom/include"
+  "/mnt/d/AirSim/MavLinkCom/common_utils"
   "/usr/include/opencv4"
   )
 

@@ -1,8 +1,12 @@
 #include "plan_and_control/trajectory_replan_node.h"
 #include <fstream>
-#include <json/json.h>
+#include <jsoncpp/json/json.h>
 #include <yaml-cpp/yaml.h>
-
+#include <vector>
+using namespace Json;
+using namespace std;
+msr::airlib::MultirotorRpcLibClient client("192.168.1.51");
+std::string vehicle = "CustomFlyingPawn1";
 TrajectoryReplanNode::TrajectoryReplanNode(const ros::NodeHandle &nh, const ros::NodeHandle &nh_private) 
 :nh_(nh), nh_private_(nh_private), got_circle_flag_(false) {
     it_ = std::make_unique<image_transport::ImageTransport>(nh_);
@@ -60,13 +64,13 @@ void TrajectoryReplanNode::getCircleCenter(const ros::TimerEvent &e) {
     //     }
     // }
     //cout << "got_circle:" << got_circle_flag_ << endl;
-    if(yolo_ != nullptr){
-        got_circle_flag_ = false;
-    }
+    
     
 }
 void TrajectoryReplanNode::depthImageCallback(const sensor_msgs::ImageConstPtr& msg) {
-    if (got_circle_flag_) return;
+    if(yolo_ == nullptr){
+        return;
+    }
     for (int i = 0; i < yolo_->bounding_boxes.size(); i++){
         float x_center_rgb = (yolo_->bounding_boxes[i].xmin + yolo_->bounding_boxes[i].xmax) / 2.0f;
         float y_center_rgb = (yolo_->bounding_boxes[i].ymin + yolo_->bounding_boxes[i].ymax) / 2.0f;
@@ -286,20 +290,47 @@ void TrajectoryReplanNode::boundingBoxes(const yolov8_ros_msgs::BoundingBoxesCon
     }
 
     yolo_ = msg;
-    std::unordered_map<std::string, int> class_counts;
+    // std::unordered_map<std::string, int> class_counts;
 
-    // std::cout << "1" << std::endl;
-    for (const auto& bounding_box : msg->bounding_boxes)
-    {
-        const std::string class_name = bounding_box.Class;
-        class_counts[class_name]++;
-    }
+    Value data(Json::arrayValue);
 
-    for (const auto& pair : class_counts)
-    {
-        std::cout << pair.first << ": " << pair.second << std::endl;
+    // 假设你想要使用第一个边界框
+    for (const auto& box : msg->bounding_boxes) {
+        Value obj;
+        obj["ObjType"] = 0;
+        obj["ULPointX"] = static_cast<double>(box.xmin); // xmin
+        obj["ULPointY"] = static_cast<double>(box.ymin); // ymin
+        obj["DRPointX"] = static_cast<double>(box.xmax); // xmax
+        obj["DRPointY"] = static_cast<double>(box.ymax); // ymax
+        // 将边界框添加到数据数组中
+        data.append(obj);
     }
+    Value root;
+    // ... 其他代码 ...
+    uint64_t ms = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count();
+    root["timestamp"] = Json::Value(static_cast<Int64>(ms)); // 将uint64_t转换为Json::Value::UInt64类型 // 将时间戳转换为纳秒
+    root["resX"] = resX;
+    root["resY"] = resY;
+    root["cameraName"] = cameraName;
+    root["data"] = data;
+    // 使用jsoncpp的StreamWriter来格式化JSON
+    StreamWriterBuilder builder;
+    builder["indentation"] = "\t"; // 使用制表符缩进
+    const std::string json_str = Json::writeString(builder, root);
+    client.simUpdateLocalDetectTargetNumData(vehicle, json_str);
 }
+    // std::cout << "1" << std::endl;
+    // for (const auto& bounding_box : msg->bounding_boxes)
+    // {
+    //     const std::string class_name = bounding_box.Class;
+    //     class_counts[class_name]++;
+    // }
+
+    // for (const auto& pair : class_counts)
+    // {
+    //     std::cout << pair.first << ": " << pair.second << std::endl;
+    // }
+
 void TrajectoryReplanNode::odomCallback(const nav_msgs::OdometryConstPtr &msg) {
     odom_ = msg;
     odom_pos_(0) = msg->pose.pose.position.x;

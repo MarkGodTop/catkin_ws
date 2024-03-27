@@ -14,6 +14,18 @@
 # EXTERNAL cache entries
 ########################
 
+//Value Computed by CMake
+AirLib_BINARY_DIR:STATIC=/home/ros20/yolov8/catkin_ws/build/Yolov8_ros/plan_and_control/AirLib
+
+//Path to a library.
+AirLib_LIBRARY:FILEPATH=AirLib_LIBRARY-NOTFOUND
+
+//Dependencies for the target
+AirLib_LIB_DEPENDS:STATIC=general;-lpthread;general;rpc;general;MavLinkCom;
+
+//Value Computed by CMake
+AirLib_SOURCE_DIR:STATIC=/mnt/d/AirSim/cmake/AirLib
+
 //Builds the googlemock subproject
 BUILD_GMOCK:BOOL=ON
 
@@ -304,7 +316,7 @@ DOXYGEN_EXECUTABLE:FILEPATH=DOXYGEN_EXECUTABLE-NOTFOUND
 EMPY_EXECUTABLE:FILEPATH=EMPY_EXECUTABLE-NOTFOUND
 
 //Empy script
-EMPY_SCRIPT:STRING=/usr/lib/python3/dist-packages/em.py
+EMPY_SCRIPT:STRING=/home/ros20/miniconda3/envs/airsim/lib/python3.8/site-packages/em.py
 
 //The directory containing a CMake configuration file for Eigen3.
 Eigen3_DIR:PATH=/usr/local/share/eigen3/cmake
@@ -352,8 +364,26 @@ LSB_FOUND:BOOL=TRUE
 //Path to a program.
 LSB_RELEASE_EXECUTABLE:FILEPATH=/usr/bin/lsb_release
 
+//Value Computed by CMake
+MavLinkCom_BINARY_DIR:STATIC=/home/ros20/yolov8/catkin_ws/build/Yolov8_ros/plan_and_control/MavLinkCom
+
+//Dependencies for the target
+MavLinkCom_LIB_DEPENDS:STATIC=general;-lpthread;
+
+//Value Computed by CMake
+MavLinkCom_SOURCE_DIR:STATIC=/mnt/d/AirSim/cmake/MavLinkCom
+
+//Value Computed by CMake
+MavLinkTest_BINARY_DIR:STATIC=/home/ros20/yolov8/catkin_ws/build/Yolov8_ros/plan_and_control/MavLinkCom/MavLinkTest
+
+//Value Computed by CMake
+MavLinkTest_SOURCE_DIR:STATIC=/mnt/d/AirSim/cmake/MavLinkCom/MavLinkTest
+
 //Path to a program.
 NOSETESTS:FILEPATH=/usr/bin/nosetests3
+
+//pkg-config executable
+PKG_CONFIG_EXECUTABLE:FILEPATH=/usr/bin/pkg-config
 
 //Path to a program.
 PYTHON_EXECUTABLE:FILEPATH=/usr/bin/python3
@@ -362,13 +392,43 @@ PYTHON_EXECUTABLE:FILEPATH=/usr/bin/python3
 PYTHON_VERSION:STRING=3
 
 //Location of Python module em
-PY_EM:STRING=/usr/lib/python3/dist-packages/em.py
+PY_EM:STRING=/home/ros20/miniconda3/envs/airsim/lib/python3.8/site-packages/em.py
 
 //Value Computed by CMake
 Project_BINARY_DIR:STATIC=/home/ros20/yolov8/catkin_ws/build
 
 //Value Computed by CMake
 Project_SOURCE_DIR:STATIC=/home/ros20/yolov8/catkin_ws/src
+
+//Build examples.
+RPCLIB_BUILD_EXAMPLES:BOOL=OFF
+
+//Build unit RPCLIB_BUILD_TESTS.
+RPCLIB_BUILD_TESTS:BOOL=OFF
+
+//C++ version used to build rpclib (Currently: Only 11 and 14 supported)
+RPCLIB_CXX_STANDARD:STRING=11
+
+//Default buffer size
+RPCLIB_DEFAULT_BUFFER_SIZE:STRING=1024 << 10
+
+//Default port used for running tests and examples
+RPCLIB_DEFAULT_PORT:STRING=8080
+
+//Generate coverage information
+RPCLIB_ENABLE_COVERAGE:BOOL=OFF
+
+//ALlow logging in the library for debug purposes.
+RPCLIB_ENABLE_LOGGING:BOOL=OFF
+
+//Generate compilation database. Useful for YCM.
+RPCLIB_GENERATE_COMPDB:BOOL=OFF
+
+//MSVC only: build with /MT instead of /MD
+RPCLIB_MSVC_STATIC_RUNTIME:BOOL=OFF
+
+//Path to a library.
+RPC_LIBRARY:FILEPATH=RPC_LIBRARY-NOTFOUND
 
 //Path to a library.
 RT_LIBRARY:FILEPATH=/usr/lib/x86_64-linux-gnu/librt.so
@@ -497,6 +557,9 @@ message_runtime_DIR:PATH=/opt/ros/noetic/share/message_runtime/cmake
 //The directory containing a CMake configuration file for nav_msgs.
 nav_msgs_DIR:PATH=/opt/ros/noetic/share/nav_msgs/cmake
 
+//Path to a library.
+pkgcfg_lib_JSONCPP_jsoncpp:FILEPATH=/usr/local/lib/libjsoncpp.so
+
 //Value Computed by CMake
 plan_and_control_BINARY_DIR:STATIC=/home/ros20/yolov8/catkin_ws/build/Yolov8_ros/plan_and_control
 
@@ -532,6 +595,18 @@ rospy_DIR:PATH=/opt/ros/noetic/share/rospy/cmake
 
 //The directory containing a CMake configuration file for rostime.
 rostime_DIR:PATH=/opt/ros/noetic/share/rostime/cmake
+
+//Value Computed by CMake
+rpc_BINARY_DIR:STATIC=/home/ros20/yolov8/catkin_ws/build/Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib
+
+//Value Computed by CMake
+rpc_SOURCE_DIR:STATIC=/mnt/d/AirSim/external/rpclib/rpclib-2.3.0
+
+//Value Computed by CMake
+rpclib_wrapper_BINARY_DIR:STATIC=/home/ros20/yolov8/catkin_ws/build/Yolov8_ros/plan_and_control/rpclib_wrapper
+
+//Value Computed by CMake
+rpclib_wrapper_SOURCE_DIR:STATIC=/mnt/d/AirSim/cmake/rpclib_wrapper
 
 //The directory containing a CMake configuration file for sensor_msgs.
 sensor_msgs_DIR:PATH=/opt/ros/noetic/share/sensor_msgs/cmake
@@ -579,7 +654,7 @@ visualization_msgs_DIR:PATH=/opt/ros/noetic/share/visualization_msgs/cmake
 xmlrpcpp_DIR:PATH=/opt/ros/noetic/share/xmlrpcpp/cmake
 
 //The directory containing a CMake configuration file for yaml-cpp.
-yaml-cpp_DIR:PATH=/home/ros20/miniconda3/lib/cmake/yaml-cpp
+yaml-cpp_DIR:PATH=/usr/local/lib/cmake/yaml-cpp
 
 //Value Computed by CMake
 yolov8_ros_BINARY_DIR:STATIC=/home/ros20/yolov8/catkin_ws/build/Yolov8_ros/yolov8_ros
@@ -744,7 +819,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=10
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=15
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP
@@ -790,7 +865,9 @@ CMAKE_VERBOSE_MAKEFILE-ADVANCED:INTERNAL=1
 //Details about finding OpenCV
 FIND_PACKAGE_MESSAGE_DETAILS_OpenCV:INTERNAL=[/usr][v4.2.0()]
 //Details about finding PY_em
-FIND_PACKAGE_MESSAGE_DETAILS_PY_em:INTERNAL=[/usr/lib/python3/dist-packages/em.py][v()]
+FIND_PACKAGE_MESSAGE_DETAILS_PY_em:INTERNAL=[/home/ros20/miniconda3/envs/airsim/lib/python3.8/site-packages/em.py][v()]
+//Details about finding PkgConfig
+FIND_PACKAGE_MESSAGE_DETAILS_PkgConfig:INTERNAL=[/usr/bin/pkg-config][v0.29.1()]
 //Details about finding PythonInterp
 FIND_PACKAGE_MESSAGE_DETAILS_PythonInterp:INTERNAL=[/usr/bin/python3][v3.8.10()]
 //Details about finding Threads
@@ -823,6 +900,43 @@ GTEST_LIBRARY_DEBUG-ADVANCED:INTERNAL=1
 GTEST_MAIN_LIBRARY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: GTEST_MAIN_LIBRARY_DEBUG
 GTEST_MAIN_LIBRARY_DEBUG-ADVANCED:INTERNAL=1
+JSONCPP_CFLAGS:INTERNAL=-I/usr/local/include
+JSONCPP_CFLAGS_I:INTERNAL=
+JSONCPP_CFLAGS_OTHER:INTERNAL=
+JSONCPP_FOUND:INTERNAL=1
+JSONCPP_INCLUDEDIR:INTERNAL=/usr/local/include
+JSONCPP_INCLUDE_DIRS:INTERNAL=/usr/local/include
+JSONCPP_LDFLAGS:INTERNAL=-L/usr/local/lib;-ljsoncpp
+JSONCPP_LDFLAGS_OTHER:INTERNAL=
+JSONCPP_LIBDIR:INTERNAL=/usr/local/lib
+JSONCPP_LIBRARIES:INTERNAL=jsoncpp
+JSONCPP_LIBRARY_DIRS:INTERNAL=/usr/local/lib
+JSONCPP_LIBS:INTERNAL=
+JSONCPP_LIBS_L:INTERNAL=
+JSONCPP_LIBS_OTHER:INTERNAL=
+JSONCPP_LIBS_PATHS:INTERNAL=
+JSONCPP_MODULE_NAME:INTERNAL=jsoncpp
+JSONCPP_PREFIX:INTERNAL=/usr/local
+JSONCPP_STATIC_CFLAGS:INTERNAL=-I/usr/local/include
+JSONCPP_STATIC_CFLAGS_I:INTERNAL=
+JSONCPP_STATIC_CFLAGS_OTHER:INTERNAL=
+JSONCPP_STATIC_INCLUDE_DIRS:INTERNAL=/usr/local/include
+JSONCPP_STATIC_LDFLAGS:INTERNAL=-L/usr/local/lib;-ljsoncpp
+JSONCPP_STATIC_LDFLAGS_OTHER:INTERNAL=
+JSONCPP_STATIC_LIBDIR:INTERNAL=
+JSONCPP_STATIC_LIBRARIES:INTERNAL=jsoncpp
+JSONCPP_STATIC_LIBRARY_DIRS:INTERNAL=/usr/local/lib
+JSONCPP_STATIC_LIBS:INTERNAL=
+JSONCPP_STATIC_LIBS_L:INTERNAL=
+JSONCPP_STATIC_LIBS_OTHER:INTERNAL=
+JSONCPP_STATIC_LIBS_PATHS:INTERNAL=
+JSONCPP_VERSION:INTERNAL=1.9.5
+JSONCPP_jsoncpp_INCLUDEDIR:INTERNAL=
+JSONCPP_jsoncpp_LIBDIR:INTERNAL=
+JSONCPP_jsoncpp_PREFIX:INTERNAL=
+JSONCPP_jsoncpp_VERSION:INTERNAL=
+//ADVANCED property for variable: PKG_CONFIG_EXECUTABLE
+PKG_CONFIG_EXECUTABLE-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: PYTHON_EXECUTABLE
 PYTHON_EXECUTABLE-ADVANCED:INTERNAL=1
 //This needs to be in PYTHONPATH when 'setup.py install' is called.
@@ -831,6 +945,8 @@ PYTHON_EXECUTABLE-ADVANCED:INTERNAL=1
 PYTHON_INSTALL_DIR:INTERNAL=lib/python3/dist-packages
 //CMAKE_INSTALL_PREFIX during last run
 _GNUInstallDirs_LAST_CMAKE_INSTALL_PREFIX:INTERNAL=/home/ros20/yolov8/catkin_ws/install
+__pkg_config_arguments_JSONCPP:INTERNAL=REQUIRED;jsoncpp
+__pkg_config_checked_JSONCPP:INTERNAL=1
 //ADVANCED property for variable: gmock_build_tests
 gmock_build_tests-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: gtest_build_samples
@@ -843,4 +959,7 @@ gtest_disable_pthreads-ADVANCED:INTERNAL=1
 gtest_force_shared_crt-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: gtest_hide_internal_symbols
 gtest_hide_internal_symbols-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: pkgcfg_lib_JSONCPP_jsoncpp
+pkgcfg_lib_JSONCPP_jsoncpp-ADVANCED:INTERNAL=1
+prefix_result:INTERNAL=/usr/local/lib
 

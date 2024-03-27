@@ -52,3 +52,11 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/plan_and_control" TYPE FILE FILES "/home/ros20/yolov8/catkin_ws/src/Yolov8_ros/plan_and_control/package.xml")
 endif()
 
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for each subdirectory.
+  include("/home/ros20/yolov8/catkin_ws/build/Yolov8_ros/plan_and_control/rpclib_wrapper/cmake_install.cmake")
+  include("/home/ros20/yolov8/catkin_ws/build/Yolov8_ros/plan_and_control/AirLib/cmake_install.cmake")
+  include("/home/ros20/yolov8/catkin_ws/build/Yolov8_ros/plan_and_control/MavLinkCom/cmake_install.cmake")
+
+endif()
+

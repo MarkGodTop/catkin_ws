@@ -8,7 +8,7 @@
 #include <nav_msgs/Odometry.h>
 #include <geometry_msgs/PoseStamped.h>
 #include <uav_msgs/Takeoff.h>
-
+#include <iostream>
 //for cv
 #include <sensor_msgs/Image.h>
 #include <image_transport/image_transport.h>
@@ -19,9 +19,11 @@
 #include <memory>
 #include <vector>
 #include <Eigen/Eigen>
-
 #include "trajectory_generator/mini_jerk_traj.h"
-
+#include "vehicles/multirotor/api/MultirotorRpcLibClient.hpp"
+#include "common/common_utils/FileSystem.hpp"
+#include <iostream>
+#include <chrono>
 using namespace std;
 using namespace cv;
 
@@ -57,8 +59,9 @@ private:
     double start_yaw_, final_yaw_;
     bool got_circle_flag_;
     int row_idx_ = 1;
-
-    
+    int resX = 800;
+    int resY = 600;
+    std::string cameraName = "front_center_custom";
     //for cv
     std::unique_ptr<image_transport::ImageTransport> it_;
     image_transport::Subscriber color_image_sub_;

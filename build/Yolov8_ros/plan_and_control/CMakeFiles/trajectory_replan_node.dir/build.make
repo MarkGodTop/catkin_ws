@@ -185,6 +185,7 @@ trajectory_replan_node_EXTERNAL_OBJECTS =
 /home/ros20/yolov8/catkin_ws/devel/lib/plan_and_control/trajectory_replan_node: /usr/lib/x86_64-linux-gnu/libopencv_xobjdetect.so.4.2.0
 /home/ros20/yolov8/catkin_ws/devel/lib/plan_and_control/trajectory_replan_node: /usr/lib/x86_64-linux-gnu/libopencv_xphoto.so.4.2.0
 /home/ros20/yolov8/catkin_ws/devel/lib/plan_and_control/trajectory_replan_node: /home/ros20/yolov8/catkin_ws/devel/lib/libtrajectory_generator.so
+/home/ros20/yolov8/catkin_ws/devel/lib/plan_and_control/trajectory_replan_node: /home/ros20/yolov8/catkin_ws/devel/lib/libAirLib.a
 /home/ros20/yolov8/catkin_ws/devel/lib/plan_and_control/trajectory_replan_node: /usr/lib/x86_64-linux-gnu/libopencv_highgui.so.4.2.0
 /home/ros20/yolov8/catkin_ws/devel/lib/plan_and_control/trajectory_replan_node: /usr/lib/x86_64-linux-gnu/libopencv_datasets.so.4.2.0
 /home/ros20/yolov8/catkin_ws/devel/lib/plan_and_control/trajectory_replan_node: /usr/lib/x86_64-linux-gnu/libopencv_plot.so.4.2.0
@@ -221,6 +222,9 @@ trajectory_replan_node_EXTERNAL_OBJECTS =
 /home/ros20/yolov8/catkin_ws/devel/lib/plan_and_control/trajectory_replan_node: /usr/lib/x86_64-linux-gnu/libboost_system.so.1.71.0
 /home/ros20/yolov8/catkin_ws/devel/lib/plan_and_control/trajectory_replan_node: /usr/lib/x86_64-linux-gnu/libboost_thread.so.1.71.0
 /home/ros20/yolov8/catkin_ws/devel/lib/plan_and_control/trajectory_replan_node: /usr/lib/x86_64-linux-gnu/libconsole_bridge.so.0.4
+/home/ros20/yolov8/catkin_ws/devel/lib/plan_and_control/trajectory_replan_node: /usr/local/lib/libyaml-cpp.a
+/home/ros20/yolov8/catkin_ws/devel/lib/plan_and_control/trajectory_replan_node: output/lib/librpc.so
+/home/ros20/yolov8/catkin_ws/devel/lib/plan_and_control/trajectory_replan_node: /home/ros20/yolov8/catkin_ws/devel/lib/libMavLinkCom.a
 /home/ros20/yolov8/catkin_ws/devel/lib/plan_and_control/trajectory_replan_node: Yolov8_ros/plan_and_control/CMakeFiles/trajectory_replan_node.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/ros20/yolov8/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable /home/ros20/yolov8/catkin_ws/devel/lib/plan_and_control/trajectory_replan_node"
 	cd /home/ros20/yolov8/catkin_ws/build/Yolov8_ros/plan_and_control && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/trajectory_replan_node.dir/link.txt --verbose=$(VERBOSE)

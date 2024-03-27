@@ -13,11 +13,12 @@ set(CMAKE_TARGET_DEFINITIONS_CXX
   "ROSCONSOLE_BACKEND_LOG4CXX"
   "ROS_BUILD_SHARED_LIBS=1"
   "ROS_PACKAGE_NAME=\"plan_and_control\""
+  "RPCLIB_MSGPACK=clmdep_msgpack"
+  "YAML_CPP_STATIC_DEFINE"
   )
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
-  "/home/ros20/miniconda3/include"
   "/usr/local/include/eigen3"
   "/home/ros20/yolov8/catkin_ws/src/Yolov8_ros/plan_and_control/include"
   "/home/ros20/yolov8/catkin_ws/devel/include"
@@ -25,12 +26,20 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "/home/ros20/yolov8/catkin_ws/src/Yolov8_ros/trajectory_generator/include"
   "/opt/ros/noetic/include"
   "/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp"
+  "/mnt/d/AirSim/AirLib/deps/eigen3"
+  "/mnt/d/AirSim/AirLib/include"
+  "/mnt/d/AirSim/external/rpclib/rpclib-2.3.0/include"
+  "/mnt/d/AirSim/MavLinkCom/include"
+  "/mnt/d/AirSim/MavLinkCom/common_utils"
   "/usr/include/opencv4"
   )
 
 # Targets to which this target links.
 set(CMAKE_TARGET_LINKED_INFO_FILES
   "/home/ros20/yolov8/catkin_ws/build/Yolov8_ros/trajectory_generator/CMakeFiles/trajectory_generator.dir/DependInfo.cmake"
+  "/home/ros20/yolov8/catkin_ws/build/Yolov8_ros/plan_and_control/AirLib/CMakeFiles/AirLib.dir/DependInfo.cmake"
+  "/home/ros20/yolov8/catkin_ws/build/Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib/CMakeFiles/rpc.dir/DependInfo.cmake"
+  "/home/ros20/yolov8/catkin_ws/build/Yolov8_ros/plan_and_control/MavLinkCom/CMakeFiles/MavLinkCom.dir/DependInfo.cmake"
   )
 
 # Fortran module output directory.

@@ -1233,6 +1233,58 @@ trajectory_tracking_node/fast:
 	$(MAKE) -f Yolov8_ros/plan_and_control/CMakeFiles/trajectory_tracking_node.dir/build.make Yolov8_ros/plan_and_control/CMakeFiles/trajectory_tracking_node.dir/build
 .PHONY : trajectory_tracking_node/fast
 
+#=============================================================================
+# Target rules for targets named rpc
+
+# Build rule for target.
+rpc: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 rpc
+.PHONY : rpc
+
+# fast build rule for target.
+rpc/fast:
+	$(MAKE) -f Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib/CMakeFiles/rpc.dir/build.make Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib/CMakeFiles/rpc.dir/build
+.PHONY : rpc/fast
+
+#=============================================================================
+# Target rules for targets named AirLib
+
+# Build rule for target.
+AirLib: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 AirLib
+.PHONY : AirLib
+
+# fast build rule for target.
+AirLib/fast:
+	$(MAKE) -f Yolov8_ros/plan_and_control/AirLib/CMakeFiles/AirLib.dir/build.make Yolov8_ros/plan_and_control/AirLib/CMakeFiles/AirLib.dir/build
+.PHONY : AirLib/fast
+
+#=============================================================================
+# Target rules for targets named MavLinkCom
+
+# Build rule for target.
+MavLinkCom: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 MavLinkCom
+.PHONY : MavLinkCom
+
+# fast build rule for target.
+MavLinkCom/fast:
+	$(MAKE) -f Yolov8_ros/plan_and_control/MavLinkCom/CMakeFiles/MavLinkCom.dir/build.make Yolov8_ros/plan_and_control/MavLinkCom/CMakeFiles/MavLinkCom.dir/build
+.PHONY : MavLinkCom/fast
+
+#=============================================================================
+# Target rules for targets named MavLinkTest
+
+# Build rule for target.
+MavLinkTest: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 MavLinkTest
+.PHONY : MavLinkTest
+
+# fast build rule for target.
+MavLinkTest/fast:
+	$(MAKE) -f Yolov8_ros/plan_and_control/MavLinkCom/MavLinkTest/CMakeFiles/MavLinkTest.dir/build.make Yolov8_ros/plan_and_control/MavLinkCom/MavLinkTest/CMakeFiles/MavLinkTest.dir/build
+.PHONY : MavLinkTest/fast
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -1328,6 +1380,10 @@ help:
 	@echo "... sensor_msgs_generate_messages_py"
 	@echo "... trajectory_publisher_node"
 	@echo "... trajectory_tracking_node"
+	@echo "... rpc"
+	@echo "... AirLib"
+	@echo "... MavLinkCom"
+	@echo "... MavLinkTest"
 .PHONY : help
 
 
