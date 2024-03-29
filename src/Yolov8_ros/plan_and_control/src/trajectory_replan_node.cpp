@@ -6,14 +6,14 @@
 using namespace Json;
 using namespace std;
 msr::airlib::MultirotorRpcLibClient client("192.168.1.51");
-std::string vehicle = "CustomFlyingPawn1";
 TrajectoryReplanNode::TrajectoryReplanNode(const ros::NodeHandle &nh, const ros::NodeHandle &nh_private) 
 :nh_(nh), nh_private_(nh_private), got_circle_flag_(false) {
+    nh_private_.getParam("vehicle", vehicle);
     it_ = std::make_unique<image_transport::ImageTransport>(nh_);
-    depth_image_sub_ = it_->subscribe("/airsim_node/drone_1/front_shendu_custom/DepthPlanar", 1,
+    depth_image_sub_ = it_->subscribe("/airsim_node/" + vehicle + "/front_shendu_custom/DepthPlanar", 1,
                         std::bind(&TrajectoryReplanNode::depthImageCallback, this,  std::placeholders::_1));
     odom_sub_ =
-        nh_.subscribe<nav_msgs::Odometry>("/airsim_node/drone_1/odom_local_ned",1, &TrajectoryReplanNode::odomCallback,this);
+        nh_.subscribe<nav_msgs::Odometry>("/airsim_node/" + vehicle + "/odom_local_ned",1, &TrajectoryReplanNode::odomCallback,this);
     yolo_sub_ = 
         nh_.subscribe<yolov8_ros_msgs::BoundingBoxes>("/yolov8/BoundingBoxes",1, &TrajectoryReplanNode::boundingBoxes,this);
     desiredStates_pub_ = 
@@ -27,7 +27,7 @@ TrajectoryReplanNode::TrajectoryReplanNode(const ros::NodeHandle &nh, const ros:
     timer_ = nh_.createTimer(ros::Duration(0.5), &TrajectoryReplanNode::getCircleCenter, this);
     //cout << "waypoint init failed!" << endl;
     
-    takeoff_client_ = nh_.serviceClient<uav_msgs::Takeoff>("/airsim_node/drone_1/takeoff");//get params from sever
+    takeoff_client_ = nh_.serviceClient<uav_msgs::Takeoff>("/airsim_node/" + vehicle + "/takeoff");//get params from sever
     nh_private_.getParam("max_vel", max_vel_);
     nh_private_.getParam("max_acc", max_acc_);
     nh_private_.getParam("waypoint_num", waypoint_num_);
@@ -71,22 +71,22 @@ void TrajectoryReplanNode::depthImageCallback(const sensor_msgs::ImageConstPtr& 
     if(yolo_ == nullptr){
         return;
     }
-    for (int i = 0; i < yolo_->bounding_boxes.size(); i++){
+    for (std::size_t i = 0; i < yolo_->bounding_boxes.size(); ++i){
         float x_center_rgb = (yolo_->bounding_boxes[i].xmin + yolo_->bounding_boxes[i].xmax) / 2.0f;
         float y_center_rgb = (yolo_->bounding_boxes[i].ymin + yolo_->bounding_boxes[i].ymax) / 2.0f;
-        std::cout << "x_center_rgb:" << x_center_rgb << std::endl;
-        std::cout << "y_center_rgb:" << y_center_rgb << std::endl;
         depth_ptr_ = cv_bridge::toCvCopy(msg, sensor_msgs::image_encodings::TYPE_32FC1);
         Mat depth = depth_ptr_->image;
         int y = y_center_rgb;
         int x = x_center_rgb;
-        cout << "x:" << x <<endl;
-        cout << "y:" << y <<endl;
         // float depth_value = depth.ptr<float>(int(camera_coord_depth[1]))[int(camera_coord_depth[0])];
         float depth_value = depth.ptr<float>(y)[x];
         Eigen::Vector3d pixel_and_depth(x_center_rgb, y_center_rgb, depth_value);
         std::cout << "pixel_and_depth:" << pixel_and_depth << std::endl;
         Eigen::Vector3d point_w = transformPixel2World(pixel_and_depth);
+        Eigen::Vector3d point_m(odom_->pose.pose.position.x,odom_->pose.pose.position.y,odom_->pose.pose.position.z);
+        double d = (point_w - point_m).norm();
+        // double d = sqrt(pow(point_w.x()-point_m.x(), 2) + pow(point_w.y()-point_m.y(), 2) + pow(point_w.z()-point_m.z(), 2));
+        std::cout << "d :" << d << std::endl;
     }
     
     // depth_ptr_ = cv_bridge::toCvCopy(msg, sensor_msgs::image_encodings::TYPE_32FC1);
@@ -130,7 +130,10 @@ void TrajectoryReplanNode::depthImageCallback(const sensor_msgs::ImageConstPtr& 
     //         cout << "row_index:" << row_idx_ << endl;
     //         //cout << "depth center:" << center << endl;
     //         Eigen::Vector3d pixel_and_depth(c[0], c[1], depth5);
-    //         Eigen::Vector3d point_w = transformPixel2World(pixel_and_depth); 
+    //         Eigen::Vector3d point_w = transformPixel2World(pixel_and_depth);
+
+
+
     //         double distance = (point_w - waypoints_.row(row_idx_).transpose()).norm();
     //         cout << "distance:" << distance << endl;
     //         if (distance > 0.5) {
@@ -206,21 +209,18 @@ void TrajectoryReplanNode::desiredStatesPub() {
         current_pos_ros.z = odom_->pose.pose.position.z;
         Eigen::Vector3d current_pos(current_pos_ros.x, current_pos_ros.y, current_pos_ros.z);
         Eigen::Vector3d waypoint = waypoints_.row(i);
-        double distance = (current_pos - waypoint).norm();
+        double distance1 = (current_pos - waypoint).norm();
         
         // 如果距离小于某个阈值，则认为无人机已到达该waypoint点
-        if (distance < 0.2) {
+        if (distance1 < 0.2) {
             reached_waypoint = true;
             break;
         }
     // 如果到达了waypoint点，发布里程计位置信息
     if (reached_waypoint) {
-        cout << "distance:" << distance << endl;
-        geometry_msgs::PoseStamped pose;
-        pose.header.frame_id = "odom";
-        pose.header.stamp = odom_->header.stamp;
-        pose.pose = odom_->pose.pose;
-        Pose_pub_.publish(pose);
+        cout << "distance1:" << distance1 << endl;
+        uint64_t ms = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count();;
+        // client.simUpdateLocalPositionData(vehicle, odom_->pose.pose.position.x, odom_->pose.pose.position.y, odom_->pose.pose.position.z, ms);
         reached_waypoint = false;
     }
     }
@@ -293,11 +293,19 @@ void TrajectoryReplanNode::boundingBoxes(const yolov8_ros_msgs::BoundingBoxesCon
     // std::unordered_map<std::string, int> class_counts;
 
     Value data(Json::arrayValue);
-
+    int type_class;
     // 假设你想要使用第一个边界框
     for (const auto& box : msg->bounding_boxes) {
         Value obj;
-        obj["ObjType"] = 0;
+        if(box.Class.empty())
+            type_class = 0;
+        if(box.Class == "Huan")
+            type_class = 1;
+        if(box.Class == "Person")
+            type_class = 2;
+        if(box.Class == "YouQiTong")
+            type_class = 8;
+        obj["ObjType"] = type_class;
         obj["ULPointX"] = static_cast<double>(box.xmin); // xmin
         obj["ULPointY"] = static_cast<double>(box.ymin); // ymin
         obj["DRPointX"] = static_cast<double>(box.xmax); // xmax
@@ -318,6 +326,7 @@ void TrajectoryReplanNode::boundingBoxes(const yolov8_ros_msgs::BoundingBoxesCon
     builder["indentation"] = "\t"; // 使用制表符缩进
     const std::string json_str = Json::writeString(builder, root);
     client.simUpdateLocalDetectTargetNumData(vehicle, json_str);
+    client.simUpdateLocalPositionData(vehicle, odom_->pose.pose.position.x, odom_->pose.pose.position.y, odom_->pose.pose.position.z, ms);
 }
     // std::cout << "1" << std::endl;
     // for (const auto& bounding_box : msg->bounding_boxes)

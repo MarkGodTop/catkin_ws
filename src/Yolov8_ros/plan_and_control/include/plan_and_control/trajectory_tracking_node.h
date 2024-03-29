@@ -29,7 +29,7 @@ private:
     Eigen::Vector3d desired_pos_, desired_vel_, desired_acc_;
     Eigen::Quaterniond desired_orient_; 
     double desired_yaw_;
-
+    std::string vehicle;
     GeometricController geometricController_;
     bool states_cmd_updated_, states_cmd_init_;
 

@@ -62,6 +62,7 @@ private:
     int resX = 800;
     int resY = 600;
     std::string cameraName = "front_center_custom";
+    std::string vehicle;
     //for cv
     std::unique_ptr<image_transport::ImageTransport> it_;
     image_transport::Subscriber color_image_sub_;
@@ -77,22 +78,19 @@ public:
     ~TrajectoryReplanNode();
 
     inline Eigen::Vector3d transformPixel2World(const Eigen::Vector3d &pixel_and_depth) {
-        Eigen::Vector3d point_p (pixel_and_depth(0)*pixel_and_depth(2),
-                                 pixel_and_depth(1)*pixel_and_depth(2),
-                                 pixel_and_depth(2));
+        
         // cout << "ceicle Center in pixel:" << point_p.transpose() << endl;
         Eigen::Matrix3d K;
-        K << 400.7, 0.0, 400.0, 0.0, 400.7, 300.0, 0.0, 0.0, 1.0;
-        Eigen::Vector3d point_c = K.inverse() * point_p;
+        K << 400.0, 0.0, 400.0, 0.0, 400.0, 300.0, 0.0, 0.0, 1.0;
+        Eigen::Vector3d point_c;
+        point_c << (pixel_and_depth(0) - K(0, 2)) * pixel_and_depth(2) / K(0, 0),
+                (pixel_and_depth(1) - K(1, 2)) * pixel_and_depth(2) / K(1, 1),
+               pixel_and_depth(2);
         // Eigen::Vector3d point_c = point_p;
         //cout << "ceicle Center in camera:" << point_c.transpose() << endl;
 
         Eigen::Matrix3d R_c_b;
         R_c_b << 0, 0, 1, 1, 0, 0, 0, 1, 0;
-    //    R_c_b << 0, -1, 0,
-    //            0, 0, -1,
-    //            -1, 0, 0;
-        //cout << R_c_b << endl;
         Eigen::Vector3d t_c_b (0.5, 0, 0);
         Eigen::Vector3d point_b = R_c_b * point_c + t_c_b;
         //cout << "ceicle Center in body:" << point_b.transpose() << endl;
@@ -110,49 +108,6 @@ public:
         cout << "point_w :" << point_w << endl;
         return point_w;
     }
-//    inline Eigen::Vector3d transformPixel2World(const Eigen::Vector3d &pixel_and_depth) {
-//        Eigen::Vector3d point_p(pixel_and_depth(1) * pixel_and_depth(2), pixel_and_depth(0) * pixel_and_depth(2), pixel_and_depth(2));
-//
-//        Eigen::Matrix3d K;
-//        K << 160.0, 0.0, 160.0,
-//             0.0, 160.0, 120.0,
-//            0.0, 0.0, 1.0;
-//
-//        Eigen::Vector3d point_c = K.inverse() * point_p;
-//
-//        Eigen::Matrix3d R_c_b;
-//        R_c_b << 0, 1, 0,
-//                0, 0, 1,
-//                1, 0, 0;
-//
-//        Eigen::Vector3d t_c_b(0.5, 0, 0);
-//
-//        Eigen::Vector3d point_b = R_c_b * point_c + t_c_b;
-//
-//        Eigen::Quaterniond q = odom_orient_.normalized();
-//        Eigen::Matrix3d R_b_w = q.toRotationMatrix();
-//        Eigen::Vector3d t_b_w = odom_pos_;
-//
-//        Eigen::Vector3d point_w = R_b_w * point_b + t_b_w;
-//
-//        return point_w;
-//        cout << point_w << endl;
-//    }
-//    inline Eigen::Vector3d transformPixel2World(const Eigen::Vector3d &pixel_and_depth) {
-//        Eigen::Vector3d point_p(pixel_and_depth(1) * pixel_and_depth(2), pixel_and_depth(0) * pixel_and_depth(2), pixel_and_depth(2));
-//        Eigen::Matrix3d K;
-//        K << 160.0, 0.0, 160.0,
-//         0.0, 160.0, 120.0,
-//         0.0, 0.0, 1.0;
-//        Eigen::Vector3d point_c = K.inverse() * point_p;
-//        Eigen::Vector3d t_c_b(0.5, 0, 0);
-//        Eigen::Vector3d point_b = point_c + t_c_b;
-//        Eigen::Quaterniond q = odom_orient_.normalized();
-//        Eigen::Matrix3d R_b_w = q.toRotationMatrix();
-//        Eigen::Vector3d t_b_w = odom_pos_;
-//        Eigen::Vector3d point_w = R_b_w * point_b + t_b_w;
-//        return point_w;
-//    }
     void boundingBoxes(const yolov8_ros_msgs::BoundingBoxesConstPtr &msg);
     void odomCallback(const nav_msgs::OdometryConstPtr &msg);
     Eigen::VectorXd timeAllocation(const Eigen::MatrixXd &waypoints);

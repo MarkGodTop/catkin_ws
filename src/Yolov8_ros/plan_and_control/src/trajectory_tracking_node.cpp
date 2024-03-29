@@ -1,12 +1,12 @@
 #include "plan_and_control/trajectory_tracking_node.h"
-
 GeometricControllerNode::GeometricControllerNode(const ros::NodeHandle &nh, const ros::NodeHandle &nh_private) 
     : nh_(nh), nh_private_(nh_private), states_cmd_updated_(false),states_cmd_init_(false) {
     
+    nh_private_.getParam("vehicle", vehicle);
     control_cmd_pub_ = 
-        nh_.advertise<uav_msgs::AngleRateThrottle>("/airsim_node/drone_1/AngleRateThrottleCmd",1);
+        nh_.advertise<uav_msgs::AngleRateThrottle>("/airsim_node/" + vehicle + "/AngleRateThrottleCmd",1);
     odom_sub_ =
-        nh_.subscribe<nav_msgs::Odometry>("/airsim_node/drone_1/odom_local_ned",1, &GeometricControllerNode::odomCallback,this);
+        nh_.subscribe<nav_msgs::Odometry>("/airsim_node/" + vehicle + "/odom_local_ned",1, &GeometricControllerNode::odomCallback,this);
     desired_states_sub_ =
         nh_.subscribe<uav_msgs::DesiredStates>("/reference/desiredStates", 10, &GeometricControllerNode::desiredStatesCallback, this);
 

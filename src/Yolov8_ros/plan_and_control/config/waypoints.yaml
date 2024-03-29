@@ -24,22 +24,8 @@
 # waypoint10: {x: 42.50, y: 69.62, z: -7.41}
 # waypoint11: {x: 40.50, y: 69.62, z: -8.41}
 
-waypoint_num: 3
+waypoint_num: 2
 waypoint0: {x: 0.0, y: 0.0, z: -0.02}
-waypoint1: {x: 0.0, y: 0.0, z: -0.03}
-waypoint2: {x: 0.0, y: 0.0, z: -0.04}
-# waypoint1: {x: 15.44, y: 6.55, z: -2.16}
-# waypoint2: {x: 47.68, y: 9.05 , z: -8.09}
-# waypoint3: {x: 87.65, y: 9.84, z: -5.47}
-# waypoint4: {x: 108.03, y: 34.25, z: -9.52}
-# waypoint5: {x: 96.11, y: 48.94, z: -7.14}
-# waypoint6: {x: 72.96, y: 44.72, z: -4.43}
-# waypoint7: {x: 53.85, y: 35.27, z: -12.42}
-# waypoint8: {x: 32.06, y: 54.53, z: -14.14}
-# waypoint9: {x: -25.37, y: 79.35, z: -28.70}
-# waypoint10: {x: -42.83, y: 98.83, z: -35.38}
-# waypoint11: {x: -7.97, y: 123.52, z: -50.52}
-# waypoint12: {x: -8.47, y: 53.18, z: -11.66}
-# waypoint13: {x: 2.82, y: 97.03, z: -37.84}
+waypoint1: {x: 0.0, y: 0.0, z: -2.03}
 max_vel: 20
 max_acc: 8
