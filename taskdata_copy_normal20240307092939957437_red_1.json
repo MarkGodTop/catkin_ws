@@ -1,0 +1,39 @@
+{
+  "EquipmentId": 1,
+  "EquipmentName": "CustomFlyingPawn_red1",
+  "EquipmentType": 1,
+  "ObstacleCamp": "red",
+  "EquipmentX": 11570.4828,
+  "EquipmentY": -2190.303,
+  "EquipmentZ": -2190.303,
+  "EquipmentRX": 0,
+  "EquipmentRY": 0,
+  "EquipmentRZ": 0,
+  "HealthValue": 100,
+  "AttackValue": 100,
+  "AttackRange": 15,
+  "HitRate": 60,
+  "CameraList": [],
+  "SensorList": [],
+  "PathData": [
+    {
+      "PointID": 1,
+      "PointX": 0,
+      "PointY": 0,
+      "PointZ": 0,
+      "TaskIndicator": [
+        [
+          "目标检测",
+          5
+        ],
+        "\u901f\u5ea601"
+      ]
+    },
+    {
+      "PointID": 2,
+      "PointX": 0,
+      "PointY": 0,
+      "PointZ": -2
+    }
+  ]
+}

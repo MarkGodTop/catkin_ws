@@ -8,6 +8,40 @@ using namespace std;
 msr::airlib::MultirotorRpcLibClient client("192.168.1.51");
 TrajectoryReplanNode::TrajectoryReplanNode(const ros::NodeHandle &nh, const ros::NodeHandle &nh_private) 
 :nh_(nh), nh_private_(nh_private), got_circle_flag_(false) {
+    Json::Value root;
+    Json::CharReaderBuilder builder;
+    std::ifstream i("/home/ros20/yolov8/catkin_ws/taskdata_copy_normal20240307092939957437_red_1.json", std::ifstream::binary);
+    std::string errs;
+    if (!Json::parseFromStream(builder, i, &root, &errs)) {
+        std::cerr << "Error opening or parsing JSON file: " << errs << std::endl;
+        return;
+    }
+    i.close();
+    Json::Value path_data = root["PathData"];
+    YAML::Node node;
+    int index = 0;
+    for (const auto& point : path_data) {
+        YAML::Node point_node;
+        point_node["x"] = point["PointX"].asDouble();
+        point_node["y"] = point["PointY"].asDouble();
+        point_node["z"] = point["PointZ"].asDouble();
+        std::string key = "waypoint" + std::to_string(index);
+        node[key] = point_node;
+        ++index;
+    }
+    // Write to YAML file
+    std::ofstream yaml_file("/home/ros20/yolov8/catkin_ws/src/Yolov8_ros/plan_and_control/config/waypoints.yaml");
+    if (!yaml_file.is_open()) {
+        std::cerr << "Error opening YAML file for writing." << std::endl;
+        return;
+    }
+    yaml_file << "waypoint_num: " << index << "\n";
+    for (const auto& pair : node) {
+        yaml_file << pair.first.as<std::string>() << ": {x: " << pair.second["x"].as<double>() << ", y: " << pair.second["y"].as<double>() << ", z: " << pair.second["z"].as<double>() << "}\n";
+    }
+    yaml_file << "max_vel: 20\n";
+    yaml_file << "max_acc: 8\n";
+    yaml_file.close();
     nh_private_.getParam("vehicle", vehicle);
     it_ = std::make_unique<image_transport::ImageTransport>(nh_);
     depth_image_sub_ = it_->subscribe("/airsim_node/" + vehicle + "/front_shendu_custom/DepthPlanar", 1,
@@ -28,16 +62,18 @@ TrajectoryReplanNode::TrajectoryReplanNode(const ros::NodeHandle &nh, const ros:
     //cout << "waypoint init failed!" << endl;
     
     takeoff_client_ = nh_.serviceClient<uav_msgs::Takeoff>("/airsim_node/" + vehicle + "/takeoff");//get params from sever
-    nh_private_.getParam("max_vel", max_vel_);
-    nh_private_.getParam("max_acc", max_acc_);
-    nh_private_.getParam("waypoint_num", waypoint_num_);
+    YAML::Node config = YAML::LoadFile("/home/ros20/yolov8/catkin_ws/src/Yolov8_ros/plan_and_control/config/waypoints.yaml");
+    max_vel_ = config["max_vel"].as<double>();
+    max_acc_ = config["max_acc"].as<double>();
+    waypoint_num_ = config["waypoint_num"].as<int>();
     waypoints_.resize(waypoint_num_, 3);
     cout << "waypoint number:" << waypoint_num_ << endl;
 
     for (int i = 0; i < waypoint_num_; ++i) {
-        nh_private_.getParam("waypoint" + to_string(i) + "/x", waypoints_(i,0));
-        nh_private_.getParam("waypoint" + to_string(i) + "/y", waypoints_(i,1));
-        nh_private_.getParam("waypoint" + to_string(i) + "/z", waypoints_(i,2));
+        std::string waypoint_name = "waypoint" + std::to_string(i);
+        waypoints_(i,0) =  config[waypoint_name]["x"].as<double>();
+        waypoints_(i,1) =  config[waypoint_name]["y"].as<double>();
+        waypoints_(i,2) =  config[waypoint_name]["z"].as<double>();
     }
     cout << "waypoints:" << waypoints_ << endl;
     // uav_msgs::Takeoff takeoff;
@@ -219,6 +255,7 @@ void TrajectoryReplanNode::desiredStatesPub() {
     // 如果到达了waypoint点，发布里程计位置信息
     if (reached_waypoint) {
         cout << "distance1:" << distance1 << endl;
+        // cout << "x,y,z:" << odom_->pose.pose.position.x << "," << odom_->pose.pose.position.y << "," << odom_->pose.pose.position.z << endl;
         uint64_t ms = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count();;
         // client.simUpdateLocalPositionData(vehicle, odom_->pose.pose.position.x, odom_->pose.pose.position.y, odom_->pose.pose.position.z, ms);
         reached_waypoint = false;
@@ -478,38 +515,7 @@ int main(int argc, char **argv) {
     ros::NodeHandle nh;
     ros::NodeHandle nh_private("~");
     namedWindow("depth2gray");
-    // Json::Value root;
-    // Json::CharReaderBuilder builder;
-    // std::ifstream i("~/mnt/d/AirSim/ros/1.json", std::ifstream::binary);
-    // std::string errs;
-    // if (!Json::parseFromStream(builder, i, &root, &errs)) {
-    //     std::cerr << "Error opening or parsing JSON file: " << errs << std::endl;
-    //     return 1;
-    // }
-    // i.close();
-    // Json::Value path_data = root["PathData"];
-    // YAML::Node node;
-    // int index = 0;
-    // for (const auto& point : path_data) {
-    //     YAML::Node point_node;
-    //     point_node["x"] = point["PointX"].asDouble();
-    //     point_node["y"] = point["PointY"].asDouble();
-    //     point_node["z"] = point["PointZ"].asDouble();
-    //     std::string key = "waypoint" + std::to_string(index);
-    //     node[key] = point_node;
-    //     ++index;
-    // }
-    // // Write to YAML file
-    // std::ofstream yaml_file("../config/waypoints.yaml");
-    // if (!yaml_file.is_open()) {
-    //     std::cerr << "Error opening YAML file for writing." << std::endl;
-    //     return 1;
-    // }
-    // yaml_file << "waypoint_num: " << index << "\n";
-    // for (const auto& pair : node) {
-    //     yaml_file << pair.first.as<std::string>() << ": {x: " << pair.second["x"].as<double>() << ", y: " << pair.second["y"].as<double>() << ", z: " << pair.second["z"].as<double>() << "}\n";
-    // }
-    // yaml_file.close();
+    
     TrajectoryReplanNode trajectory_replan_node(nh, nh_private);
 
     ros::spin();
