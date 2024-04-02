@@ -65,8 +65,8 @@ Yolov8_ros/yolov8_ros_msgs/CMakeFiles/yolov8_ros_msgs_generate_messages_py: /hom
 
 /home/ros20/yolov8/catkin_ws/devel/lib/python3/dist-packages/yolov8_ros_msgs/msg/_BoundingBoxes.py: /opt/ros/noetic/lib/genpy/genmsg_py.py
 /home/ros20/yolov8/catkin_ws/devel/lib/python3/dist-packages/yolov8_ros_msgs/msg/_BoundingBoxes.py: /home/ros20/yolov8/catkin_ws/src/Yolov8_ros/yolov8_ros_msgs/msg/BoundingBoxes.msg
-/home/ros20/yolov8/catkin_ws/devel/lib/python3/dist-packages/yolov8_ros_msgs/msg/_BoundingBoxes.py: /home/ros20/yolov8/catkin_ws/src/Yolov8_ros/yolov8_ros_msgs/msg/BoundingBox.msg
 /home/ros20/yolov8/catkin_ws/devel/lib/python3/dist-packages/yolov8_ros_msgs/msg/_BoundingBoxes.py: /opt/ros/noetic/share/std_msgs/msg/Header.msg
+/home/ros20/yolov8/catkin_ws/devel/lib/python3/dist-packages/yolov8_ros_msgs/msg/_BoundingBoxes.py: /home/ros20/yolov8/catkin_ws/src/Yolov8_ros/yolov8_ros_msgs/msg/BoundingBox.msg
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/ros20/yolov8/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating Python from MSG yolov8_ros_msgs/BoundingBoxes"
 	cd /home/ros20/yolov8/catkin_ws/build/Yolov8_ros/yolov8_ros_msgs && ../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/ros20/yolov8/catkin_ws/src/Yolov8_ros/yolov8_ros_msgs/msg/BoundingBoxes.msg -Iyolov8_ros_msgs:/home/ros20/yolov8/catkin_ws/src/Yolov8_ros/yolov8_ros_msgs/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p yolov8_ros_msgs -o /home/ros20/yolov8/catkin_ws/devel/lib/python3/dist-packages/yolov8_ros_msgs/msg
 

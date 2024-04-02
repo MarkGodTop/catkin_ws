@@ -50,6 +50,7 @@ private:
     Eigen::VectorXd times_;
     Eigen::MatrixXd coeff_matrix_;
     Eigen::MatrixXd waypoints_;
+    std::map<int, std::vector<std::string>> taskMap;
     int waypoint_num_;
     double max_vel_, max_acc_, max_jerk_;
     ros::Time start_time_ ;

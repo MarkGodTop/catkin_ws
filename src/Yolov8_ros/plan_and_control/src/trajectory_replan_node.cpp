@@ -17,31 +17,83 @@ TrajectoryReplanNode::TrajectoryReplanNode(const ros::NodeHandle &nh, const ros:
         return;
     }
     i.close();
-    Json::Value path_data = root["PathData"];
+    const Json::Value path_data = root["PathData"];
     YAML::Node node;
     int index = 0;
+    max_vel_ = 20;
+    max_acc_ = 8;
+    for (const auto& point : path_data)
+        ++index;
+    waypoint_num_ = index;
+    waypoints_.resize(waypoint_num_, 3);
+    index = 0;
     for (const auto& point : path_data) {
-        YAML::Node point_node;
-        point_node["x"] = point["PointX"].asDouble();
-        point_node["y"] = point["PointY"].asDouble();
-        point_node["z"] = point["PointZ"].asDouble();
-        std::string key = "waypoint" + std::to_string(index);
-        node[key] = point_node;
+        waypoints_(index,0) = point["PointX"].asDouble();
+        waypoints_(index,1) = point["PointY"].asDouble();
+        waypoints_(index,2) = point["PointZ"].asDouble();
+        int i = 1;
+        // 获取 PointID 和 TaskIndicator
+        int pointID = point["PointID"].asInt();
+        const Json::Value& taskIndicator = point["TaskIndicator"];
+
+        // 遍历 TaskIndicator 中的每个任务
+        for (const auto& task : taskIndicator) {
+            // 如果是数组，则表示一个任务和其持续时间
+            if (task.isArray()) {
+                std::string taskName = task[0].asString();
+                std::string taskDuration = task[1].asString();
+                taskMap[pointID].push_back(taskName + "(" + taskDuration + ")");
+            } else {
+                // 如果不是数组，则直接添加到 TaskIndicator 列表中
+                taskMap[pointID].push_back(task.asString());
+            }
+        }
         ++index;
     }
+        
+        // YAML::Node task_node(YAML::NodeType::Sequence);
+        // for (const auto& task : taskIndicator) {
+        //     std::string task_name = "task" + std::to_string(i);
+        //     std::string persistent_name = "persistent" + std::to_string(i);
+        //     if (task.isArray()) {
+        //         YAML::Node task_info(YAML::NodeType::Map);
+        //         task_info[task_name] = task[0].asString();
+        //         task_info[persistent_name] = task[1].asInt();
+        //         // task_node.push_back(task_info);
+        //     } else if (task.isString()) {
+        //         YAML::Node task_info(YAML::Node Type::Map);
+        //         task_info[task_name] = task.asString();
+        //         // task_node.push_back(task_info);
+        //     }
+        // i++;
+        // }
+        // point_node["TaskIndicator"] = task_node;
+
+        // 将节点添加到YAML节点中
+        // std::string key = "waypoint" + std::to_string(index);
+        // node[key] = point_node;
+    
+    for (const auto& taskList : taskMap) {
+        std::cout << "PointID: " << taskList.first << std::endl;
+        for (const auto& task : taskList.second) {
+            std::cout << "Task: " << task << std::endl;
+        }
+        std::cout << std::endl;
+    }
     // Write to YAML file
-    std::ofstream yaml_file("/home/ros20/yolov8/catkin_ws/src/Yolov8_ros/plan_and_control/config/waypoints.yaml");
-    if (!yaml_file.is_open()) {
-        std::cerr << "Error opening YAML file for writing." << std::endl;
-        return;
-    }
-    yaml_file << "waypoint_num: " << index << "\n";
-    for (const auto& pair : node) {
-        yaml_file << pair.first.as<std::string>() << ": {x: " << pair.second["x"].as<double>() << ", y: " << pair.second["y"].as<double>() << ", z: " << pair.second["z"].as<double>() << "}\n";
-    }
-    yaml_file << "max_vel: 20\n";
-    yaml_file << "max_acc: 8\n";
-    yaml_file.close();
+    // std::ofstream yaml_file("/home/ros20/yolov8/catkin_ws/src/Yolov8_ros/plan_and_control/config/waypoints.yaml");
+    // if (!yaml_file.is_open()) {
+    //     std::cerr << "Error opening YAML file for writing." << std::endl;
+    //     return;
+    // } 
+    // yaml_file << "waypoint_num: " << index << "\n";
+    // yaml_file << node << "\n";
+    // for (const auto& pair : node) {
+    //     yaml_file << pair.first.as<std::string>() << ": {x: " << pair.second["x"].as<double>() << ", y: " << pair.second["y"].as<double>() << ", z: " << pair.second["z"].as<double>() << "}\n";
+    // }
+    // yaml_file << "max_vel: 20\n";
+    // yaml_file << "max_acc: 8\n";
+    // yaml_file.close();
     nh_private_.getParam("vehicle", vehicle);
     it_ = std::make_unique<image_transport::ImageTransport>(nh_);
     depth_image_sub_ = it_->subscribe("/airsim_node/" + vehicle + "/front_shendu_custom/DepthPlanar", 1,
@@ -63,18 +115,16 @@ TrajectoryReplanNode::TrajectoryReplanNode(const ros::NodeHandle &nh, const ros:
     
     takeoff_client_ = nh_.serviceClient<uav_msgs::Takeoff>("/airsim_node/" + vehicle + "/takeoff");//get params from sever
     YAML::Node config = YAML::LoadFile("/home/ros20/yolov8/catkin_ws/src/Yolov8_ros/plan_and_control/config/waypoints.yaml");
-    max_vel_ = config["max_vel"].as<double>();
-    max_acc_ = config["max_acc"].as<double>();
-    waypoint_num_ = config["waypoint_num"].as<int>();
-    waypoints_.resize(waypoint_num_, 3);
+    // max_vel_ = config["max_vel"].as<double>();
+    // max_acc_ = config["max_acc"].as<double>();
+    // waypoint_num_ = config["waypoint_num"].as<int>();
     cout << "waypoint number:" << waypoint_num_ << endl;
-
-    for (int i = 0; i < waypoint_num_; ++i) {
-        std::string waypoint_name = "waypoint" + std::to_string(i);
-        waypoints_(i,0) =  config[waypoint_name]["x"].as<double>();
-        waypoints_(i,1) =  config[waypoint_name]["y"].as<double>();
-        waypoints_(i,2) =  config[waypoint_name]["z"].as<double>();
-    }
+    // for (int i = 0; i < waypoint_num_; ++i) {
+    //     std::string waypoint_name = "waypoint" + std::to_string(i);
+    //     waypoints_(i,0) =  config[waypoint_name]["x"].as<double>();
+    //     waypoints_(i,1) =  config[waypoint_name]["y"].as<double>();
+    //     waypoints_(i,2) =  config[waypoint_name]["z"].as<double>();
+    // }
     cout << "waypoints:" << waypoints_ << endl;
     // uav_msgs::Takeoff takeoff;
     // takeoff.request.waitOnLastTask = 1;
