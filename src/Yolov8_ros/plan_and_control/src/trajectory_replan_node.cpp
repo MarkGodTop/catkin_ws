@@ -365,7 +365,7 @@ void TrajectoryReplanNode::desiredStatesPub() {
     }
     desiredStates_pub_.publish(cmd_);
     desiredPose_pub_.publish(desiredPose_);
-
+    
     dir_ << cos(cmd_.yaw), sin(cmd_.yaw), 0;
     drawCmd(desired_pos_, 2 * dir_, 1, Eigen::Vector4d(1, 1, 0, 0.7));
 
