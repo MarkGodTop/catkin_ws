@@ -3,6 +3,9 @@
 #include <jsoncpp/json/json.h>
 #include <yaml-cpp/yaml.h>
 #include <vector>
+#include <regex>
+#include <thread>
+#include <atomic>
 using namespace Json;
 using namespace std;
 msr::airlib::MultirotorRpcLibClient client("192.168.1.51");
@@ -108,7 +111,6 @@ TrajectoryReplanNode::TrajectoryReplanNode(const ros::NodeHandle &nh, const ros:
     cmd_vis_pub_ = nh_.advertise<visualization_msgs::Marker>("/cmd_vis",10);
     desiredPose_pub_ = nh_.advertise<geometry_msgs::PoseStamped>("/desiredPose", 10);
     currentPose_pub_ = nh_.advertise<geometry_msgs::PoseStamped>("/currentPose", 10);
-    Pose_pub_ = nh_.advertise<geometry_msgs::PoseStamped>("/Pose", 10);
     
     timer_ = nh_.createTimer(ros::Duration(0.5), &TrajectoryReplanNode::getCircleCenter, this);
     //cout << "waypoint init failed!" << endl;
@@ -272,10 +274,30 @@ void TrajectoryReplanNode::trajectoryGenerate(const Eigen::MatrixXd &waypoints) 
         final_time_ += ros::Duration(times_(i));
     }
 }
+std::atomic<bool> continuePublishing(true);
 bool reached_waypoint = false;
+std::atomic<int> flag(0);
+double distance1 = 0;
+int jiance_num = 0;
+std::vector<std::shared_ptr<std::thread>> publishThreads; // 用于存储线程对象
 /**
  * compute current pos,vel,acc,yaw to controller
  */
+void publishTopic(const int& num) {
+    while (continuePublishing.load() && flag.load() < num) {    
+    }
+    if (flag.load() == num) {
+        auto threadId = std::this_thread::get_id();
+        
+        for (auto it = publishThreads.begin(); it != publishThreads.end(); ++it) {
+            if ((*it)->get_id() == threadId) {
+                (*it)->detach(); // 分离线程，使其成为后台线程
+                publishThreads.erase(it); // 从线程向量中删除线程
+                break;
+            }
+        }
+    }
+}
 void TrajectoryReplanNode::desiredStatesPub() {
     cmd_.header = odom_->header;
     cmd_.header.frame_id = odom_->header.frame_id;
@@ -295,21 +317,49 @@ void TrajectoryReplanNode::desiredStatesPub() {
         current_pos_ros.z = odom_->pose.pose.position.z;
         Eigen::Vector3d current_pos(current_pos_ros.x, current_pos_ros.y, current_pos_ros.z);
         Eigen::Vector3d waypoint = waypoints_.row(i);
-        double distance1 = (current_pos - waypoint).norm();
+        distance1 = (current_pos - waypoint).norm();
         
         // 如果距离小于某个阈值，则认为无人机已到达该waypoint点
         if (distance1 < 0.2) {
             reached_waypoint = true;
+            flag.store(i + 1);
             break;
         }
+    }
+    
     // 如果到达了waypoint点，发布里程计位置信息
     if (reached_waypoint) {
         cout << "distance1:" << distance1 << endl;
+        for(const auto& task : taskMap[flag.load()]){
+            std::regex pattern("\\d"); // 检查任何数字
+            std::smatch match;
+            if(task.find("目标检测") != std::string::npos){
+                // 检查任务是否包含数字
+                if (std::regex_search(task, match, pattern)) {
+                    // 如果任务包含数字，解析数字
+                    std::ssub_match subMatch = match[0];
+                    std::string numStr = subMatch.str();
+                    int num = std::stoi(numStr); // 将数字字符串转换为整数
+                    // 发布话题直到flag等于那个数字
+                    if(num > jiance_num){
+                        auto thread = std::make_shared<std::thread>(publishTopic, num);
+                        publishThreads.push_back(thread);
+                    }
+                    jiance_num = num;
+                    if(flag.load() == num){
+                        publishThreads.clear();
+                    }
+                } else {
+                    // 如果任务没有数字，发布一次 
+                    std::cout << "2" << std::endl;
+                }
+            } 
+            if(task == ""){}
+        }
         // cout << "x,y,z:" << odom_->pose.pose.position.x << "," << odom_->pose.pose.position.y << "," << odom_->pose.pose.position.z << endl;
-        uint64_t ms = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count();;
+        uint64_t ms = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count();
         // client.simUpdateLocalPositionData(vehicle, odom_->pose.pose.position.x, odom_->pose.pose.position.y, odom_->pose.pose.position.z, ms);
         reached_waypoint = false;
-    }
     }
     if (t > traj_duration_) {
         cmd_.position.x = odom_->pose.pose.position.x;
@@ -368,7 +418,11 @@ void TrajectoryReplanNode::desiredStatesPub() {
     
     dir_ << cos(cmd_.yaw), sin(cmd_.yaw), 0;
     drawCmd(desired_pos_, 2 * dir_, 1, Eigen::Vector4d(1, 1, 0, 0.7));
-
+    // for (auto& thread : publishThreads) {
+    //     if (thread.joinable()) {
+    //         thread.join();
+    //     }
+    // }
 }
 void TrajectoryReplanNode::boundingBoxes(const yolov8_ros_msgs::BoundingBoxesConstPtr &msg){
     if (!msg) {
@@ -412,8 +466,8 @@ void TrajectoryReplanNode::boundingBoxes(const yolov8_ros_msgs::BoundingBoxesCon
     StreamWriterBuilder builder;
     builder["indentation"] = "\t"; // 使用制表符缩进
     const std::string json_str = Json::writeString(builder, root);
-    client.simUpdateLocalDetectTargetNumData(vehicle, json_str);
-    client.simUpdateLocalPositionData(vehicle, odom_->pose.pose.position.x, odom_->pose.pose.position.y, odom_->pose.pose.position.z, ms);
+    // client.simUpdateLocalDetectTargetNumData(vehicle, json_str);
+    // client.simUpdateLocalPositionData(vehicle, odom_->pose.pose.position.x, odom_->pose.pose.position.y, odom_->pose.pose.position.z, ms);
 }
     // std::cout << "1" << std::endl;
     // for (const auto& bounding_box : msg->bounding_boxes)

@@ -163,6 +163,12 @@ yaml-cpp/yaml.h
 -
 vector
 -
+regex
+-
+thread
+-
+atomic
+-
 
 /home/ros20/yolov8/catkin_ws/src/Yolov8_ros/trajectory_generator/include/trajectory_generator/mini_jerk_traj.h
 iostream

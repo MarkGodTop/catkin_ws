@@ -79,7 +79,8 @@
         "any": "cpp",
         "codecvt": "cpp",
         "forward_list": "cpp",
-        "valarray": "cpp"
+        "valarray": "cpp",
+        "regex": "cpp"
     },
     "cmake.sourceDirectory": "/home/ros20/yolov8/catkin_ws/src/Yolov8_ros/plan_and_control"
 }

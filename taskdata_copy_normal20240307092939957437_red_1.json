@@ -24,7 +24,7 @@
       "TaskIndicator": [
         [
           "目标检测",
-          5
+          2
         ],
         "\u901f\u5ea601"
       ]
@@ -33,7 +33,15 @@
       "PointID": 2,
       "PointX": 0,
       "PointY": 0,
-      "PointZ": -2
+      "PointZ": -2,
+      "TaskIndicator": [
+        [
+          "目标检测",
+          2
+        ],
+        "\u901f\u5ea601"
+      ]
+      
     }
   ]
 }
