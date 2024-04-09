@@ -114,6 +114,8 @@ public:
     Eigen::VectorXd timeAllocation(const Eigen::MatrixXd &waypoints);
     void trajectoryGenerate(const Eigen::MatrixXd &waypoints);
     void desiredStatesPub();
+    void shared_yolo();
+    void publishTopic(const int& num);
     void displayTrajWithColor();
     void drawCmd(const Eigen::Vector3d& pos, const Eigen::Vector3d& vec, const int& id,
                  const Eigen::Vector4d& color);

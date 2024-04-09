@@ -24,24 +24,51 @@
       "TaskIndicator": [
         [
           "目标检测",
-          2
+          5
         ],
         "\u901f\u5ea601"
       ]
     },
     {
       "PointID": 2,
-      "PointX": 0,
-      "PointY": 0,
-      "PointZ": -2,
+      "PointX": 15.44,
+      "PointY": 6.55,
+      "PointZ": -2.16,
       "TaskIndicator": [
-        [
-          "目标检测",
-          2
-        ],
+        "目标检测",
         "\u901f\u5ea601"
       ]
       
+    },
+    {
+      "PointID": 3,
+      "PointX": 47.68,
+      "PointY": 9.05,
+      "PointZ": -8.09
+    },
+    {
+      "PointID": 4,
+      "PointX": 87.65,
+      "PointY": 9.84,
+      "PointZ": -5.47
+    },
+    {
+      "PointID": 5,
+      "PointX": 108.03,
+      "PointY": 34.25,
+      "PointZ": -9.52
+    },
+    {
+      "PointID": 6,
+      "PointX": 96.11,
+      "PointY": 48.94,
+      "PointZ": -7.14
+    },
+    {
+      "PointID": 7,
+      "PointX": 72.96,
+      "PointY": 44.72,
+      "PointZ": -4.43
     }
   ]
 }
