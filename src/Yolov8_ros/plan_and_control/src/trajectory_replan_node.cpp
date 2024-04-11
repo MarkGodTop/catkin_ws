@@ -42,14 +42,9 @@ TrajectoryReplanNode::TrajectoryReplanNode(const ros::NodeHandle &nh, const ros:
         // 遍历 TaskIndicator 中的每个任务
         for (const auto& task : taskIndicator) {
             // 如果是数组，则表示一个任务和其持续时间
-            if (task.isArray()) {
-                std::string taskName = task[0].asString();
-                std::string taskDuration = task[1].asString();
-                taskMap[pointID].push_back(taskName + "(" + taskDuration + ")");
-            } else {
-                // 如果不是数组，则直接添加到 TaskIndicator 列表中
-                taskMap[pointID].push_back(task.asString());
-            }
+            std::string taskName = task["TaskIndicatorName"].asString();
+            std::string taskDuration = task["TaskIndicatorEnd"].asString();
+            taskMap[pointID].emplace_back(taskName + "(" + taskDuration + ")");
         }
         ++index;
     }
@@ -62,11 +57,11 @@ TrajectoryReplanNode::TrajectoryReplanNode(const ros::NodeHandle &nh, const ros:
         //         YAML::Node task_info(YAML::NodeType::Map);
         //         task_info[task_name] = task[0].asString();
         //         task_info[persistent_name] = task[1].asInt();
-        //         // task_node.push_back(task_info);
+        //         // task_node.emplace_back(task_info);
         //     } else if (task.isString()) {
         //         YAML::Node task_info(YAML::Node Type::Map);
         //         task_info[task_name] = task.asString();
-        //         // task_node.push_back(task_info);
+        //         // task_node.emplace_back(task_info);
         //     }
         // i++;
         // }
@@ -99,7 +94,7 @@ TrajectoryReplanNode::TrajectoryReplanNode(const ros::NodeHandle &nh, const ros:
     // yaml_file.close();
     nh_private_.getParam("vehicle", vehicle);
     it_ = std::make_unique<image_transport::ImageTransport>(nh_);
-    depth_image_sub_ = it_->subscribe("/airsim_node/" + vehicle + "/front_shendu_custom/DepthPlanar", 1,
+    depth_image_sub_ = it_->subscribe("/airsim_node/" + vehicle + "/Custom_MV_CAMERA_001_2/DepthPlanar", 1,
                         std::bind(&TrajectoryReplanNode::depthImageCallback, this,  std::placeholders::_1));
     odom_sub_ =
         nh_.subscribe<nav_msgs::Odometry>("/airsim_node/" + vehicle + "/odom_local_ned",1, &TrajectoryReplanNode::odomCallback,this);
@@ -171,8 +166,22 @@ void TrajectoryReplanNode::depthImageCallback(const sensor_msgs::ImageConstPtr& 
         Eigen::Vector3d pixel_and_depth(x_center_rgb, y_center_rgb, depth_value);
         std::cout << "pixel_and_depth:" << pixel_and_depth << std::endl;
         Eigen::Vector3d point_w = transformPixel2World(pixel_and_depth);
+        int type_class;
+        if(yolo_->bounding_boxes[i].Class.empty())
+            type_class = 0;
+        if(yolo_->bounding_boxes[i].Class == "Huan")
+            type_class = 1;
+        if(yolo_->bounding_boxes[i].Class == "Person")
+            type_class = 2;
+        if(yolo_->bounding_boxes[i].Class == "YouQiTong")
+            type_class = 8;
+        values.x = point_w.x();
+        values.y = point_w.y();
+        values.z = point_w.z();
         Eigen::Vector3d point_m(odom_->pose.pose.position.x,odom_->pose.pose.position.y,odom_->pose.pose.position.z);
         double d = (point_w - point_m).norm();
+        values.d = d;
+        values.class_val = type_class;
         // double d = sqrt(pow(point_w.x()-point_m.x(), 2) + pow(point_w.y()-point_m.y(), 2) + pow(point_w.z()-point_m.z(), 2));
         std::cout << "d :" << d << std::endl;
     }
@@ -280,13 +289,18 @@ std::atomic<int> flag(0);
 std::atomic<int> num(0);
 double distance1 = 0;
 int jiance_num = 0;
-std::mutex mtx;
+std::mutex mtx1;
+std::mutex mtx2;
+std::mutex mtx3;
+std::mutex mtx4;
+std::mutex mtx5;
 std::vector<std::shared_ptr<std::thread>> publishThreads; // 用于存储线程对象
+std::unordered_map<std::string, int> set_t;
 /**
  * compute current pos,vel,acc,yaw to controlle r
  */
 void TrajectoryReplanNode::shared_yolo(){
-    std::lock_guard<std::mutex> lock(mtx);
+    std::unique_lock<std::mutex> lock1(mtx1);
     if(yolo_ == nullptr){
         return;
     }
@@ -323,12 +337,76 @@ void TrajectoryReplanNode::shared_yolo(){
     builder["indentation"] = "\t"; // 使用制表符缩进
     const std::string json_str = Json::writeString(builder, root);
     client.simUpdateLocalDetectTargetNumData(vehicle, json_str);
-    std::this_thread::sleep_for(std::chrono::milliseconds(1000));  
+    std::this_thread::sleep_for(std::chrono::milliseconds(500));  
 }
-void TrajectoryReplanNode::publishTopic(const int& data) {
+void TrajectoryReplanNode::publishTopic_yolo(const int& data) {
     
-    while (continuePublishing.load() && flag.load() < data) {    
+    std::unique_lock<std::mutex> lock2(mtx2);
+    
+    while (continuePublishing.load() && flag.load() < data) {      
         shared_yolo();// 假设你想要使用第一个边界框
+    }
+    if (flag.load() == data) {
+        auto threadId = std::this_thread::get_id();
+        
+        for (auto it = publishThreads.begin(); it != publishThreads.end(); ++it) {
+            if ((*it)->get_id() == threadId) {
+                (*it)->detach(); // 分离线程，使其成为后台线程
+                publishThreads.erase(it); // 从线程向量中删除线程
+                break;
+            }
+        }
+    }
+}
+void TrajectoryReplanNode::publishTopic_ceju(const int& data) {
+    
+    std::unique_lock<std::mutex> lock5(mtx5);
+    
+    while (continuePublishing.load() && flag.load() < data) {      
+        uint64_t ms = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count();    
+        client.simUpdateLocalTargetDistanceData(vehicle, values.d, values.x, values.y, values.z, values.class_val, true);
+        std::this_thread::sleep_for(std::chrono::milliseconds(500));
+    }
+    if (flag.load() == data) {
+        auto threadId = std::this_thread::get_id();        
+        for (auto it = publishThreads.begin(); it != publishThreads.end(); ++it) {
+            if ((*it)->get_id() == threadId) {
+                (*it)->detach(); // 分离线程，使其成为后台线程
+                publishThreads.erase(it); // 从线程向量中删除线程
+                break;
+            }
+        }
+    }
+}
+void TrajectoryReplanNode::publishTopic_dingwei(const int& data) {
+    
+    std::unique_lock<std::mutex> lock3(mtx3);
+
+    while (continuePublishing.load() && flag.load() < data) {
+        uint64_t ms = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count();    
+        client.simUpdateLocalPositionData(vehicle, odom_->pose.pose.position.x, odom_->pose.pose.position.y, odom_->pose.pose.position.z, ms, 7);
+        std::this_thread::sleep_for(std::chrono::milliseconds(500));  
+    }
+    if (flag.load() == data) {
+        auto threadId = std::this_thread::get_id();
+        
+        for (auto it = publishThreads.begin(); it != publishThreads.end(); ++it) {
+            if ((*it)->get_id() == threadId) {
+                (*it)->detach(); // 分离线程，使其成为后台线程
+                publishThreads.erase(it); // 从线程向量中删除线程
+                break;
+            }
+        }
+    }
+}
+void TrajectoryReplanNode::publishTopic_dingzi(const int& data) {
+    
+    std::unique_lock<std::mutex> lock4(mtx4);
+    
+    while (continuePublishing.load() && flag.load() < data) {
+        uint64_t ms = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count();    
+        client.simUpdateLocalRotationData(vehicle, odom_->pose.pose.orientation.w, odom_->pose.pose.orientation.x, odom_->pose.pose.orientation.y,odom_->pose.pose.orientation.z, ms);
+        std::this_thread::sleep_for(std::chrono::milliseconds(500)); 
     }
     if (flag.load() == data) {
         auto threadId = std::this_thread::get_id();
@@ -373,7 +451,6 @@ void TrajectoryReplanNode::desiredStatesPub() {
     
     // 如果到达了waypoint点，发布里程计位置信息
     if (reached_waypoint) {
-        cout << "distance1:" << distance1 << endl;
         for(const auto& task : taskMap[flag.load()]){
             std::regex pattern("\\d"); // 检查任何数字
             std::smatch match;
@@ -383,21 +460,76 @@ void TrajectoryReplanNode::desiredStatesPub() {
                     // 如果任务包含数字，解析数字
                     std::ssub_match subMatch = match[0];
                     std::string numStr = subMatch.str();
-                    num = std::stoi(numStr); // 将数字字符串转换为整数
+                    num.store(std::stoi(numStr)); // 将数字字符串转换为整数
                     // 发布话题直到flag等于那个数字
-                    if(num > jiance_num){
-                        auto thread = std::make_shared<std::thread>(&TrajectoryReplanNode::publishTopic, this, num);
-                        publishThreads.push_back(thread);
+                    if(set_t.find("目标检测") == set_t.end() || set_t["目标检测"] < num.load()){
+                        auto thread = std::make_shared<std::thread>(&TrajectoryReplanNode::publishTopic_yolo, this, num.load());
+                        publishThreads.emplace_back(thread);
+                        set_t["目标检测"] = num.load();
                     }
-                    jiance_num = num;
-                    if(flag.load() == num){
-                        publishThreads.clear();
-                    }
+                    
                 } else {
                     shared_yolo();
                 }
             } 
-            if(task == ""){}
+            if(task.find("定姿") != std::string::npos){
+                // 检查任务是否包含数字
+                if (std::regex_search(task, match, pattern)) {
+                    // 如果任务包含数字，解析数字
+                    std::ssub_match subMatch = match[0];
+                    std::string numStr = subMatch.str();
+                    num.store(std::stoi(numStr)); // 将数字字符串转换为整数
+                    // 发布话题直到flag等于那个数字
+                    if(set_t.find("定姿") == set_t.end() || set_t["定姿"] < num.load()){
+                        auto thread = std::make_shared<std::thread>(&TrajectoryReplanNode::publishTopic_dingzi, this, num.load());
+                        publishThreads.emplace_back(thread);
+                        set_t["定姿"] = num.load();
+                    }
+                } else {
+                    uint64_t ms = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count();    
+                    client.simUpdateLocalRotationData(vehicle, odom_->pose.pose.orientation.w, odom_->pose.pose.orientation.x, odom_->pose.pose.orientation.y,odom_->pose.pose.orientation.z, ms);
+                }
+            } 
+            if(task.find("动态定位") != std::string::npos){
+                // 检查任务是否包含数字
+                if (std::regex_search(task, match, pattern)) {
+                    // 如果任务包含数字，解析数字
+                    std::ssub_match subMatch = match[0];
+                    std::string numStr = subMatch.str();
+                    num.store(std::stoi(numStr)); // 将数字字符串转换为整数
+                    // 发布话题直到flag等于那个数字
+                    if(set_t.find("动态定位") == set_t.end() || set_t["动态定位"] < num.load()){
+                        auto thread = std::make_shared<std::thread>(&TrajectoryReplanNode::publishTopic_dingwei, this, num.load());
+                        publishThreads.emplace_back(thread);
+                        set_t["动态定位"] = num.load();
+                    }
+                } else {
+                    uint64_t ms = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count();    
+                    client.simUpdateLocalPositionData(vehicle, odom_->pose.pose.position.x, odom_->pose.pose.position.y, odom_->pose.pose.position.z, ms);
+                }
+            } 
+            if(task.find("测距") != std::string::npos){
+                // 检查任务是否包含数字
+                if (std::regex_search(task, match, pattern)) {
+                    // 如果任务包含数字，解析数字
+                    std::ssub_match subMatch = match[0];
+                    std::string numStr = subMatch.str();
+                    num.store(std::stoi(numStr)); // 将数字字符串转换为整数
+                    // 发布话题直到flag等于那个数字
+                    if(set_t.find("测距") == set_t.end() || set_t["动态定位"] < num.load()){
+                        auto thread = std::make_shared<std::thread>(&TrajectoryReplanNode::publishTopic_ceju, this, num.load());
+                        publishThreads.emplace_back(thread);
+                        set_t["测距"] = num.load();
+                    }
+                } else {
+                    uint64_t ms = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count();    
+                    client.simUpdateLocalTargetDistanceData(vehicle, values.d, values.x, values.y, values.z, values.class_val);
+                }
+            } 
+            if(flag.load() == waypoint_num_){
+                publishThreads.clear();
+                set_t.clear();
+            }
         }
         // cout << "x,y,z:" << odom_->pose.pose.position.x << "," << odom_->pose.pose.position.y << "," << odom_->pose.pose.position.z << endl;
         uint64_t ms = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count();
@@ -577,14 +709,14 @@ void TrajectoryReplanNode::displayTrajWithColor() {
           pt.x = pos(0);
           pt.y = pos(1);
           pt.z = pos(2);
-          line_strip.points.push_back(pt);
+          line_strip.points.emplace_back(pt);
       }
     }
   for (int i = 0; i < waypoint_num_; ++i) {
       pt.x = waypoints_(i,0);
       pt.y = waypoints_(i,1);
       pt.z = waypoints_(i,2);
-      points.points.push_back(pt);
+      points.points.emplace_back(pt);
   }
   traj_vis_pub_.publish(points);
   traj_vis_pub_.publish(line_strip);
@@ -610,12 +742,12 @@ void TrajectoryReplanNode::drawCmd(const Eigen::Vector3d& pos, const Eigen::Vect
   pt.x = pos(0);
   pt.y = pos(1);
   pt.z = pos(2);
-  mk_state.points.push_back(pt);
+  mk_state.points.emplace_back(pt);
 
   pt.x = pos(0) + vec(0);
   pt.y = pos(1) + vec(1);
   pt.z = pos(2) + vec(2);
-  mk_state.points.push_back(pt);
+  mk_state.points.emplace_back(pt);
 
   mk_state.color.r = color(0);
   mk_state.color.g = color(1);

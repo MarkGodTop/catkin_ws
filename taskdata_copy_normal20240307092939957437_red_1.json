@@ -22,23 +22,29 @@
       "PointY": 0,
       "PointZ": 0,
       "TaskIndicator": [
-        [
-          "目标检测",
-          5
-        ],
-        "\u901f\u5ea601"
+          {
+            "TaskIndicatorName": "动态定位",
+            "TaskIndicatorEnd": 4
+          },
+          {
+            "TaskIndicatorName": "定姿",
+            "TaskIndicatorEnd": 4
+          },
+          {
+            "TaskIndicatorName": "目标检测",
+            "TaskIndicatorEnd": 4
+          },
+          {
+            "TaskIndicatorName": "测距",
+            "TaskIndicatorEnd": 4
+          }
       ]
     },
     {
       "PointID": 2,
       "PointX": 15.44,
       "PointY": 6.55,
-      "PointZ": -2.16,
-      "TaskIndicator": [
-        "目标检测",
-        "\u901f\u5ea601"
-      ]
-      
+      "PointZ": -2.16
     },
     {
       "PointID": 3,

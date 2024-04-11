@@ -70,8 +70,12 @@ private:
     image_transport::Subscriber depth_image_sub_;
     cv_bridge::CvImageConstPtr color_ptr_, depth_ptr_;
     vector<vector<Point>> pt_;
-    
-
+    struct MixedValues {
+        double x, y, z;
+        int class_val;
+        double d;
+    };
+    MixedValues values;
 
     shared_ptr<TrajectoryGeneratorWaypoints> trajPlanWaypoints_ = make_shared<TrajectoryGeneratorWaypoints>();
 public:
@@ -115,7 +119,10 @@ public:
     void trajectoryGenerate(const Eigen::MatrixXd &waypoints);
     void desiredStatesPub();
     void shared_yolo();
-    void publishTopic(const int& num);
+    void publishTopic_yolo(const int& num);
+    void publishTopic_dingzi(const int& data);
+    void publishTopic_dingwei(const int& data);
+    void publishTopic_ceju(const int& data);
     void displayTrajWithColor();
     void drawCmd(const Eigen::Vector3d& pos, const Eigen::Vector3d& vec, const int& id,
                  const Eigen::Vector4d& color);
