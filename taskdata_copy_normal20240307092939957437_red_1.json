@@ -60,21 +60,9 @@
     },
     {
       "PointID": 5,
-      "PointX": 108.03,
+      "PointX": 100.03,
       "PointY": 34.25,
       "PointZ": -9.52
-    },
-    {
-      "PointID": 6,
-      "PointX": 96.11,
-      "PointY": 48.94,
-      "PointZ": -7.14
-    },
-    {
-      "PointID": 7,
-      "PointX": 72.96,
-      "PointY": 44.72,
-      "PointZ": -4.43
     }
   ]
 }
