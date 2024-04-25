@@ -1,8 +1,8 @@
-# Install script for directory: /home/ros20/yolov8/catkin_ws/src/Yolov8_ros/tracking_controller
+# Install script for directory: /home/markgodtop/catkin_ws/src/Yolov8_ros/tracking_controller
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/ros20/yolov8/catkin_ws/install")
+  set(CMAKE_INSTALL_PREFIX "/home/markgodtop/catkin_ws/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -38,17 +38,17 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/ros20/yolov8/catkin_ws/build/Yolov8_ros/tracking_controller/catkin_generated/installspace/tracking_controller.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/markgodtop/catkin_ws/build/Yolov8_ros/tracking_controller/catkin_generated/installspace/tracking_controller.pc")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/tracking_controller/cmake" TYPE FILE FILES
-    "/home/ros20/yolov8/catkin_ws/build/Yolov8_ros/tracking_controller/catkin_generated/installspace/tracking_controllerConfig.cmake"
-    "/home/ros20/yolov8/catkin_ws/build/Yolov8_ros/tracking_controller/catkin_generated/installspace/tracking_controllerConfig-version.cmake"
+    "/home/markgodtop/catkin_ws/build/Yolov8_ros/tracking_controller/catkin_generated/installspace/tracking_controllerConfig.cmake"
+    "/home/markgodtop/catkin_ws/build/Yolov8_ros/tracking_controller/catkin_generated/installspace/tracking_controllerConfig-version.cmake"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/tracking_controller" TYPE FILE FILES "/home/ros20/yolov8/catkin_ws/src/Yolov8_ros/tracking_controller/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/tracking_controller" TYPE FILE FILES "/home/markgodtop/catkin_ws/src/Yolov8_ros/tracking_controller/package.xml")
 endif()
 

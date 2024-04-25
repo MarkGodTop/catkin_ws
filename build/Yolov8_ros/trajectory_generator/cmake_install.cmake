@@ -1,8 +1,8 @@
-# Install script for directory: /home/ros20/yolov8/catkin_ws/src/Yolov8_ros/trajectory_generator
+# Install script for directory: /home/markgodtop/catkin_ws/src/Yolov8_ros/trajectory_generator
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/ros20/yolov8/catkin_ws/install")
+  set(CMAKE_INSTALL_PREFIX "/home/markgodtop/catkin_ws/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -38,17 +38,17 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/ros20/yolov8/catkin_ws/build/Yolov8_ros/trajectory_generator/catkin_generated/installspace/trajectory_generator.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/markgodtop/catkin_ws/build/Yolov8_ros/trajectory_generator/catkin_generated/installspace/trajectory_generator.pc")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/trajectory_generator/cmake" TYPE FILE FILES
-    "/home/ros20/yolov8/catkin_ws/build/Yolov8_ros/trajectory_generator/catkin_generated/installspace/trajectory_generatorConfig.cmake"
-    "/home/ros20/yolov8/catkin_ws/build/Yolov8_ros/trajectory_generator/catkin_generated/installspace/trajectory_generatorConfig-version.cmake"
+    "/home/markgodtop/catkin_ws/build/Yolov8_ros/trajectory_generator/catkin_generated/installspace/trajectory_generatorConfig.cmake"
+    "/home/markgodtop/catkin_ws/build/Yolov8_ros/trajectory_generator/catkin_generated/installspace/trajectory_generatorConfig-version.cmake"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/trajectory_generator" TYPE FILE FILES "/home/ros20/yolov8/catkin_ws/src/Yolov8_ros/trajectory_generator/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/trajectory_generator" TYPE FILE FILES "/home/markgodtop/catkin_ws/src/Yolov8_ros/trajectory_generator/package.xml")
 endif()
 

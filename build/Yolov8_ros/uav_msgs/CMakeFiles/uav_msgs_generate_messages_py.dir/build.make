@@ -43,60 +43,60 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/ros20/yolov8/catkin_ws/src
+CMAKE_SOURCE_DIR = /home/markgodtop/catkin_ws/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/ros20/yolov8/catkin_ws/build
+CMAKE_BINARY_DIR = /home/markgodtop/catkin_ws/build
 
 # Utility rule file for uav_msgs_generate_messages_py.
 
 # Include the progress variables for this target.
 include Yolov8_ros/uav_msgs/CMakeFiles/uav_msgs_generate_messages_py.dir/progress.make
 
-Yolov8_ros/uav_msgs/CMakeFiles/uav_msgs_generate_messages_py: /home/ros20/yolov8/catkin_ws/devel/lib/python3/dist-packages/uav_msgs/msg/_AngleRateThrottle.py
-Yolov8_ros/uav_msgs/CMakeFiles/uav_msgs_generate_messages_py: /home/ros20/yolov8/catkin_ws/devel/lib/python3/dist-packages/uav_msgs/msg/_DesiredStates.py
-Yolov8_ros/uav_msgs/CMakeFiles/uav_msgs_generate_messages_py: /home/ros20/yolov8/catkin_ws/devel/lib/python3/dist-packages/uav_msgs/srv/_Takeoff.py
-Yolov8_ros/uav_msgs/CMakeFiles/uav_msgs_generate_messages_py: /home/ros20/yolov8/catkin_ws/devel/lib/python3/dist-packages/uav_msgs/msg/__init__.py
-Yolov8_ros/uav_msgs/CMakeFiles/uav_msgs_generate_messages_py: /home/ros20/yolov8/catkin_ws/devel/lib/python3/dist-packages/uav_msgs/srv/__init__.py
+Yolov8_ros/uav_msgs/CMakeFiles/uav_msgs_generate_messages_py: /home/markgodtop/catkin_ws/devel/lib/python3/dist-packages/uav_msgs/msg/_AngleRateThrottle.py
+Yolov8_ros/uav_msgs/CMakeFiles/uav_msgs_generate_messages_py: /home/markgodtop/catkin_ws/devel/lib/python3/dist-packages/uav_msgs/msg/_DesiredStates.py
+Yolov8_ros/uav_msgs/CMakeFiles/uav_msgs_generate_messages_py: /home/markgodtop/catkin_ws/devel/lib/python3/dist-packages/uav_msgs/srv/_Takeoff.py
+Yolov8_ros/uav_msgs/CMakeFiles/uav_msgs_generate_messages_py: /home/markgodtop/catkin_ws/devel/lib/python3/dist-packages/uav_msgs/msg/__init__.py
+Yolov8_ros/uav_msgs/CMakeFiles/uav_msgs_generate_messages_py: /home/markgodtop/catkin_ws/devel/lib/python3/dist-packages/uav_msgs/srv/__init__.py
 
 
-/home/ros20/yolov8/catkin_ws/devel/lib/python3/dist-packages/uav_msgs/msg/_AngleRateThrottle.py: /opt/ros/noetic/lib/genpy/genmsg_py.py
-/home/ros20/yolov8/catkin_ws/devel/lib/python3/dist-packages/uav_msgs/msg/_AngleRateThrottle.py: /home/ros20/yolov8/catkin_ws/src/Yolov8_ros/uav_msgs/msg/AngleRateThrottle.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/ros20/yolov8/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating Python from MSG uav_msgs/AngleRateThrottle"
-	cd /home/ros20/yolov8/catkin_ws/build/Yolov8_ros/uav_msgs && ../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/ros20/yolov8/catkin_ws/src/Yolov8_ros/uav_msgs/msg/AngleRateThrottle.msg -Iuav_msgs:/home/ros20/yolov8/catkin_ws/src/Yolov8_ros/uav_msgs/msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p uav_msgs -o /home/ros20/yolov8/catkin_ws/devel/lib/python3/dist-packages/uav_msgs/msg
+/home/markgodtop/catkin_ws/devel/lib/python3/dist-packages/uav_msgs/msg/_AngleRateThrottle.py: /opt/ros/noetic/lib/genpy/genmsg_py.py
+/home/markgodtop/catkin_ws/devel/lib/python3/dist-packages/uav_msgs/msg/_AngleRateThrottle.py: /home/markgodtop/catkin_ws/src/Yolov8_ros/uav_msgs/msg/AngleRateThrottle.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/markgodtop/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating Python from MSG uav_msgs/AngleRateThrottle"
+	cd /home/markgodtop/catkin_ws/build/Yolov8_ros/uav_msgs && ../../catkin_generated/env_cached.sh /home/markgodtop/miniconda3/envs/airsim/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/markgodtop/catkin_ws/src/Yolov8_ros/uav_msgs/msg/AngleRateThrottle.msg -Iuav_msgs:/home/markgodtop/catkin_ws/src/Yolov8_ros/uav_msgs/msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p uav_msgs -o /home/markgodtop/catkin_ws/devel/lib/python3/dist-packages/uav_msgs/msg
 
-/home/ros20/yolov8/catkin_ws/devel/lib/python3/dist-packages/uav_msgs/msg/_DesiredStates.py: /opt/ros/noetic/lib/genpy/genmsg_py.py
-/home/ros20/yolov8/catkin_ws/devel/lib/python3/dist-packages/uav_msgs/msg/_DesiredStates.py: /home/ros20/yolov8/catkin_ws/src/Yolov8_ros/uav_msgs/msg/DesiredStates.msg
-/home/ros20/yolov8/catkin_ws/devel/lib/python3/dist-packages/uav_msgs/msg/_DesiredStates.py: /opt/ros/noetic/share/geometry_msgs/msg/Vector3.msg
-/home/ros20/yolov8/catkin_ws/devel/lib/python3/dist-packages/uav_msgs/msg/_DesiredStates.py: /opt/ros/noetic/share/std_msgs/msg/Header.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/ros20/yolov8/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating Python from MSG uav_msgs/DesiredStates"
-	cd /home/ros20/yolov8/catkin_ws/build/Yolov8_ros/uav_msgs && ../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/ros20/yolov8/catkin_ws/src/Yolov8_ros/uav_msgs/msg/DesiredStates.msg -Iuav_msgs:/home/ros20/yolov8/catkin_ws/src/Yolov8_ros/uav_msgs/msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p uav_msgs -o /home/ros20/yolov8/catkin_ws/devel/lib/python3/dist-packages/uav_msgs/msg
+/home/markgodtop/catkin_ws/devel/lib/python3/dist-packages/uav_msgs/msg/_DesiredStates.py: /opt/ros/noetic/lib/genpy/genmsg_py.py
+/home/markgodtop/catkin_ws/devel/lib/python3/dist-packages/uav_msgs/msg/_DesiredStates.py: /home/markgodtop/catkin_ws/src/Yolov8_ros/uav_msgs/msg/DesiredStates.msg
+/home/markgodtop/catkin_ws/devel/lib/python3/dist-packages/uav_msgs/msg/_DesiredStates.py: /opt/ros/noetic/share/geometry_msgs/msg/Vector3.msg
+/home/markgodtop/catkin_ws/devel/lib/python3/dist-packages/uav_msgs/msg/_DesiredStates.py: /opt/ros/noetic/share/std_msgs/msg/Header.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/markgodtop/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating Python from MSG uav_msgs/DesiredStates"
+	cd /home/markgodtop/catkin_ws/build/Yolov8_ros/uav_msgs && ../../catkin_generated/env_cached.sh /home/markgodtop/miniconda3/envs/airsim/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/markgodtop/catkin_ws/src/Yolov8_ros/uav_msgs/msg/DesiredStates.msg -Iuav_msgs:/home/markgodtop/catkin_ws/src/Yolov8_ros/uav_msgs/msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p uav_msgs -o /home/markgodtop/catkin_ws/devel/lib/python3/dist-packages/uav_msgs/msg
 
-/home/ros20/yolov8/catkin_ws/devel/lib/python3/dist-packages/uav_msgs/srv/_Takeoff.py: /opt/ros/noetic/lib/genpy/gensrv_py.py
-/home/ros20/yolov8/catkin_ws/devel/lib/python3/dist-packages/uav_msgs/srv/_Takeoff.py: /home/ros20/yolov8/catkin_ws/src/Yolov8_ros/uav_msgs/srv/Takeoff.srv
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/ros20/yolov8/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating Python code from SRV uav_msgs/Takeoff"
-	cd /home/ros20/yolov8/catkin_ws/build/Yolov8_ros/uav_msgs && ../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/gensrv_py.py /home/ros20/yolov8/catkin_ws/src/Yolov8_ros/uav_msgs/srv/Takeoff.srv -Iuav_msgs:/home/ros20/yolov8/catkin_ws/src/Yolov8_ros/uav_msgs/msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p uav_msgs -o /home/ros20/yolov8/catkin_ws/devel/lib/python3/dist-packages/uav_msgs/srv
+/home/markgodtop/catkin_ws/devel/lib/python3/dist-packages/uav_msgs/srv/_Takeoff.py: /opt/ros/noetic/lib/genpy/gensrv_py.py
+/home/markgodtop/catkin_ws/devel/lib/python3/dist-packages/uav_msgs/srv/_Takeoff.py: /home/markgodtop/catkin_ws/src/Yolov8_ros/uav_msgs/srv/Takeoff.srv
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/markgodtop/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating Python code from SRV uav_msgs/Takeoff"
+	cd /home/markgodtop/catkin_ws/build/Yolov8_ros/uav_msgs && ../../catkin_generated/env_cached.sh /home/markgodtop/miniconda3/envs/airsim/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/gensrv_py.py /home/markgodtop/catkin_ws/src/Yolov8_ros/uav_msgs/srv/Takeoff.srv -Iuav_msgs:/home/markgodtop/catkin_ws/src/Yolov8_ros/uav_msgs/msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p uav_msgs -o /home/markgodtop/catkin_ws/devel/lib/python3/dist-packages/uav_msgs/srv
 
-/home/ros20/yolov8/catkin_ws/devel/lib/python3/dist-packages/uav_msgs/msg/__init__.py: /opt/ros/noetic/lib/genpy/genmsg_py.py
-/home/ros20/yolov8/catkin_ws/devel/lib/python3/dist-packages/uav_msgs/msg/__init__.py: /home/ros20/yolov8/catkin_ws/devel/lib/python3/dist-packages/uav_msgs/msg/_AngleRateThrottle.py
-/home/ros20/yolov8/catkin_ws/devel/lib/python3/dist-packages/uav_msgs/msg/__init__.py: /home/ros20/yolov8/catkin_ws/devel/lib/python3/dist-packages/uav_msgs/msg/_DesiredStates.py
-/home/ros20/yolov8/catkin_ws/devel/lib/python3/dist-packages/uav_msgs/msg/__init__.py: /home/ros20/yolov8/catkin_ws/devel/lib/python3/dist-packages/uav_msgs/srv/_Takeoff.py
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/ros20/yolov8/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Generating Python msg __init__.py for uav_msgs"
-	cd /home/ros20/yolov8/catkin_ws/build/Yolov8_ros/uav_msgs && ../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py -o /home/ros20/yolov8/catkin_ws/devel/lib/python3/dist-packages/uav_msgs/msg --initpy
+/home/markgodtop/catkin_ws/devel/lib/python3/dist-packages/uav_msgs/msg/__init__.py: /opt/ros/noetic/lib/genpy/genmsg_py.py
+/home/markgodtop/catkin_ws/devel/lib/python3/dist-packages/uav_msgs/msg/__init__.py: /home/markgodtop/catkin_ws/devel/lib/python3/dist-packages/uav_msgs/msg/_AngleRateThrottle.py
+/home/markgodtop/catkin_ws/devel/lib/python3/dist-packages/uav_msgs/msg/__init__.py: /home/markgodtop/catkin_ws/devel/lib/python3/dist-packages/uav_msgs/msg/_DesiredStates.py
+/home/markgodtop/catkin_ws/devel/lib/python3/dist-packages/uav_msgs/msg/__init__.py: /home/markgodtop/catkin_ws/devel/lib/python3/dist-packages/uav_msgs/srv/_Takeoff.py
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/markgodtop/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Generating Python msg __init__.py for uav_msgs"
+	cd /home/markgodtop/catkin_ws/build/Yolov8_ros/uav_msgs && ../../catkin_generated/env_cached.sh /home/markgodtop/miniconda3/envs/airsim/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py -o /home/markgodtop/catkin_ws/devel/lib/python3/dist-packages/uav_msgs/msg --initpy
 
-/home/ros20/yolov8/catkin_ws/devel/lib/python3/dist-packages/uav_msgs/srv/__init__.py: /opt/ros/noetic/lib/genpy/genmsg_py.py
-/home/ros20/yolov8/catkin_ws/devel/lib/python3/dist-packages/uav_msgs/srv/__init__.py: /home/ros20/yolov8/catkin_ws/devel/lib/python3/dist-packages/uav_msgs/msg/_AngleRateThrottle.py
-/home/ros20/yolov8/catkin_ws/devel/lib/python3/dist-packages/uav_msgs/srv/__init__.py: /home/ros20/yolov8/catkin_ws/devel/lib/python3/dist-packages/uav_msgs/msg/_DesiredStates.py
-/home/ros20/yolov8/catkin_ws/devel/lib/python3/dist-packages/uav_msgs/srv/__init__.py: /home/ros20/yolov8/catkin_ws/devel/lib/python3/dist-packages/uav_msgs/srv/_Takeoff.py
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/ros20/yolov8/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Generating Python srv __init__.py for uav_msgs"
-	cd /home/ros20/yolov8/catkin_ws/build/Yolov8_ros/uav_msgs && ../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py -o /home/ros20/yolov8/catkin_ws/devel/lib/python3/dist-packages/uav_msgs/srv --initpy
+/home/markgodtop/catkin_ws/devel/lib/python3/dist-packages/uav_msgs/srv/__init__.py: /opt/ros/noetic/lib/genpy/genmsg_py.py
+/home/markgodtop/catkin_ws/devel/lib/python3/dist-packages/uav_msgs/srv/__init__.py: /home/markgodtop/catkin_ws/devel/lib/python3/dist-packages/uav_msgs/msg/_AngleRateThrottle.py
+/home/markgodtop/catkin_ws/devel/lib/python3/dist-packages/uav_msgs/srv/__init__.py: /home/markgodtop/catkin_ws/devel/lib/python3/dist-packages/uav_msgs/msg/_DesiredStates.py
+/home/markgodtop/catkin_ws/devel/lib/python3/dist-packages/uav_msgs/srv/__init__.py: /home/markgodtop/catkin_ws/devel/lib/python3/dist-packages/uav_msgs/srv/_Takeoff.py
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/markgodtop/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Generating Python srv __init__.py for uav_msgs"
+	cd /home/markgodtop/catkin_ws/build/Yolov8_ros/uav_msgs && ../../catkin_generated/env_cached.sh /home/markgodtop/miniconda3/envs/airsim/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py -o /home/markgodtop/catkin_ws/devel/lib/python3/dist-packages/uav_msgs/srv --initpy
 
 uav_msgs_generate_messages_py: Yolov8_ros/uav_msgs/CMakeFiles/uav_msgs_generate_messages_py
-uav_msgs_generate_messages_py: /home/ros20/yolov8/catkin_ws/devel/lib/python3/dist-packages/uav_msgs/msg/_AngleRateThrottle.py
-uav_msgs_generate_messages_py: /home/ros20/yolov8/catkin_ws/devel/lib/python3/dist-packages/uav_msgs/msg/_DesiredStates.py
-uav_msgs_generate_messages_py: /home/ros20/yolov8/catkin_ws/devel/lib/python3/dist-packages/uav_msgs/srv/_Takeoff.py
-uav_msgs_generate_messages_py: /home/ros20/yolov8/catkin_ws/devel/lib/python3/dist-packages/uav_msgs/msg/__init__.py
-uav_msgs_generate_messages_py: /home/ros20/yolov8/catkin_ws/devel/lib/python3/dist-packages/uav_msgs/srv/__init__.py
+uav_msgs_generate_messages_py: /home/markgodtop/catkin_ws/devel/lib/python3/dist-packages/uav_msgs/msg/_AngleRateThrottle.py
+uav_msgs_generate_messages_py: /home/markgodtop/catkin_ws/devel/lib/python3/dist-packages/uav_msgs/msg/_DesiredStates.py
+uav_msgs_generate_messages_py: /home/markgodtop/catkin_ws/devel/lib/python3/dist-packages/uav_msgs/srv/_Takeoff.py
+uav_msgs_generate_messages_py: /home/markgodtop/catkin_ws/devel/lib/python3/dist-packages/uav_msgs/msg/__init__.py
+uav_msgs_generate_messages_py: /home/markgodtop/catkin_ws/devel/lib/python3/dist-packages/uav_msgs/srv/__init__.py
 uav_msgs_generate_messages_py: Yolov8_ros/uav_msgs/CMakeFiles/uav_msgs_generate_messages_py.dir/build.make
 
 .PHONY : uav_msgs_generate_messages_py
@@ -107,10 +107,10 @@ Yolov8_ros/uav_msgs/CMakeFiles/uav_msgs_generate_messages_py.dir/build: uav_msgs
 .PHONY : Yolov8_ros/uav_msgs/CMakeFiles/uav_msgs_generate_messages_py.dir/build
 
 Yolov8_ros/uav_msgs/CMakeFiles/uav_msgs_generate_messages_py.dir/clean:
-	cd /home/ros20/yolov8/catkin_ws/build/Yolov8_ros/uav_msgs && $(CMAKE_COMMAND) -P CMakeFiles/uav_msgs_generate_messages_py.dir/cmake_clean.cmake
+	cd /home/markgodtop/catkin_ws/build/Yolov8_ros/uav_msgs && $(CMAKE_COMMAND) -P CMakeFiles/uav_msgs_generate_messages_py.dir/cmake_clean.cmake
 .PHONY : Yolov8_ros/uav_msgs/CMakeFiles/uav_msgs_generate_messages_py.dir/clean
 
 Yolov8_ros/uav_msgs/CMakeFiles/uav_msgs_generate_messages_py.dir/depend:
-	cd /home/ros20/yolov8/catkin_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ros20/yolov8/catkin_ws/src /home/ros20/yolov8/catkin_ws/src/Yolov8_ros/uav_msgs /home/ros20/yolov8/catkin_ws/build /home/ros20/yolov8/catkin_ws/build/Yolov8_ros/uav_msgs /home/ros20/yolov8/catkin_ws/build/Yolov8_ros/uav_msgs/CMakeFiles/uav_msgs_generate_messages_py.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/markgodtop/catkin_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/markgodtop/catkin_ws/src /home/markgodtop/catkin_ws/src/Yolov8_ros/uav_msgs /home/markgodtop/catkin_ws/build /home/markgodtop/catkin_ws/build/Yolov8_ros/uav_msgs /home/markgodtop/catkin_ws/build/Yolov8_ros/uav_msgs/CMakeFiles/uav_msgs_generate_messages_py.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : Yolov8_ros/uav_msgs/CMakeFiles/uav_msgs_generate_messages_py.dir/depend
 

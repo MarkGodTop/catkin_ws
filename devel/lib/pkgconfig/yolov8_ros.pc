@@ -1,4 +1,4 @@
-prefix=/home/ros20/yolov8/catkin_ws/devel
+prefix=/home/markgodtop/catkin_ws/devel
 
 Name: yolov8_ros
 Description: Description of yolov8_ros

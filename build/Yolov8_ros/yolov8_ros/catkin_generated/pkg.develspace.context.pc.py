@@ -4,5 +4,5 @@ PROJECT_PKG_CONFIG_INCLUDE_DIRS = "".split(';') if "" != "" else []
 PROJECT_CATKIN_DEPENDS = "".replace(';', ' ')
 PKG_CONFIG_LIBRARIES_WITH_PREFIX = "".split(';') if "" != "" else []
 PROJECT_NAME = "yolov8_ros"
-PROJECT_SPACE_DIR = "/home/ros20/yolov8/catkin_ws/devel"
+PROJECT_SPACE_DIR = "/home/markgodtop/catkin_ws/devel"
 PROJECT_VERSION = "1.0.0"

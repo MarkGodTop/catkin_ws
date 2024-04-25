@@ -129,6 +129,7 @@ public:
     //get depth image and get circle center
     void depthImageCallback(const sensor_msgs::ImageConstPtr& msg);
     void getCircleCenter(const ros::TimerEvent &e);
+    void periodicCallback(const ros::TimerEvent &e);
 };
 
 #endif

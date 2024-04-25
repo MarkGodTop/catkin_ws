@@ -46,13 +46,13 @@ add_library(rpclib::rpc SHARED IMPORTED)
 
 set_target_properties(rpclib::rpc PROPERTIES
   INTERFACE_COMPILE_DEFINITIONS "RPCLIB_MSGPACK=clmdep_msgpack"
-  INTERFACE_INCLUDE_DIRECTORIES "/mnt/d/AirSim/external/rpclib/rpclib-2.3.0/include"
+  INTERFACE_INCLUDE_DIRECTORIES "/home/markgodtop/AirSim/external/rpclib/rpclib-2.3.0/include"
 )
 
 # Import target "rpclib::rpc" for configuration ""
 set_property(TARGET rpclib::rpc APPEND PROPERTY IMPORTED_CONFIGURATIONS NOCONFIG)
 set_target_properties(rpclib::rpc PROPERTIES
-  IMPORTED_LOCATION_NOCONFIG "/home/ros20/yolov8/catkin_ws/build/output/lib/librpc.so"
+  IMPORTED_LOCATION_NOCONFIG "/home/markgodtop/catkin_ws/build/output/lib/librpc.so"
   IMPORTED_SONAME_NOCONFIG "librpc.so"
   )
 

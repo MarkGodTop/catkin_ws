@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_FLAGS = -Wall -Wextra -Wpedantic -Wstrict-null-sentinel -Wno-unused   -std=c++14 -std=gnu++17
 
-CXX_DEFINES = -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\"plan_and_control\" -DRPCLIB_MSGPACK=clmdep_msgpack -DYAML_CPP_STATIC_DEFINE
+CXX_DEFINES = -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\"plan_and_control\" -DRPCLIB_MSGPACK=clmdep_msgpack
 
-CXX_INCLUDES = -I/usr/local/include/eigen3 -I/home/ros20/yolov8/catkin_ws/src/Yolov8_ros/plan_and_control/include -I/home/ros20/yolov8/catkin_ws/devel/include -I/home/ros20/yolov8/catkin_ws/src/Yolov8_ros/tracking_controller/include -I/home/ros20/yolov8/catkin_ws/src/Yolov8_ros/trajectory_generator/include -I/opt/ros/noetic/include -I/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp -I/mnt/d/AirSim/AirLib/deps/eigen3 -I/mnt/d/AirSim/AirLib/include -I/mnt/d/AirSim/external/rpclib/rpclib-2.3.0/include -I/mnt/d/AirSim/MavLinkCom/include -I/mnt/d/AirSim/MavLinkCom/common_utils -isystem /usr/include/opencv4 
+CXX_INCLUDES = -I/usr/include/jsoncpp -I/usr/lib/x86_64-linux-gnu/cmake/yaml-cpp/../../../../../include -I/usr/include/eigen3 -I/home/markgodtop/catkin_ws/src/Yolov8_ros/plan_and_control/include -I/home/markgodtop/catkin_ws/devel/include -I/home/markgodtop/catkin_ws/src/Yolov8_ros/tracking_controller/include -I/home/markgodtop/catkin_ws/src/Yolov8_ros/trajectory_generator/include -I/opt/ros/noetic/include -I/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp -I/home/markgodtop/AirSim/AirLib/deps/eigen3 -I/home/markgodtop/AirSim/AirLib/include -I/home/markgodtop/AirSim/external/rpclib/rpclib-2.3.0/include -I/home/markgodtop/AirSim/MavLinkCom/include -I/home/markgodtop/AirSim/MavLinkCom/common_utils -isystem /usr/include/opencv4 
 

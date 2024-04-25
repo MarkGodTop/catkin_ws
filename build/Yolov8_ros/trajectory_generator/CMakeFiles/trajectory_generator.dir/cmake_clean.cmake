@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "/home/ros20/yolov8/catkin_ws/devel/lib/libtrajectory_generator.pdb"
-  "/home/ros20/yolov8/catkin_ws/devel/lib/libtrajectory_generator.so"
+  "/home/markgodtop/catkin_ws/devel/lib/libtrajectory_generator.pdb"
+  "/home/markgodtop/catkin_ws/devel/lib/libtrajectory_generator.so"
   "CMakeFiles/trajectory_generator.dir/src/mini_jerk_traj.cpp.o"
 )
 

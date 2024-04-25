@@ -1,2 +1,2 @@
 Yolov8_ros/plan_and_control:Yolov8_ros/tracking_controller:Yolov8_ros/trajectory_generator:Yolov8_ros/uav_msgs:Yolov8_ros/yolov8_ros:Yolov8_ros/yolov8_ros_msgs
--DPYTHON_EXECUTABLE=/usr/bin/python3 -DCATKIN_DEVEL_PREFIX=/home/ros20/yolov8/catkin_ws/devel -DCMAKE_INSTALL_PREFIX=/home/ros20/yolov8/catkin_ws/install -G Unix Makefiles
+-DCATKIN_DEVEL_PREFIX=/home/markgodtop/catkin_ws/devel -DCMAKE_INSTALL_PREFIX=/home/markgodtop/catkin_ws/install -G Unix Makefiles

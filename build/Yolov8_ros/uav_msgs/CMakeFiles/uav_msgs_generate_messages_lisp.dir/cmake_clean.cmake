@@ -1,7 +1,7 @@
 file(REMOVE_RECURSE
-  "/home/ros20/yolov8/catkin_ws/devel/share/common-lisp/ros/uav_msgs/msg/AngleRateThrottle.lisp"
-  "/home/ros20/yolov8/catkin_ws/devel/share/common-lisp/ros/uav_msgs/msg/DesiredStates.lisp"
-  "/home/ros20/yolov8/catkin_ws/devel/share/common-lisp/ros/uav_msgs/srv/Takeoff.lisp"
+  "/home/markgodtop/catkin_ws/devel/share/common-lisp/ros/uav_msgs/msg/AngleRateThrottle.lisp"
+  "/home/markgodtop/catkin_ws/devel/share/common-lisp/ros/uav_msgs/msg/DesiredStates.lisp"
+  "/home/markgodtop/catkin_ws/devel/share/common-lisp/ros/uav_msgs/srv/Takeoff.lisp"
   "CMakeFiles/uav_msgs_generate_messages_lisp"
 )
 

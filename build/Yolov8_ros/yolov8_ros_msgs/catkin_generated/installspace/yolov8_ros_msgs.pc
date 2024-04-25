@@ -1,4 +1,4 @@
-prefix=/home/ros20/yolov8/catkin_ws/install
+prefix=/home/markgodtop/catkin_ws/install
 
 Name: yolov8_ros_msgs
 Description: Description of yolov8_ros_msgs

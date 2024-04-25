@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/ros20/yolov8/catkin_ws/src/Yolov8_ros/tracking_controller/src/geometric_controller.cpp" "/home/ros20/yolov8/catkin_ws/build/Yolov8_ros/tracking_controller/CMakeFiles/tracking_controller.dir/src/geometric_controller.cpp.o"
+  "/home/markgodtop/catkin_ws/src/Yolov8_ros/tracking_controller/src/geometric_controller.cpp" "/home/markgodtop/catkin_ws/build/Yolov8_ros/tracking_controller/CMakeFiles/tracking_controller.dir/src/geometric_controller.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
@@ -18,8 +18,8 @@ set(CMAKE_TARGET_DEFINITIONS_CXX
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
-  "/usr/local/include/eigen3"
-  "/home/ros20/yolov8/catkin_ws/src/Yolov8_ros/tracking_controller/include"
+  "/usr/include/eigen3"
+  "/home/markgodtop/catkin_ws/src/Yolov8_ros/tracking_controller/include"
   "/opt/ros/noetic/include"
   "/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp"
   )

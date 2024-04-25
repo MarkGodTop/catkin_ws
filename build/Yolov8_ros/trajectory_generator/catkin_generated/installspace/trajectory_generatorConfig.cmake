@@ -67,14 +67,14 @@ set(trajectory_generator_CONFIG_INCLUDED TRUE)
 
 # set variables for source/devel/install prefixes
 if("FALSE" STREQUAL "TRUE")
-  set(trajectory_generator_SOURCE_PREFIX /home/ros20/yolov8/catkin_ws/src/Yolov8_ros/trajectory_generator)
-  set(trajectory_generator_DEVEL_PREFIX /home/ros20/yolov8/catkin_ws/devel)
+  set(trajectory_generator_SOURCE_PREFIX /home/markgodtop/catkin_ws/src/Yolov8_ros/trajectory_generator)
+  set(trajectory_generator_DEVEL_PREFIX /home/markgodtop/catkin_ws/devel)
   set(trajectory_generator_INSTALL_PREFIX "")
   set(trajectory_generator_PREFIX ${trajectory_generator_DEVEL_PREFIX})
 else()
   set(trajectory_generator_SOURCE_PREFIX "")
   set(trajectory_generator_DEVEL_PREFIX "")
-  set(trajectory_generator_INSTALL_PREFIX /home/ros20/yolov8/catkin_ws/install)
+  set(trajectory_generator_INSTALL_PREFIX /home/markgodtop/catkin_ws/install)
   set(trajectory_generator_PREFIX ${trajectory_generator_INSTALL_PREFIX})
 endif()
 
@@ -154,7 +154,7 @@ foreach(library ${libraries})
     set(lib_path "")
     set(lib "${library}-NOTFOUND")
     # since the path where the library is found is returned we have to iterate over the paths manually
-    foreach(path /home/ros20/yolov8/catkin_ws/install/lib;/home/ros20/yolov8/catkin_ws/devel/lib;/mnt/d/Ros/devel/lib;/opt/ros/noetic/lib)
+    foreach(path /home/markgodtop/catkin_ws/install/lib;/home/markgodtop/catkin_ws/devel/lib;/opt/ros/noetic/lib)
       find_library(lib ${library}
         PATHS ${path}
         NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)

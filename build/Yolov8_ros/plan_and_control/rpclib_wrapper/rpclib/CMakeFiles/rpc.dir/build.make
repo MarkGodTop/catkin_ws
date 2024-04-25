@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/ros20/yolov8/catkin_ws/src
+CMAKE_SOURCE_DIR = /home/markgodtop/catkin_ws/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/ros20/yolov8/catkin_ws/build
+CMAKE_BINARY_DIR = /home/markgodtop/catkin_ws/build
 
 # Include any dependencies generated for this target.
 include Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib/CMakeFiles/rpc.dir/depend.make
@@ -58,173 +58,173 @@ include Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib/CMakeFiles/rpc.dir/pro
 include Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib/CMakeFiles/rpc.dir/flags.make
 
 Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib/CMakeFiles/rpc.dir/lib/rpc/dispatcher.cc.o: Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib/CMakeFiles/rpc.dir/flags.make
-Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib/CMakeFiles/rpc.dir/lib/rpc/dispatcher.cc.o: /mnt/d/AirSim/external/rpclib/rpclib-2.3.0/lib/rpc/dispatcher.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ros20/yolov8/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib/CMakeFiles/rpc.dir/lib/rpc/dispatcher.cc.o"
-	cd /home/ros20/yolov8/catkin_ws/build/Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/rpc.dir/lib/rpc/dispatcher.cc.o -c /mnt/d/AirSim/external/rpclib/rpclib-2.3.0/lib/rpc/dispatcher.cc
+Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib/CMakeFiles/rpc.dir/lib/rpc/dispatcher.cc.o: /home/markgodtop/AirSim/external/rpclib/rpclib-2.3.0/lib/rpc/dispatcher.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/markgodtop/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib/CMakeFiles/rpc.dir/lib/rpc/dispatcher.cc.o"
+	cd /home/markgodtop/catkin_ws/build/Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/rpc.dir/lib/rpc/dispatcher.cc.o -c /home/markgodtop/AirSim/external/rpclib/rpclib-2.3.0/lib/rpc/dispatcher.cc
 
 Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib/CMakeFiles/rpc.dir/lib/rpc/dispatcher.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/rpc.dir/lib/rpc/dispatcher.cc.i"
-	cd /home/ros20/yolov8/catkin_ws/build/Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/d/AirSim/external/rpclib/rpclib-2.3.0/lib/rpc/dispatcher.cc > CMakeFiles/rpc.dir/lib/rpc/dispatcher.cc.i
+	cd /home/markgodtop/catkin_ws/build/Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/markgodtop/AirSim/external/rpclib/rpclib-2.3.0/lib/rpc/dispatcher.cc > CMakeFiles/rpc.dir/lib/rpc/dispatcher.cc.i
 
 Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib/CMakeFiles/rpc.dir/lib/rpc/dispatcher.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/rpc.dir/lib/rpc/dispatcher.cc.s"
-	cd /home/ros20/yolov8/catkin_ws/build/Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/d/AirSim/external/rpclib/rpclib-2.3.0/lib/rpc/dispatcher.cc -o CMakeFiles/rpc.dir/lib/rpc/dispatcher.cc.s
+	cd /home/markgodtop/catkin_ws/build/Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/markgodtop/AirSim/external/rpclib/rpclib-2.3.0/lib/rpc/dispatcher.cc -o CMakeFiles/rpc.dir/lib/rpc/dispatcher.cc.s
 
 Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib/CMakeFiles/rpc.dir/lib/rpc/server.cc.o: Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib/CMakeFiles/rpc.dir/flags.make
-Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib/CMakeFiles/rpc.dir/lib/rpc/server.cc.o: /mnt/d/AirSim/external/rpclib/rpclib-2.3.0/lib/rpc/server.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ros20/yolov8/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib/CMakeFiles/rpc.dir/lib/rpc/server.cc.o"
-	cd /home/ros20/yolov8/catkin_ws/build/Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/rpc.dir/lib/rpc/server.cc.o -c /mnt/d/AirSim/external/rpclib/rpclib-2.3.0/lib/rpc/server.cc
+Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib/CMakeFiles/rpc.dir/lib/rpc/server.cc.o: /home/markgodtop/AirSim/external/rpclib/rpclib-2.3.0/lib/rpc/server.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/markgodtop/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib/CMakeFiles/rpc.dir/lib/rpc/server.cc.o"
+	cd /home/markgodtop/catkin_ws/build/Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/rpc.dir/lib/rpc/server.cc.o -c /home/markgodtop/AirSim/external/rpclib/rpclib-2.3.0/lib/rpc/server.cc
 
 Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib/CMakeFiles/rpc.dir/lib/rpc/server.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/rpc.dir/lib/rpc/server.cc.i"
-	cd /home/ros20/yolov8/catkin_ws/build/Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/d/AirSim/external/rpclib/rpclib-2.3.0/lib/rpc/server.cc > CMakeFiles/rpc.dir/lib/rpc/server.cc.i
+	cd /home/markgodtop/catkin_ws/build/Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/markgodtop/AirSim/external/rpclib/rpclib-2.3.0/lib/rpc/server.cc > CMakeFiles/rpc.dir/lib/rpc/server.cc.i
 
 Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib/CMakeFiles/rpc.dir/lib/rpc/server.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/rpc.dir/lib/rpc/server.cc.s"
-	cd /home/ros20/yolov8/catkin_ws/build/Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/d/AirSim/external/rpclib/rpclib-2.3.0/lib/rpc/server.cc -o CMakeFiles/rpc.dir/lib/rpc/server.cc.s
+	cd /home/markgodtop/catkin_ws/build/Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/markgodtop/AirSim/external/rpclib/rpclib-2.3.0/lib/rpc/server.cc -o CMakeFiles/rpc.dir/lib/rpc/server.cc.s
 
 Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib/CMakeFiles/rpc.dir/lib/rpc/client.cc.o: Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib/CMakeFiles/rpc.dir/flags.make
-Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib/CMakeFiles/rpc.dir/lib/rpc/client.cc.o: /mnt/d/AirSim/external/rpclib/rpclib-2.3.0/lib/rpc/client.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ros20/yolov8/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib/CMakeFiles/rpc.dir/lib/rpc/client.cc.o"
-	cd /home/ros20/yolov8/catkin_ws/build/Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/rpc.dir/lib/rpc/client.cc.o -c /mnt/d/AirSim/external/rpclib/rpclib-2.3.0/lib/rpc/client.cc
+Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib/CMakeFiles/rpc.dir/lib/rpc/client.cc.o: /home/markgodtop/AirSim/external/rpclib/rpclib-2.3.0/lib/rpc/client.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/markgodtop/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib/CMakeFiles/rpc.dir/lib/rpc/client.cc.o"
+	cd /home/markgodtop/catkin_ws/build/Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/rpc.dir/lib/rpc/client.cc.o -c /home/markgodtop/AirSim/external/rpclib/rpclib-2.3.0/lib/rpc/client.cc
 
 Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib/CMakeFiles/rpc.dir/lib/rpc/client.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/rpc.dir/lib/rpc/client.cc.i"
-	cd /home/ros20/yolov8/catkin_ws/build/Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/d/AirSim/external/rpclib/rpclib-2.3.0/lib/rpc/client.cc > CMakeFiles/rpc.dir/lib/rpc/client.cc.i
+	cd /home/markgodtop/catkin_ws/build/Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/markgodtop/AirSim/external/rpclib/rpclib-2.3.0/lib/rpc/client.cc > CMakeFiles/rpc.dir/lib/rpc/client.cc.i
 
 Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib/CMakeFiles/rpc.dir/lib/rpc/client.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/rpc.dir/lib/rpc/client.cc.s"
-	cd /home/ros20/yolov8/catkin_ws/build/Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/d/AirSim/external/rpclib/rpclib-2.3.0/lib/rpc/client.cc -o CMakeFiles/rpc.dir/lib/rpc/client.cc.s
+	cd /home/markgodtop/catkin_ws/build/Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/markgodtop/AirSim/external/rpclib/rpclib-2.3.0/lib/rpc/client.cc -o CMakeFiles/rpc.dir/lib/rpc/client.cc.s
 
 Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib/CMakeFiles/rpc.dir/lib/rpc/this_handler.cc.o: Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib/CMakeFiles/rpc.dir/flags.make
-Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib/CMakeFiles/rpc.dir/lib/rpc/this_handler.cc.o: /mnt/d/AirSim/external/rpclib/rpclib-2.3.0/lib/rpc/this_handler.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ros20/yolov8/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib/CMakeFiles/rpc.dir/lib/rpc/this_handler.cc.o"
-	cd /home/ros20/yolov8/catkin_ws/build/Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/rpc.dir/lib/rpc/this_handler.cc.o -c /mnt/d/AirSim/external/rpclib/rpclib-2.3.0/lib/rpc/this_handler.cc
+Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib/CMakeFiles/rpc.dir/lib/rpc/this_handler.cc.o: /home/markgodtop/AirSim/external/rpclib/rpclib-2.3.0/lib/rpc/this_handler.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/markgodtop/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib/CMakeFiles/rpc.dir/lib/rpc/this_handler.cc.o"
+	cd /home/markgodtop/catkin_ws/build/Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/rpc.dir/lib/rpc/this_handler.cc.o -c /home/markgodtop/AirSim/external/rpclib/rpclib-2.3.0/lib/rpc/this_handler.cc
 
 Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib/CMakeFiles/rpc.dir/lib/rpc/this_handler.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/rpc.dir/lib/rpc/this_handler.cc.i"
-	cd /home/ros20/yolov8/catkin_ws/build/Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/d/AirSim/external/rpclib/rpclib-2.3.0/lib/rpc/this_handler.cc > CMakeFiles/rpc.dir/lib/rpc/this_handler.cc.i
+	cd /home/markgodtop/catkin_ws/build/Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/markgodtop/AirSim/external/rpclib/rpclib-2.3.0/lib/rpc/this_handler.cc > CMakeFiles/rpc.dir/lib/rpc/this_handler.cc.i
 
 Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib/CMakeFiles/rpc.dir/lib/rpc/this_handler.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/rpc.dir/lib/rpc/this_handler.cc.s"
-	cd /home/ros20/yolov8/catkin_ws/build/Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/d/AirSim/external/rpclib/rpclib-2.3.0/lib/rpc/this_handler.cc -o CMakeFiles/rpc.dir/lib/rpc/this_handler.cc.s
+	cd /home/markgodtop/catkin_ws/build/Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/markgodtop/AirSim/external/rpclib/rpclib-2.3.0/lib/rpc/this_handler.cc -o CMakeFiles/rpc.dir/lib/rpc/this_handler.cc.s
 
 Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib/CMakeFiles/rpc.dir/lib/rpc/this_session.cc.o: Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib/CMakeFiles/rpc.dir/flags.make
-Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib/CMakeFiles/rpc.dir/lib/rpc/this_session.cc.o: /mnt/d/AirSim/external/rpclib/rpclib-2.3.0/lib/rpc/this_session.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ros20/yolov8/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib/CMakeFiles/rpc.dir/lib/rpc/this_session.cc.o"
-	cd /home/ros20/yolov8/catkin_ws/build/Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/rpc.dir/lib/rpc/this_session.cc.o -c /mnt/d/AirSim/external/rpclib/rpclib-2.3.0/lib/rpc/this_session.cc
+Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib/CMakeFiles/rpc.dir/lib/rpc/this_session.cc.o: /home/markgodtop/AirSim/external/rpclib/rpclib-2.3.0/lib/rpc/this_session.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/markgodtop/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib/CMakeFiles/rpc.dir/lib/rpc/this_session.cc.o"
+	cd /home/markgodtop/catkin_ws/build/Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/rpc.dir/lib/rpc/this_session.cc.o -c /home/markgodtop/AirSim/external/rpclib/rpclib-2.3.0/lib/rpc/this_session.cc
 
 Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib/CMakeFiles/rpc.dir/lib/rpc/this_session.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/rpc.dir/lib/rpc/this_session.cc.i"
-	cd /home/ros20/yolov8/catkin_ws/build/Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/d/AirSim/external/rpclib/rpclib-2.3.0/lib/rpc/this_session.cc > CMakeFiles/rpc.dir/lib/rpc/this_session.cc.i
+	cd /home/markgodtop/catkin_ws/build/Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/markgodtop/AirSim/external/rpclib/rpclib-2.3.0/lib/rpc/this_session.cc > CMakeFiles/rpc.dir/lib/rpc/this_session.cc.i
 
 Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib/CMakeFiles/rpc.dir/lib/rpc/this_session.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/rpc.dir/lib/rpc/this_session.cc.s"
-	cd /home/ros20/yolov8/catkin_ws/build/Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/d/AirSim/external/rpclib/rpclib-2.3.0/lib/rpc/this_session.cc -o CMakeFiles/rpc.dir/lib/rpc/this_session.cc.s
+	cd /home/markgodtop/catkin_ws/build/Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/markgodtop/AirSim/external/rpclib/rpclib-2.3.0/lib/rpc/this_session.cc -o CMakeFiles/rpc.dir/lib/rpc/this_session.cc.s
 
 Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib/CMakeFiles/rpc.dir/lib/rpc/this_server.cc.o: Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib/CMakeFiles/rpc.dir/flags.make
-Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib/CMakeFiles/rpc.dir/lib/rpc/this_server.cc.o: /mnt/d/AirSim/external/rpclib/rpclib-2.3.0/lib/rpc/this_server.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ros20/yolov8/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib/CMakeFiles/rpc.dir/lib/rpc/this_server.cc.o"
-	cd /home/ros20/yolov8/catkin_ws/build/Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/rpc.dir/lib/rpc/this_server.cc.o -c /mnt/d/AirSim/external/rpclib/rpclib-2.3.0/lib/rpc/this_server.cc
+Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib/CMakeFiles/rpc.dir/lib/rpc/this_server.cc.o: /home/markgodtop/AirSim/external/rpclib/rpclib-2.3.0/lib/rpc/this_server.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/markgodtop/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib/CMakeFiles/rpc.dir/lib/rpc/this_server.cc.o"
+	cd /home/markgodtop/catkin_ws/build/Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/rpc.dir/lib/rpc/this_server.cc.o -c /home/markgodtop/AirSim/external/rpclib/rpclib-2.3.0/lib/rpc/this_server.cc
 
 Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib/CMakeFiles/rpc.dir/lib/rpc/this_server.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/rpc.dir/lib/rpc/this_server.cc.i"
-	cd /home/ros20/yolov8/catkin_ws/build/Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/d/AirSim/external/rpclib/rpclib-2.3.0/lib/rpc/this_server.cc > CMakeFiles/rpc.dir/lib/rpc/this_server.cc.i
+	cd /home/markgodtop/catkin_ws/build/Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/markgodtop/AirSim/external/rpclib/rpclib-2.3.0/lib/rpc/this_server.cc > CMakeFiles/rpc.dir/lib/rpc/this_server.cc.i
 
 Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib/CMakeFiles/rpc.dir/lib/rpc/this_server.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/rpc.dir/lib/rpc/this_server.cc.s"
-	cd /home/ros20/yolov8/catkin_ws/build/Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/d/AirSim/external/rpclib/rpclib-2.3.0/lib/rpc/this_server.cc -o CMakeFiles/rpc.dir/lib/rpc/this_server.cc.s
+	cd /home/markgodtop/catkin_ws/build/Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/markgodtop/AirSim/external/rpclib/rpclib-2.3.0/lib/rpc/this_server.cc -o CMakeFiles/rpc.dir/lib/rpc/this_server.cc.s
 
 Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib/CMakeFiles/rpc.dir/lib/rpc/rpc_error.cc.o: Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib/CMakeFiles/rpc.dir/flags.make
-Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib/CMakeFiles/rpc.dir/lib/rpc/rpc_error.cc.o: /mnt/d/AirSim/external/rpclib/rpclib-2.3.0/lib/rpc/rpc_error.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ros20/yolov8/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib/CMakeFiles/rpc.dir/lib/rpc/rpc_error.cc.o"
-	cd /home/ros20/yolov8/catkin_ws/build/Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/rpc.dir/lib/rpc/rpc_error.cc.o -c /mnt/d/AirSim/external/rpclib/rpclib-2.3.0/lib/rpc/rpc_error.cc
+Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib/CMakeFiles/rpc.dir/lib/rpc/rpc_error.cc.o: /home/markgodtop/AirSim/external/rpclib/rpclib-2.3.0/lib/rpc/rpc_error.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/markgodtop/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib/CMakeFiles/rpc.dir/lib/rpc/rpc_error.cc.o"
+	cd /home/markgodtop/catkin_ws/build/Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/rpc.dir/lib/rpc/rpc_error.cc.o -c /home/markgodtop/AirSim/external/rpclib/rpclib-2.3.0/lib/rpc/rpc_error.cc
 
 Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib/CMakeFiles/rpc.dir/lib/rpc/rpc_error.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/rpc.dir/lib/rpc/rpc_error.cc.i"
-	cd /home/ros20/yolov8/catkin_ws/build/Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/d/AirSim/external/rpclib/rpclib-2.3.0/lib/rpc/rpc_error.cc > CMakeFiles/rpc.dir/lib/rpc/rpc_error.cc.i
+	cd /home/markgodtop/catkin_ws/build/Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/markgodtop/AirSim/external/rpclib/rpclib-2.3.0/lib/rpc/rpc_error.cc > CMakeFiles/rpc.dir/lib/rpc/rpc_error.cc.i
 
 Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib/CMakeFiles/rpc.dir/lib/rpc/rpc_error.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/rpc.dir/lib/rpc/rpc_error.cc.s"
-	cd /home/ros20/yolov8/catkin_ws/build/Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/d/AirSim/external/rpclib/rpclib-2.3.0/lib/rpc/rpc_error.cc -o CMakeFiles/rpc.dir/lib/rpc/rpc_error.cc.s
+	cd /home/markgodtop/catkin_ws/build/Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/markgodtop/AirSim/external/rpclib/rpclib-2.3.0/lib/rpc/rpc_error.cc -o CMakeFiles/rpc.dir/lib/rpc/rpc_error.cc.s
 
 Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib/CMakeFiles/rpc.dir/lib/rpc/detail/server_session.cc.o: Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib/CMakeFiles/rpc.dir/flags.make
-Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib/CMakeFiles/rpc.dir/lib/rpc/detail/server_session.cc.o: /mnt/d/AirSim/external/rpclib/rpclib-2.3.0/lib/rpc/detail/server_session.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ros20/yolov8/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib/CMakeFiles/rpc.dir/lib/rpc/detail/server_session.cc.o"
-	cd /home/ros20/yolov8/catkin_ws/build/Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/rpc.dir/lib/rpc/detail/server_session.cc.o -c /mnt/d/AirSim/external/rpclib/rpclib-2.3.0/lib/rpc/detail/server_session.cc
+Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib/CMakeFiles/rpc.dir/lib/rpc/detail/server_session.cc.o: /home/markgodtop/AirSim/external/rpclib/rpclib-2.3.0/lib/rpc/detail/server_session.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/markgodtop/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib/CMakeFiles/rpc.dir/lib/rpc/detail/server_session.cc.o"
+	cd /home/markgodtop/catkin_ws/build/Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/rpc.dir/lib/rpc/detail/server_session.cc.o -c /home/markgodtop/AirSim/external/rpclib/rpclib-2.3.0/lib/rpc/detail/server_session.cc
 
 Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib/CMakeFiles/rpc.dir/lib/rpc/detail/server_session.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/rpc.dir/lib/rpc/detail/server_session.cc.i"
-	cd /home/ros20/yolov8/catkin_ws/build/Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/d/AirSim/external/rpclib/rpclib-2.3.0/lib/rpc/detail/server_session.cc > CMakeFiles/rpc.dir/lib/rpc/detail/server_session.cc.i
+	cd /home/markgodtop/catkin_ws/build/Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/markgodtop/AirSim/external/rpclib/rpclib-2.3.0/lib/rpc/detail/server_session.cc > CMakeFiles/rpc.dir/lib/rpc/detail/server_session.cc.i
 
 Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib/CMakeFiles/rpc.dir/lib/rpc/detail/server_session.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/rpc.dir/lib/rpc/detail/server_session.cc.s"
-	cd /home/ros20/yolov8/catkin_ws/build/Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/d/AirSim/external/rpclib/rpclib-2.3.0/lib/rpc/detail/server_session.cc -o CMakeFiles/rpc.dir/lib/rpc/detail/server_session.cc.s
+	cd /home/markgodtop/catkin_ws/build/Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/markgodtop/AirSim/external/rpclib/rpclib-2.3.0/lib/rpc/detail/server_session.cc -o CMakeFiles/rpc.dir/lib/rpc/detail/server_session.cc.s
 
 Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib/CMakeFiles/rpc.dir/lib/rpc/detail/response.cc.o: Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib/CMakeFiles/rpc.dir/flags.make
-Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib/CMakeFiles/rpc.dir/lib/rpc/detail/response.cc.o: /mnt/d/AirSim/external/rpclib/rpclib-2.3.0/lib/rpc/detail/response.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ros20/yolov8/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib/CMakeFiles/rpc.dir/lib/rpc/detail/response.cc.o"
-	cd /home/ros20/yolov8/catkin_ws/build/Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/rpc.dir/lib/rpc/detail/response.cc.o -c /mnt/d/AirSim/external/rpclib/rpclib-2.3.0/lib/rpc/detail/response.cc
+Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib/CMakeFiles/rpc.dir/lib/rpc/detail/response.cc.o: /home/markgodtop/AirSim/external/rpclib/rpclib-2.3.0/lib/rpc/detail/response.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/markgodtop/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib/CMakeFiles/rpc.dir/lib/rpc/detail/response.cc.o"
+	cd /home/markgodtop/catkin_ws/build/Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/rpc.dir/lib/rpc/detail/response.cc.o -c /home/markgodtop/AirSim/external/rpclib/rpclib-2.3.0/lib/rpc/detail/response.cc
 
 Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib/CMakeFiles/rpc.dir/lib/rpc/detail/response.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/rpc.dir/lib/rpc/detail/response.cc.i"
-	cd /home/ros20/yolov8/catkin_ws/build/Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/d/AirSim/external/rpclib/rpclib-2.3.0/lib/rpc/detail/response.cc > CMakeFiles/rpc.dir/lib/rpc/detail/response.cc.i
+	cd /home/markgodtop/catkin_ws/build/Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/markgodtop/AirSim/external/rpclib/rpclib-2.3.0/lib/rpc/detail/response.cc > CMakeFiles/rpc.dir/lib/rpc/detail/response.cc.i
 
 Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib/CMakeFiles/rpc.dir/lib/rpc/detail/response.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/rpc.dir/lib/rpc/detail/response.cc.s"
-	cd /home/ros20/yolov8/catkin_ws/build/Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/d/AirSim/external/rpclib/rpclib-2.3.0/lib/rpc/detail/response.cc -o CMakeFiles/rpc.dir/lib/rpc/detail/response.cc.s
+	cd /home/markgodtop/catkin_ws/build/Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/markgodtop/AirSim/external/rpclib/rpclib-2.3.0/lib/rpc/detail/response.cc -o CMakeFiles/rpc.dir/lib/rpc/detail/response.cc.s
 
 Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib/CMakeFiles/rpc.dir/lib/rpc/detail/client_error.cc.o: Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib/CMakeFiles/rpc.dir/flags.make
-Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib/CMakeFiles/rpc.dir/lib/rpc/detail/client_error.cc.o: /mnt/d/AirSim/external/rpclib/rpclib-2.3.0/lib/rpc/detail/client_error.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ros20/yolov8/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib/CMakeFiles/rpc.dir/lib/rpc/detail/client_error.cc.o"
-	cd /home/ros20/yolov8/catkin_ws/build/Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/rpc.dir/lib/rpc/detail/client_error.cc.o -c /mnt/d/AirSim/external/rpclib/rpclib-2.3.0/lib/rpc/detail/client_error.cc
+Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib/CMakeFiles/rpc.dir/lib/rpc/detail/client_error.cc.o: /home/markgodtop/AirSim/external/rpclib/rpclib-2.3.0/lib/rpc/detail/client_error.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/markgodtop/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib/CMakeFiles/rpc.dir/lib/rpc/detail/client_error.cc.o"
+	cd /home/markgodtop/catkin_ws/build/Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/rpc.dir/lib/rpc/detail/client_error.cc.o -c /home/markgodtop/AirSim/external/rpclib/rpclib-2.3.0/lib/rpc/detail/client_error.cc
 
 Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib/CMakeFiles/rpc.dir/lib/rpc/detail/client_error.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/rpc.dir/lib/rpc/detail/client_error.cc.i"
-	cd /home/ros20/yolov8/catkin_ws/build/Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/d/AirSim/external/rpclib/rpclib-2.3.0/lib/rpc/detail/client_error.cc > CMakeFiles/rpc.dir/lib/rpc/detail/client_error.cc.i
+	cd /home/markgodtop/catkin_ws/build/Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/markgodtop/AirSim/external/rpclib/rpclib-2.3.0/lib/rpc/detail/client_error.cc > CMakeFiles/rpc.dir/lib/rpc/detail/client_error.cc.i
 
 Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib/CMakeFiles/rpc.dir/lib/rpc/detail/client_error.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/rpc.dir/lib/rpc/detail/client_error.cc.s"
-	cd /home/ros20/yolov8/catkin_ws/build/Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/d/AirSim/external/rpclib/rpclib-2.3.0/lib/rpc/detail/client_error.cc -o CMakeFiles/rpc.dir/lib/rpc/detail/client_error.cc.s
+	cd /home/markgodtop/catkin_ws/build/Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/markgodtop/AirSim/external/rpclib/rpclib-2.3.0/lib/rpc/detail/client_error.cc -o CMakeFiles/rpc.dir/lib/rpc/detail/client_error.cc.s
 
 Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib/CMakeFiles/rpc.dir/lib/rpc/nonstd/optional.cc.o: Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib/CMakeFiles/rpc.dir/flags.make
-Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib/CMakeFiles/rpc.dir/lib/rpc/nonstd/optional.cc.o: /mnt/d/AirSim/external/rpclib/rpclib-2.3.0/lib/rpc/nonstd/optional.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ros20/yolov8/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib/CMakeFiles/rpc.dir/lib/rpc/nonstd/optional.cc.o"
-	cd /home/ros20/yolov8/catkin_ws/build/Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/rpc.dir/lib/rpc/nonstd/optional.cc.o -c /mnt/d/AirSim/external/rpclib/rpclib-2.3.0/lib/rpc/nonstd/optional.cc
+Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib/CMakeFiles/rpc.dir/lib/rpc/nonstd/optional.cc.o: /home/markgodtop/AirSim/external/rpclib/rpclib-2.3.0/lib/rpc/nonstd/optional.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/markgodtop/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib/CMakeFiles/rpc.dir/lib/rpc/nonstd/optional.cc.o"
+	cd /home/markgodtop/catkin_ws/build/Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/rpc.dir/lib/rpc/nonstd/optional.cc.o -c /home/markgodtop/AirSim/external/rpclib/rpclib-2.3.0/lib/rpc/nonstd/optional.cc
 
 Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib/CMakeFiles/rpc.dir/lib/rpc/nonstd/optional.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/rpc.dir/lib/rpc/nonstd/optional.cc.i"
-	cd /home/ros20/yolov8/catkin_ws/build/Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/d/AirSim/external/rpclib/rpclib-2.3.0/lib/rpc/nonstd/optional.cc > CMakeFiles/rpc.dir/lib/rpc/nonstd/optional.cc.i
+	cd /home/markgodtop/catkin_ws/build/Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/markgodtop/AirSim/external/rpclib/rpclib-2.3.0/lib/rpc/nonstd/optional.cc > CMakeFiles/rpc.dir/lib/rpc/nonstd/optional.cc.i
 
 Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib/CMakeFiles/rpc.dir/lib/rpc/nonstd/optional.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/rpc.dir/lib/rpc/nonstd/optional.cc.s"
-	cd /home/ros20/yolov8/catkin_ws/build/Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/d/AirSim/external/rpclib/rpclib-2.3.0/lib/rpc/nonstd/optional.cc -o CMakeFiles/rpc.dir/lib/rpc/nonstd/optional.cc.s
+	cd /home/markgodtop/catkin_ws/build/Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/markgodtop/AirSim/external/rpclib/rpclib-2.3.0/lib/rpc/nonstd/optional.cc -o CMakeFiles/rpc.dir/lib/rpc/nonstd/optional.cc.s
 
 Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib/CMakeFiles/rpc.dir/dependencies/src/format.cc.o: Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib/CMakeFiles/rpc.dir/flags.make
-Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib/CMakeFiles/rpc.dir/dependencies/src/format.cc.o: /mnt/d/AirSim/external/rpclib/rpclib-2.3.0/dependencies/src/format.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ros20/yolov8/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib/CMakeFiles/rpc.dir/dependencies/src/format.cc.o"
-	cd /home/ros20/yolov8/catkin_ws/build/Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/rpc.dir/dependencies/src/format.cc.o -c /mnt/d/AirSim/external/rpclib/rpclib-2.3.0/dependencies/src/format.cc
+Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib/CMakeFiles/rpc.dir/dependencies/src/format.cc.o: /home/markgodtop/AirSim/external/rpclib/rpclib-2.3.0/dependencies/src/format.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/markgodtop/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib/CMakeFiles/rpc.dir/dependencies/src/format.cc.o"
+	cd /home/markgodtop/catkin_ws/build/Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/rpc.dir/dependencies/src/format.cc.o -c /home/markgodtop/AirSim/external/rpclib/rpclib-2.3.0/dependencies/src/format.cc
 
 Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib/CMakeFiles/rpc.dir/dependencies/src/format.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/rpc.dir/dependencies/src/format.cc.i"
-	cd /home/ros20/yolov8/catkin_ws/build/Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/d/AirSim/external/rpclib/rpclib-2.3.0/dependencies/src/format.cc > CMakeFiles/rpc.dir/dependencies/src/format.cc.i
+	cd /home/markgodtop/catkin_ws/build/Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/markgodtop/AirSim/external/rpclib/rpclib-2.3.0/dependencies/src/format.cc > CMakeFiles/rpc.dir/dependencies/src/format.cc.i
 
 Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib/CMakeFiles/rpc.dir/dependencies/src/format.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/rpc.dir/dependencies/src/format.cc.s"
-	cd /home/ros20/yolov8/catkin_ws/build/Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/d/AirSim/external/rpclib/rpclib-2.3.0/dependencies/src/format.cc -o CMakeFiles/rpc.dir/dependencies/src/format.cc.s
+	cd /home/markgodtop/catkin_ws/build/Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/markgodtop/AirSim/external/rpclib/rpclib-2.3.0/dependencies/src/format.cc -o CMakeFiles/rpc.dir/dependencies/src/format.cc.s
 
 Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib/CMakeFiles/rpc.dir/dependencies/src/posix.cc.o: Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib/CMakeFiles/rpc.dir/flags.make
-Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib/CMakeFiles/rpc.dir/dependencies/src/posix.cc.o: /mnt/d/AirSim/external/rpclib/rpclib-2.3.0/dependencies/src/posix.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ros20/yolov8/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib/CMakeFiles/rpc.dir/dependencies/src/posix.cc.o"
-	cd /home/ros20/yolov8/catkin_ws/build/Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/rpc.dir/dependencies/src/posix.cc.o -c /mnt/d/AirSim/external/rpclib/rpclib-2.3.0/dependencies/src/posix.cc
+Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib/CMakeFiles/rpc.dir/dependencies/src/posix.cc.o: /home/markgodtop/AirSim/external/rpclib/rpclib-2.3.0/dependencies/src/posix.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/markgodtop/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib/CMakeFiles/rpc.dir/dependencies/src/posix.cc.o"
+	cd /home/markgodtop/catkin_ws/build/Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/rpc.dir/dependencies/src/posix.cc.o -c /home/markgodtop/AirSim/external/rpclib/rpclib-2.3.0/dependencies/src/posix.cc
 
 Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib/CMakeFiles/rpc.dir/dependencies/src/posix.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/rpc.dir/dependencies/src/posix.cc.i"
-	cd /home/ros20/yolov8/catkin_ws/build/Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/d/AirSim/external/rpclib/rpclib-2.3.0/dependencies/src/posix.cc > CMakeFiles/rpc.dir/dependencies/src/posix.cc.i
+	cd /home/markgodtop/catkin_ws/build/Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/markgodtop/AirSim/external/rpclib/rpclib-2.3.0/dependencies/src/posix.cc > CMakeFiles/rpc.dir/dependencies/src/posix.cc.i
 
 Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib/CMakeFiles/rpc.dir/dependencies/src/posix.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/rpc.dir/dependencies/src/posix.cc.s"
-	cd /home/ros20/yolov8/catkin_ws/build/Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/d/AirSim/external/rpclib/rpclib-2.3.0/dependencies/src/posix.cc -o CMakeFiles/rpc.dir/dependencies/src/posix.cc.s
+	cd /home/markgodtop/catkin_ws/build/Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/markgodtop/AirSim/external/rpclib/rpclib-2.3.0/dependencies/src/posix.cc -o CMakeFiles/rpc.dir/dependencies/src/posix.cc.s
 
 # Object files for target rpc
 rpc_OBJECTS = \
@@ -260,8 +260,8 @@ output/lib/librpc.so: Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib/CMakeFil
 output/lib/librpc.so: Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib/CMakeFiles/rpc.dir/dependencies/src/posix.cc.o
 output/lib/librpc.so: Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib/CMakeFiles/rpc.dir/build.make
 output/lib/librpc.so: Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib/CMakeFiles/rpc.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/ros20/yolov8/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Linking CXX shared library ../../../../output/lib/librpc.so"
-	cd /home/ros20/yolov8/catkin_ws/build/Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/rpc.dir/link.txt --verbose=$(VERBOSE)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/markgodtop/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Linking CXX shared library ../../../../output/lib/librpc.so"
+	cd /home/markgodtop/catkin_ws/build/Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/rpc.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib/CMakeFiles/rpc.dir/build: output/lib/librpc.so
@@ -269,10 +269,10 @@ Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib/CMakeFiles/rpc.dir/build: outp
 .PHONY : Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib/CMakeFiles/rpc.dir/build
 
 Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib/CMakeFiles/rpc.dir/clean:
-	cd /home/ros20/yolov8/catkin_ws/build/Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib && $(CMAKE_COMMAND) -P CMakeFiles/rpc.dir/cmake_clean.cmake
+	cd /home/markgodtop/catkin_ws/build/Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib && $(CMAKE_COMMAND) -P CMakeFiles/rpc.dir/cmake_clean.cmake
 .PHONY : Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib/CMakeFiles/rpc.dir/clean
 
 Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib/CMakeFiles/rpc.dir/depend:
-	cd /home/ros20/yolov8/catkin_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ros20/yolov8/catkin_ws/src /mnt/d/AirSim/external/rpclib/rpclib-2.3.0 /home/ros20/yolov8/catkin_ws/build /home/ros20/yolov8/catkin_ws/build/Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib /home/ros20/yolov8/catkin_ws/build/Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib/CMakeFiles/rpc.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/markgodtop/catkin_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/markgodtop/catkin_ws/src /home/markgodtop/AirSim/external/rpclib/rpclib-2.3.0 /home/markgodtop/catkin_ws/build /home/markgodtop/catkin_ws/build/Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib /home/markgodtop/catkin_ws/build/Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib/CMakeFiles/rpc.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : Yolov8_ros/plan_and_control/rpclib_wrapper/rpclib/CMakeFiles/rpc.dir/depend
 

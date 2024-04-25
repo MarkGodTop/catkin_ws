@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/ros20/yolov8/catkin_ws/src
+CMAKE_SOURCE_DIR = /home/markgodtop/catkin_ws/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/ros20/yolov8/catkin_ws/build
+CMAKE_BINARY_DIR = /home/markgodtop/catkin_ws/build
 
 # Utility rule file for _catkin_empty_exported_target.
 
@@ -63,10 +63,10 @@ Yolov8_ros/trajectory_generator/CMakeFiles/_catkin_empty_exported_target.dir/bui
 .PHONY : Yolov8_ros/trajectory_generator/CMakeFiles/_catkin_empty_exported_target.dir/build
 
 Yolov8_ros/trajectory_generator/CMakeFiles/_catkin_empty_exported_target.dir/clean:
-	cd /home/ros20/yolov8/catkin_ws/build/Yolov8_ros/trajectory_generator && $(CMAKE_COMMAND) -P CMakeFiles/_catkin_empty_exported_target.dir/cmake_clean.cmake
+	cd /home/markgodtop/catkin_ws/build/Yolov8_ros/trajectory_generator && $(CMAKE_COMMAND) -P CMakeFiles/_catkin_empty_exported_target.dir/cmake_clean.cmake
 .PHONY : Yolov8_ros/trajectory_generator/CMakeFiles/_catkin_empty_exported_target.dir/clean
 
 Yolov8_ros/trajectory_generator/CMakeFiles/_catkin_empty_exported_target.dir/depend:
-	cd /home/ros20/yolov8/catkin_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ros20/yolov8/catkin_ws/src /home/ros20/yolov8/catkin_ws/src/Yolov8_ros/trajectory_generator /home/ros20/yolov8/catkin_ws/build /home/ros20/yolov8/catkin_ws/build/Yolov8_ros/trajectory_generator /home/ros20/yolov8/catkin_ws/build/Yolov8_ros/trajectory_generator/CMakeFiles/_catkin_empty_exported_target.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/markgodtop/catkin_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/markgodtop/catkin_ws/src /home/markgodtop/catkin_ws/src/Yolov8_ros/trajectory_generator /home/markgodtop/catkin_ws/build /home/markgodtop/catkin_ws/build/Yolov8_ros/trajectory_generator /home/markgodtop/catkin_ws/build/Yolov8_ros/trajectory_generator/CMakeFiles/_catkin_empty_exported_target.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : Yolov8_ros/trajectory_generator/CMakeFiles/_catkin_empty_exported_target.dir/depend
 

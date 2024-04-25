@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "/home/ros20/yolov8/catkin_ws/devel/lib/libtracking_controller.pdb"
-  "/home/ros20/yolov8/catkin_ws/devel/lib/libtracking_controller.so"
+  "/home/markgodtop/catkin_ws/devel/lib/libtracking_controller.pdb"
+  "/home/markgodtop/catkin_ws/devel/lib/libtracking_controller.so"
   "CMakeFiles/tracking_controller.dir/src/geometric_controller.cpp.o"
 )
 

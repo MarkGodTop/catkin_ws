@@ -1,7 +1,7 @@
 file(REMOVE_RECURSE
-  "/home/ros20/yolov8/catkin_ws/devel/share/roseus/ros/yolov8_ros_msgs/manifest.l"
-  "/home/ros20/yolov8/catkin_ws/devel/share/roseus/ros/yolov8_ros_msgs/msg/BoundingBox.l"
-  "/home/ros20/yolov8/catkin_ws/devel/share/roseus/ros/yolov8_ros_msgs/msg/BoundingBoxes.l"
+  "/home/markgodtop/catkin_ws/devel/share/roseus/ros/yolov8_ros_msgs/manifest.l"
+  "/home/markgodtop/catkin_ws/devel/share/roseus/ros/yolov8_ros_msgs/msg/BoundingBox.l"
+  "/home/markgodtop/catkin_ws/devel/share/roseus/ros/yolov8_ros_msgs/msg/BoundingBoxes.l"
   "CMakeFiles/yolov8_ros_msgs_generate_messages_eus"
 )
 
