@@ -1,21 +1,16 @@
 #include "plan_and_control/trajectory_replan_node.h"
-#include <fstream>
-#include <jsoncpp/json/json.h>
-// #include <yaml-cpp/yaml.h>
-#include <vector>
-#include <regex>
-#include <thread>
-#include <atomic>
-using namespace Json;
-using namespace std;
+
+
+
 msr::airlib::MultirotorRpcLibClient client("192.168.1.51");
+ThreadPool threadPool(4);
 TrajectoryReplanNode::TrajectoryReplanNode(const ros::NodeHandle &nh, const ros::NodeHandle &nh_private) 
 :nh_(nh), nh_private_(nh_private), got_circle_flag_(false) {
     Json::Value root;
     Json::CharReaderBuilder builder;
     std::ifstream i("/home/markgodtop/catkin_ws/1.json", std::ifstream::binary);
     std::string errs;
-    if (!Json::parseFromStream(builder, i, &root, &errs)) {
+    if (!Json::parseFromStream(builder, i, &root, &errs)) { 
         std::cerr << "Error opening or parsing JSON file: " << errs << std::endl;
         return;
     }
@@ -104,8 +99,7 @@ TrajectoryReplanNode::TrajectoryReplanNode(const ros::NodeHandle &nh, const ros:
     cmd_vis_pub_ = nh_.advertise<visualization_msgs::Marker>("/cmd_vis",10);
     desiredPose_pub_ = nh_.advertise<geometry_msgs::PoseStamped>("/desiredPose", 10);
     currentPose_pub_ = nh_.advertise<geometry_msgs::PoseStamped>("/currentPose", 10);
-    timer_ = nh_.createTimer(ros::Duration(1.0/300), &TrajectoryReplanNode::periodicCallback, this);
-    // timer_ = nh_.createTimer(ros::Duration(0.5), &TrajectoryReplanNode::getCircleCenter, this);
+    timer_ = nh_.createTimer(ros::Duration(1/300), &TrajectoryReplanNode::getCircleCenter, this);
     //cout << "waypoint init failed!" << endl;
     
     takeoff_client_ = nh_.serviceClient<uav_msgs::Takeoff>("/airsim_node/" + vehicle + "/takeoff");//get params from sever
@@ -131,28 +125,7 @@ TrajectoryReplanNode::TrajectoryReplanNode(const ros::NodeHandle &nh, const ros:
 
 TrajectoryReplanNode::~TrajectoryReplanNode() {}
 
-void TrajectoryReplanNode::periodicCallback(const ros::TimerEvent &e) {
-    if (odom_) {
-        // 只有当odom_ptr不为空时，才访问其成员
-        desiredStatesPub();
-        displayTrajWithColor();
-}
-    
-}
-// void TrajectoryReplanNode::getCircleCenter(const ros::TimerEvent &e) {
-    // Eigen::Vector3d waypoint(waypoints_(row_idx_,0), waypoints_(row_idx_,1), waypoints_(row_idx_,2));
-    // double d = (waypoint - odom_pos_).norm();
-    // //ROS_INFO("dis to goal: %f", d);
-    // //ROS_INFO("goal : %f %f %f", waypoints_(row_idx_,0), waypoints_(row_idx_,1), waypoints_(row_idx_,2));
-    // if (d < 2.5) {
-    //     ++row_idx_;
-    //     got_circle_flag_ = false;
-    //     if (row_idx_ == waypoint_num_) {
-    //         --row_idx_;
-    //     }
-    // }
-    //cout << "got_circle:" << got_circle_flag_ << endl;    
-// }
+
 void TrajectoryReplanNode::depthImageCallback(const sensor_msgs::ImageConstPtr& msg) {
     if(yolo_ == nullptr){
         return;
@@ -279,20 +252,9 @@ void TrajectoryReplanNode::trajectoryGenerate(const Eigen::MatrixXd &waypoints) 
         final_time_ += ros::Duration(times_(i));
     }
 }
-std::atomic<bool> continuePublishing(true);
-bool reached_waypoint = false;
-std::atomic<int> flag(0);
-std::atomic<int> num(0);
-double distance1 = 0;
-std::mutex mtx1;
-std::mutex mtx2;
-std::mutex mtx3;
-std::mutex mtx4;
-std::mutex mtx5;
-std::vector<std::shared_ptr<std::thread>> publishThreads; // 用于存储线程对象
-std::unordered_map<std::string, int> set_t;
+
 void TrajectoryReplanNode::shared_yolo(){
-    std::lock_guard<std::mutex> lock1(mtx1);
+    // std::lock_guard<std::mutex> lock1(mtx1);
     if(yolo_ == nullptr){
         return;
     }
@@ -332,88 +294,61 @@ void TrajectoryReplanNode::shared_yolo(){
 }
 void TrajectoryReplanNode::publishTopic_yolo(const int& data) {
     
-    std::lock_guard<std::mutex> lock2(mtx2);
+    // std::lock_guard<std::mutex> lock2(mtx2);
     
     while (continuePublishing.load() && flag.load() < data) {      
         shared_yolo();// 假设你想要使用第一个边界框
     }
-    if (flag.load() == data) {
-        auto threadId = std::this_thread::get_id();
-        for (auto it = publishThreads.begin(); it != publishThreads.end(); ++it) {
-            if ((*it)->get_id() == threadId) {
-                (*it)->detach(); // 分离线程，使其成为后台线程
-                publishThreads.erase(it); // 从线程向量中删除线程
-                break;
-            }
-        }
-    }
+    // if (flag.load() == data) {
+    //     auto threadId = std::this_thread::get_id();
+    //     for (auto it = publishThreads.begin(); it != publishThreads.end(); ++it) {
+    //         if ((*it)->get_id() == threadId) {
+    //             (*it)->detach(); // 分离线程，使其成为后台线程
+    //             publishThreads.erase(it); // 从线程向量中删除线程
+    //             break;
+    //         }
+    //     }
+    // }
 }
 void TrajectoryReplanNode::publishTopic_ceju(const int& data) {   
-    std::lock_guard<std::mutex> lock5(mtx5);   
+    // std::lock_guard<std::mutex> lock5(mtx5);   
     while (continuePublishing.load() && flag.load() < data) {      
         uint64_t ms = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count();    
         client.simUpdateLocalTargetDistanceData(vehicle, values.d, values.x, values.y, values.z, values.class_val, true);
         std::this_thread::sleep_for(std::chrono::milliseconds(500));
     }
-    if (flag.load() == data) {
-        auto threadId = std::this_thread::get_id();        
-        for (auto it = publishThreads.begin(); it != publishThreads.end(); ++it) {
-            if ((*it)->get_id() == threadId) {
-                (*it)->detach(); // 分离线程，使其成为后台线程
-                publishThreads.erase(it); // 从线程向量中删除线程
-                break;
-            }
-        }
-    }
 }
 void TrajectoryReplanNode::publishTopic_dingwei(const int& data) {  
-    std::lock_guard<std::mutex> lock3(mtx3);
+    // std::lock_guard<std::mutex> lock3(mtx3);
     while (continuePublishing.load() && flag.load() < data) {
         uint64_t ms = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count();    
         client.simUpdateLocalPositionData(vehicle, odom_->pose.pose.position.x, odom_->pose.pose.position.y, odom_->pose.pose.position.z, ms, 7);
         std::this_thread::sleep_for(std::chrono::milliseconds(500));  
     }
-    if (flag.load() == data) {
-        auto threadId = std::this_thread::get_id();
-        
-        for (auto it = publishThreads.begin(); it != publishThreads.end(); ++it) {
-            if ((*it)->get_id() == threadId) {
-                (*it)->detach(); // 分离线程，使其成为后台线程
-                publishThreads.erase(it); // 从线程向量中删除线程
-                break;
-            }
-        }
-    }
 }
 void TrajectoryReplanNode::publishTopic_dingzi(const int& data) {  
-    std::lock_guard<std::mutex> lock4(mtx4);  
+    // std::lock_guard<std::mutex> lock4(mtx4);  
     while (continuePublishing.load() && flag.load() < data) {
         uint64_t ms = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count();    
         client.simUpdateLocalRotationData(vehicle, odom_->pose.pose.orientation.w, odom_->pose.pose.orientation.x, odom_->pose.pose.orientation.y,odom_->pose.pose.orientation.z, ms);
         std::this_thread::sleep_for(std::chrono::milliseconds(500)); 
     }
-    if (flag.load() == data) {
-        auto threadId = std::this_thread::get_id();
-        
-        for (auto it = publishThreads.begin(); it != publishThreads.end(); ++it) {
-            if ((*it)->get_id() == threadId) {
-                (*it)->detach(); // 分离线程，使其成为后台线程
-                publishThreads.erase(it); // 从线程向量中删除线程
-                break;
-            }
-        }
-    }
 }
-void TrajectoryReplanNode::desiredStatesPub() {
-    cmd_.header = odom_->header;
-    cmd_.header.frame_id = odom_->header.frame_id;
-    cmd_.header.stamp = odom_->header.stamp;
-    traj_duration_ = (final_time_ - start_time_).toSec();
-    //ROS_WARN("timesum:%f:",trajDuration_);
-    //cout << "time sum:" << trajDuration_ << endl;
-    double t = max(0.0, (odom_->header.stamp - start_time_).toSec());
-    //cout <<odom_->header.stamp << startTime_ << endl;
-    //cout << "current:" << t << endl;
+void TrajectoryReplanNode::getCircleCenter(const ros::TimerEvent &e) {
+    // Eigen::Vector3d waypoint(waypoints_(row_idx_,0), waypoints_(row_idx_,1), waypoints_(row_idx_,2));
+    // double d = (waypoint - odom_pos_).norm();
+    // //ROS_INFO("dis to goal: %f", d);
+    // //ROS_INFO("goal : %f %f %f", waypoints_(row_idx_,0), waypoints_(row_idx_,1), waypoints_(row_idx_,2));
+    // if (d < 2.5) {
+    //     ++row_idx_;
+    //     got_circle_flag_ = false;
+    //     if (row_idx_ == waypoint_num_) {
+    //         --row_idx_;
+    //     }
+    // }
+    //cout << "got_circle:" << got_circle_flag_ << endl; 
+    if(odom_ == nullptr)
+        return;
     for (int i = 0; i < waypoints_.rows(); ++i) {
         // 计算当前位置与waypoint点之间的距离     
         geometry_msgs::Point current_pos_ros;
@@ -444,8 +379,9 @@ void TrajectoryReplanNode::desiredStatesPub() {
                     num.store(std::stoi(numStr)); // 将数字字符串转换为整数
                     // 发布话题直到flag等于那个数字
                     if(set_t.find("iouTargetAccuracy") == set_t.end() || set_t["iouTargetAccuracy"] < num.load()){
-                        auto thread = std::make_shared<std::thread>(&TrajectoryReplanNode::publishTopic_yolo, this, num.load());
-                        publishThreads.emplace_back(thread);
+                        // auto thread = std::make_shared<std::thread>(&TrajectoryReplanNode::publishTopic_yolo, this, num.load());
+                        // publishThreads.emplace_back(thread);
+                        threadPool.enqueue(&TrajectoryReplanNode::publishTopic_yolo, this, num.load());
                         set_t["iouTargetAccuracy"] = num.load();
                     }
                     
@@ -461,8 +397,9 @@ void TrajectoryReplanNode::desiredStatesPub() {
                     num.store(std::stoi(numStr)); // 将数字字符串转换为整数
                     // 发布话题直到flag等于那个数字
                     if(set_t.find("attitudeAccuracy") == set_t.end() || set_t["attitudeAccuracy"] < num.load()){
-                        auto thread = std::make_shared<std::thread>(&TrajectoryReplanNode::publishTopic_dingzi, this, num.load());
-                        publishThreads.emplace_back(thread);
+                        // auto thread = std::make_shared<std::thread>(&TrajectoryReplanNode::publishTopic_dingzi, this, num.load());
+                        // publishThreads.emplace_back(thread);
+                        threadPool.enqueue(&TrajectoryReplanNode::publishTopic_dingzi, this, num.load());
                         set_t["attitudeAccuracy"] = num.load();
                     }
                 } else {
@@ -478,8 +415,9 @@ void TrajectoryReplanNode::desiredStatesPub() {
                     num.store(std::stoi(numStr)); // 将数字字符串转换为整数
                     // 发布话题直到flag等于那个数字
                     if(set_t.find("positionMeasureFour") == set_t.end() || set_t["positionMeasureFour"] < num.load()){
-                        auto thread = std::make_shared<std::thread>(&TrajectoryReplanNode::publishTopic_dingwei, this, num.load());
-                        publishThreads.emplace_back(thread);
+                        // auto thread = std::make_shared<std::thread>(&TrajectoryReplanNode::publishTopic_dingwei, this, num.load());
+                        // publishThreads.emplace_back(thread);
+                        threadPool.enqueue(&TrajectoryReplanNode::publishTopic_dingwei, this, num.load());
                         set_t["positionMeasureFour"] = num.load();
                     }
                 } else {
@@ -495,8 +433,9 @@ void TrajectoryReplanNode::desiredStatesPub() {
                     num.store(std::stoi(numStr)); // 将数字字符串转换为整数
                     // 发布话题直到flag等于那个数字
                     if(set_t.find("dynamicRangingAccuracy") == set_t.end() || set_t["positionMeasureFour"] < num.load()){
-                        auto thread = std::make_shared<std::thread>(&TrajectoryReplanNode::publishTopic_ceju, this, num.load());
-                        publishThreads.emplace_back(thread);
+                        // auto thread = std::make_shared<std::thread>(&TrajectoryReplanNode::publishTopic_ceju, this, num.load());
+                        // publishThreads.emplace_back(thread);
+                        threadPool.enqueue(&TrajectoryReplanNode::publishTopic_ceju, this, num.load());
                         set_t["dynamicRangingAccuracy"] = num.load();
                     }
                 } else {
@@ -510,7 +449,14 @@ void TrajectoryReplanNode::desiredStatesPub() {
             }
         }
         reached_waypoint = false;
-    }
+    }   
+}
+void TrajectoryReplanNode::desiredStatesPub() {
+    cmd_.header = odom_->header;
+    cmd_.header.frame_id = odom_->header.frame_id;
+    cmd_.header.stamp = odom_->header.stamp;
+    traj_duration_ = (final_time_ - start_time_).toSec();
+    double t = max(0.0, (odom_->header.stamp - start_time_).toSec());
     if (t > traj_duration_) {
         cmd_.position.x = odom_->pose.pose.position.x;
         cmd_.position.y = odom_->pose.pose.position.y;
@@ -596,8 +542,8 @@ void TrajectoryReplanNode::odomCallback(const nav_msgs::OdometryConstPtr &msg) {
     currentPose_.pose.position = msg->pose.pose.position;
     currentPose_.pose.orientation = msg->pose.pose.orientation;
     currentPose_pub_.publish(currentPose_);
-    // desiredStatesPub();
-    // displayTrajWithColor();
+    desiredStatesPub();
+    displayTrajWithColor();
 }
 
 Eigen::VectorXd TrajectoryReplanNode::timeAllocation(const Eigen::MatrixXd &waypoints) {
@@ -626,73 +572,73 @@ Eigen::VectorXd TrajectoryReplanNode::timeAllocation(const Eigen::MatrixXd &wayp
 
 
 void TrajectoryReplanNode::displayTrajWithColor() {
-  visualization_msgs::Marker points, line_strip;
-  points.header.frame_id = line_strip.header.frame_id = "map";
-  points.header.stamp = line_strip.header.stamp = ros::Time::now();
-  points.ns = line_strip.ns = "traj";
-  points.id = 0;
-  line_strip.id = 1;
-  points.action = line_strip.action = visualization_msgs::Marker::ADD;
-  points.pose.orientation.w =line_strip.pose.orientation.w = 1.0;
-  points.type = visualization_msgs::Marker::POINTS;
-  line_strip.type = visualization_msgs::Marker::LINE_STRIP;
-  points.scale.x = 0.5;
-  points.scale.y = 0.5;
-  line_strip.scale.x = 0.3;
-  points.color.a = 1.0;
-  points.color.g = 1.0;
-  line_strip.color.a = 1.0;
-  line_strip.color.b = 1.0;
-  line_strip.color.g = 1.0;
-  geometry_msgs::Point pt;
-  Eigen::Vector3d pos;
-  for (int i = 0; i < segment_num_; ++i) {
-      for (double t = 0; t < times_(i); t += 0.01) {
-          pos = trajPlanWaypoints_->getPosition(coeff_matrix_, i, t);
-          pt.x = pos(0);
-          pt.y = pos(1);
-          pt.z = pos(2);
-          line_strip.points.emplace_back(pt);
-      }
+    visualization_msgs::Marker points, line_strip;
+    points.header.frame_id = line_strip.header.frame_id = "map";
+    points.header.stamp = line_strip.header.stamp = ros::Time::now();
+    points.ns = line_strip.ns = "traj";
+    points.id = 0;
+    line_strip.id = 1;
+    points.action = line_strip.action = visualization_msgs::Marker::ADD;
+    points.pose.orientation.w =line_strip.pose.orientation.w = 1.0;
+    points.type = visualization_msgs::Marker::POINTS;
+    line_strip.type = visualization_msgs::Marker::LINE_STRIP;
+    points.scale.x = 0.5;
+    points.scale.y = 0.5;
+    line_strip.scale.x = 0.3;
+    points.color.a = 1.0;
+    points.color.g = 1.0;
+    line_strip.color.a = 1.0;
+    line_strip.color.b = 1.0;
+    line_strip.color.g = 1.0;
+    geometry_msgs::Point pt;
+    Eigen::Vector3d pos;
+    for (int i = 0; i < segment_num_; ++i) {
+        for (double t = 0; t < times_(i); t += 0.01) {
+            pos = trajPlanWaypoints_->getPosition(coeff_matrix_, i, t);
+            pt.x = pos(0);
+            pt.y = pos(1);
+            pt.z = pos(2);
+            line_strip.points.emplace_back(pt);
+        }
+        }
+    for (int i = 0; i < waypoint_num_; ++i) {
+        pt.x = waypoints_(i,0);
+        pt.y = waypoints_(i,1);
+        pt.z = waypoints_(i,2);
+        points.points.emplace_back(pt);
     }
-  for (int i = 0; i < waypoint_num_; ++i) {
-      pt.x = waypoints_(i,0);
-      pt.y = waypoints_(i,1);
-      pt.z = waypoints_(i,2);
-      points.points.emplace_back(pt);
-  }
-  traj_vis_pub_.publish(points);
-  traj_vis_pub_.publish(line_strip);
+    traj_vis_pub_.publish(points);
+    traj_vis_pub_.publish(line_strip);
 
-  ros::Duration(0.001).sleep();
+    ros::Duration(0.001).sleep();
 }
 
 void TrajectoryReplanNode::drawCmd(const Eigen::Vector3d& pos, const Eigen::Vector3d& vec, const int& id,
              const Eigen::Vector4d& color) {
-  visualization_msgs::Marker mk_state;
-  mk_state.header.frame_id = "map";
-  mk_state.header.stamp = ros::Time::now();
-  mk_state.id = id;
-  mk_state.type = visualization_msgs::Marker::ARROW;
-  mk_state.action = visualization_msgs::Marker::ADD;
-  mk_state.pose.orientation.w = 1.0;
-  mk_state.scale.x = 0.1;
-  mk_state.scale.y = 0.2;
-  mk_state.scale.z = 0.3;
-  geometry_msgs::Point pt;
-  pt.x = pos(0);
-  pt.y = pos(1);
-  pt.z = pos(2);
-  mk_state.points.emplace_back(pt);
-  pt.x = pos(0) + vec(0);
-  pt.y = pos(1) + vec(1);
-  pt.z = pos(2) + vec(2);
-  mk_state.points.emplace_back(pt);
-  mk_state.color.r = color(0);
-  mk_state.color.g = color(1);
-  mk_state.color.b = color(2);
-  mk_state.color.a = color(3);
-  cmd_vis_pub_.publish(mk_state);
+    visualization_msgs::Marker mk_state;
+    mk_state.header.frame_id = "map";
+    mk_state.header.stamp = ros::Time::now();
+    mk_state.id = id;
+    mk_state.type = visualization_msgs::Marker::ARROW;
+    mk_state.action = visualization_msgs::Marker::ADD;
+    mk_state.pose.orientation.w = 1.0;
+    mk_state.scale.x = 0.1;
+    mk_state.scale.y = 0.2;
+    mk_state.scale.z = 0.3;
+    geometry_msgs::Point pt;
+    pt.x = pos(0);
+    pt.y = pos(1);
+    pt.z = pos(2);
+    mk_state.points.emplace_back(pt);
+    pt.x = pos(0) + vec(0);
+    pt.y = pos(1) + vec(1);
+    pt.z = pos(2) + vec(2);
+    mk_state.points.emplace_back(pt);
+    mk_state.color.r = color(0);
+    mk_state.color.g = color(1);
+    mk_state.color.b = color(2);
+    mk_state.color.a = color(3);
+    cmd_vis_pub_.publish(mk_state);
 }
 
 int main(int argc, char **argv) {

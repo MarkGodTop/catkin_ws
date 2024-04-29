@@ -288,7 +288,7 @@ int main(int argc, char **argv)
     ros::init(argc, argv, "trajectory_publisher_node");
     ros::NodeHandle nh;
     ros::NodeHandle nh_p("~");
- 
+    
     TrajectoryPublisherNode trajectoryPublisherNode(nh, nh_p);
 
     ros::spin();
