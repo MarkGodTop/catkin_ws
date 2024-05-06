@@ -2,7 +2,7 @@
 
 message(STATUS "uav_msgs: 2 messages, 1 services")
 
-set(MSG_I_FLAGS "-Iuav_msgs:/home/markgodtop/catkin_ws/src/Yolov8_ros/uav_msgs/msg;-Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg;-Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg")
+set(MSG_I_FLAGS "-Iuav_msgs:/home/ros20/catkin_ws/src/Yolov8_ros/uav_msgs/msg;-Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg;-Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg")
 
 # Find all generators
 find_package(gencpp REQUIRED)
@@ -17,19 +17,19 @@ add_custom_target(uav_msgs_generate_messages ALL)
 
 
 
-get_filename_component(_filename "/home/markgodtop/catkin_ws/src/Yolov8_ros/uav_msgs/msg/AngleRateThrottle.msg" NAME_WE)
+get_filename_component(_filename "/home/ros20/catkin_ws/src/Yolov8_ros/uav_msgs/msg/AngleRateThrottle.msg" NAME_WE)
 add_custom_target(_uav_msgs_generate_messages_check_deps_${_filename}
-  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "uav_msgs" "/home/markgodtop/catkin_ws/src/Yolov8_ros/uav_msgs/msg/AngleRateThrottle.msg" ""
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "uav_msgs" "/home/ros20/catkin_ws/src/Yolov8_ros/uav_msgs/msg/AngleRateThrottle.msg" ""
 )
 
-get_filename_component(_filename "/home/markgodtop/catkin_ws/src/Yolov8_ros/uav_msgs/msg/DesiredStates.msg" NAME_WE)
+get_filename_component(_filename "/home/ros20/catkin_ws/src/Yolov8_ros/uav_msgs/msg/DesiredStates.msg" NAME_WE)
 add_custom_target(_uav_msgs_generate_messages_check_deps_${_filename}
-  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "uav_msgs" "/home/markgodtop/catkin_ws/src/Yolov8_ros/uav_msgs/msg/DesiredStates.msg" "geometry_msgs/Vector3:std_msgs/Header"
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "uav_msgs" "/home/ros20/catkin_ws/src/Yolov8_ros/uav_msgs/msg/DesiredStates.msg" "geometry_msgs/Vector3:std_msgs/Header"
 )
 
-get_filename_component(_filename "/home/markgodtop/catkin_ws/src/Yolov8_ros/uav_msgs/srv/Takeoff.srv" NAME_WE)
+get_filename_component(_filename "/home/ros20/catkin_ws/src/Yolov8_ros/uav_msgs/srv/Takeoff.srv" NAME_WE)
 add_custom_target(_uav_msgs_generate_messages_check_deps_${_filename}
-  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "uav_msgs" "/home/markgodtop/catkin_ws/src/Yolov8_ros/uav_msgs/srv/Takeoff.srv" ""
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "uav_msgs" "/home/ros20/catkin_ws/src/Yolov8_ros/uav_msgs/srv/Takeoff.srv" ""
 )
 
 #
@@ -39,13 +39,13 @@ add_custom_target(_uav_msgs_generate_messages_check_deps_${_filename}
 ### Section generating for lang: gencpp
 ### Generating Messages
 _generate_msg_cpp(uav_msgs
-  "/home/markgodtop/catkin_ws/src/Yolov8_ros/uav_msgs/msg/AngleRateThrottle.msg"
+  "/home/ros20/catkin_ws/src/Yolov8_ros/uav_msgs/msg/AngleRateThrottle.msg"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/uav_msgs
 )
 _generate_msg_cpp(uav_msgs
-  "/home/markgodtop/catkin_ws/src/Yolov8_ros/uav_msgs/msg/DesiredStates.msg"
+  "/home/ros20/catkin_ws/src/Yolov8_ros/uav_msgs/msg/DesiredStates.msg"
   "${MSG_I_FLAGS}"
   "/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Vector3.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/uav_msgs
@@ -53,7 +53,7 @@ _generate_msg_cpp(uav_msgs
 
 ### Generating Services
 _generate_srv_cpp(uav_msgs
-  "/home/markgodtop/catkin_ws/src/Yolov8_ros/uav_msgs/srv/Takeoff.srv"
+  "/home/ros20/catkin_ws/src/Yolov8_ros/uav_msgs/srv/Takeoff.srv"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/uav_msgs
@@ -71,11 +71,11 @@ add_custom_target(uav_msgs_generate_messages_cpp
 add_dependencies(uav_msgs_generate_messages uav_msgs_generate_messages_cpp)
 
 # add dependencies to all check dependencies targets
-get_filename_component(_filename "/home/markgodtop/catkin_ws/src/Yolov8_ros/uav_msgs/msg/AngleRateThrottle.msg" NAME_WE)
+get_filename_component(_filename "/home/ros20/catkin_ws/src/Yolov8_ros/uav_msgs/msg/AngleRateThrottle.msg" NAME_WE)
 add_dependencies(uav_msgs_generate_messages_cpp _uav_msgs_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/markgodtop/catkin_ws/src/Yolov8_ros/uav_msgs/msg/DesiredStates.msg" NAME_WE)
+get_filename_component(_filename "/home/ros20/catkin_ws/src/Yolov8_ros/uav_msgs/msg/DesiredStates.msg" NAME_WE)
 add_dependencies(uav_msgs_generate_messages_cpp _uav_msgs_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/markgodtop/catkin_ws/src/Yolov8_ros/uav_msgs/srv/Takeoff.srv" NAME_WE)
+get_filename_component(_filename "/home/ros20/catkin_ws/src/Yolov8_ros/uav_msgs/srv/Takeoff.srv" NAME_WE)
 add_dependencies(uav_msgs_generate_messages_cpp _uav_msgs_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
@@ -88,13 +88,13 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS uav_msgs_generate_messages_cpp)
 ### Section generating for lang: geneus
 ### Generating Messages
 _generate_msg_eus(uav_msgs
-  "/home/markgodtop/catkin_ws/src/Yolov8_ros/uav_msgs/msg/AngleRateThrottle.msg"
+  "/home/ros20/catkin_ws/src/Yolov8_ros/uav_msgs/msg/AngleRateThrottle.msg"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/uav_msgs
 )
 _generate_msg_eus(uav_msgs
-  "/home/markgodtop/catkin_ws/src/Yolov8_ros/uav_msgs/msg/DesiredStates.msg"
+  "/home/ros20/catkin_ws/src/Yolov8_ros/uav_msgs/msg/DesiredStates.msg"
   "${MSG_I_FLAGS}"
   "/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Vector3.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
   ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/uav_msgs
@@ -102,7 +102,7 @@ _generate_msg_eus(uav_msgs
 
 ### Generating Services
 _generate_srv_eus(uav_msgs
-  "/home/markgodtop/catkin_ws/src/Yolov8_ros/uav_msgs/srv/Takeoff.srv"
+  "/home/ros20/catkin_ws/src/Yolov8_ros/uav_msgs/srv/Takeoff.srv"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/uav_msgs
@@ -120,11 +120,11 @@ add_custom_target(uav_msgs_generate_messages_eus
 add_dependencies(uav_msgs_generate_messages uav_msgs_generate_messages_eus)
 
 # add dependencies to all check dependencies targets
-get_filename_component(_filename "/home/markgodtop/catkin_ws/src/Yolov8_ros/uav_msgs/msg/AngleRateThrottle.msg" NAME_WE)
+get_filename_component(_filename "/home/ros20/catkin_ws/src/Yolov8_ros/uav_msgs/msg/AngleRateThrottle.msg" NAME_WE)
 add_dependencies(uav_msgs_generate_messages_eus _uav_msgs_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/markgodtop/catkin_ws/src/Yolov8_ros/uav_msgs/msg/DesiredStates.msg" NAME_WE)
+get_filename_component(_filename "/home/ros20/catkin_ws/src/Yolov8_ros/uav_msgs/msg/DesiredStates.msg" NAME_WE)
 add_dependencies(uav_msgs_generate_messages_eus _uav_msgs_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/markgodtop/catkin_ws/src/Yolov8_ros/uav_msgs/srv/Takeoff.srv" NAME_WE)
+get_filename_component(_filename "/home/ros20/catkin_ws/src/Yolov8_ros/uav_msgs/srv/Takeoff.srv" NAME_WE)
 add_dependencies(uav_msgs_generate_messages_eus _uav_msgs_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
@@ -137,13 +137,13 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS uav_msgs_generate_messages_eus)
 ### Section generating for lang: genlisp
 ### Generating Messages
 _generate_msg_lisp(uav_msgs
-  "/home/markgodtop/catkin_ws/src/Yolov8_ros/uav_msgs/msg/AngleRateThrottle.msg"
+  "/home/ros20/catkin_ws/src/Yolov8_ros/uav_msgs/msg/AngleRateThrottle.msg"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/uav_msgs
 )
 _generate_msg_lisp(uav_msgs
-  "/home/markgodtop/catkin_ws/src/Yolov8_ros/uav_msgs/msg/DesiredStates.msg"
+  "/home/ros20/catkin_ws/src/Yolov8_ros/uav_msgs/msg/DesiredStates.msg"
   "${MSG_I_FLAGS}"
   "/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Vector3.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/uav_msgs
@@ -151,7 +151,7 @@ _generate_msg_lisp(uav_msgs
 
 ### Generating Services
 _generate_srv_lisp(uav_msgs
-  "/home/markgodtop/catkin_ws/src/Yolov8_ros/uav_msgs/srv/Takeoff.srv"
+  "/home/ros20/catkin_ws/src/Yolov8_ros/uav_msgs/srv/Takeoff.srv"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/uav_msgs
@@ -169,11 +169,11 @@ add_custom_target(uav_msgs_generate_messages_lisp
 add_dependencies(uav_msgs_generate_messages uav_msgs_generate_messages_lisp)
 
 # add dependencies to all check dependencies targets
-get_filename_component(_filename "/home/markgodtop/catkin_ws/src/Yolov8_ros/uav_msgs/msg/AngleRateThrottle.msg" NAME_WE)
+get_filename_component(_filename "/home/ros20/catkin_ws/src/Yolov8_ros/uav_msgs/msg/AngleRateThrottle.msg" NAME_WE)
 add_dependencies(uav_msgs_generate_messages_lisp _uav_msgs_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/markgodtop/catkin_ws/src/Yolov8_ros/uav_msgs/msg/DesiredStates.msg" NAME_WE)
+get_filename_component(_filename "/home/ros20/catkin_ws/src/Yolov8_ros/uav_msgs/msg/DesiredStates.msg" NAME_WE)
 add_dependencies(uav_msgs_generate_messages_lisp _uav_msgs_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/markgodtop/catkin_ws/src/Yolov8_ros/uav_msgs/srv/Takeoff.srv" NAME_WE)
+get_filename_component(_filename "/home/ros20/catkin_ws/src/Yolov8_ros/uav_msgs/srv/Takeoff.srv" NAME_WE)
 add_dependencies(uav_msgs_generate_messages_lisp _uav_msgs_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
@@ -186,13 +186,13 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS uav_msgs_generate_messages_lisp)
 ### Section generating for lang: gennodejs
 ### Generating Messages
 _generate_msg_nodejs(uav_msgs
-  "/home/markgodtop/catkin_ws/src/Yolov8_ros/uav_msgs/msg/AngleRateThrottle.msg"
+  "/home/ros20/catkin_ws/src/Yolov8_ros/uav_msgs/msg/AngleRateThrottle.msg"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/uav_msgs
 )
 _generate_msg_nodejs(uav_msgs
-  "/home/markgodtop/catkin_ws/src/Yolov8_ros/uav_msgs/msg/DesiredStates.msg"
+  "/home/ros20/catkin_ws/src/Yolov8_ros/uav_msgs/msg/DesiredStates.msg"
   "${MSG_I_FLAGS}"
   "/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Vector3.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
   ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/uav_msgs
@@ -200,7 +200,7 @@ _generate_msg_nodejs(uav_msgs
 
 ### Generating Services
 _generate_srv_nodejs(uav_msgs
-  "/home/markgodtop/catkin_ws/src/Yolov8_ros/uav_msgs/srv/Takeoff.srv"
+  "/home/ros20/catkin_ws/src/Yolov8_ros/uav_msgs/srv/Takeoff.srv"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/uav_msgs
@@ -218,11 +218,11 @@ add_custom_target(uav_msgs_generate_messages_nodejs
 add_dependencies(uav_msgs_generate_messages uav_msgs_generate_messages_nodejs)
 
 # add dependencies to all check dependencies targets
-get_filename_component(_filename "/home/markgodtop/catkin_ws/src/Yolov8_ros/uav_msgs/msg/AngleRateThrottle.msg" NAME_WE)
+get_filename_component(_filename "/home/ros20/catkin_ws/src/Yolov8_ros/uav_msgs/msg/AngleRateThrottle.msg" NAME_WE)
 add_dependencies(uav_msgs_generate_messages_nodejs _uav_msgs_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/markgodtop/catkin_ws/src/Yolov8_ros/uav_msgs/msg/DesiredStates.msg" NAME_WE)
+get_filename_component(_filename "/home/ros20/catkin_ws/src/Yolov8_ros/uav_msgs/msg/DesiredStates.msg" NAME_WE)
 add_dependencies(uav_msgs_generate_messages_nodejs _uav_msgs_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/markgodtop/catkin_ws/src/Yolov8_ros/uav_msgs/srv/Takeoff.srv" NAME_WE)
+get_filename_component(_filename "/home/ros20/catkin_ws/src/Yolov8_ros/uav_msgs/srv/Takeoff.srv" NAME_WE)
 add_dependencies(uav_msgs_generate_messages_nodejs _uav_msgs_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
@@ -235,13 +235,13 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS uav_msgs_generate_messages_nodejs)
 ### Section generating for lang: genpy
 ### Generating Messages
 _generate_msg_py(uav_msgs
-  "/home/markgodtop/catkin_ws/src/Yolov8_ros/uav_msgs/msg/AngleRateThrottle.msg"
+  "/home/ros20/catkin_ws/src/Yolov8_ros/uav_msgs/msg/AngleRateThrottle.msg"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/uav_msgs
 )
 _generate_msg_py(uav_msgs
-  "/home/markgodtop/catkin_ws/src/Yolov8_ros/uav_msgs/msg/DesiredStates.msg"
+  "/home/ros20/catkin_ws/src/Yolov8_ros/uav_msgs/msg/DesiredStates.msg"
   "${MSG_I_FLAGS}"
   "/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Vector3.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/uav_msgs
@@ -249,7 +249,7 @@ _generate_msg_py(uav_msgs
 
 ### Generating Services
 _generate_srv_py(uav_msgs
-  "/home/markgodtop/catkin_ws/src/Yolov8_ros/uav_msgs/srv/Takeoff.srv"
+  "/home/ros20/catkin_ws/src/Yolov8_ros/uav_msgs/srv/Takeoff.srv"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/uav_msgs
@@ -267,11 +267,11 @@ add_custom_target(uav_msgs_generate_messages_py
 add_dependencies(uav_msgs_generate_messages uav_msgs_generate_messages_py)
 
 # add dependencies to all check dependencies targets
-get_filename_component(_filename "/home/markgodtop/catkin_ws/src/Yolov8_ros/uav_msgs/msg/AngleRateThrottle.msg" NAME_WE)
+get_filename_component(_filename "/home/ros20/catkin_ws/src/Yolov8_ros/uav_msgs/msg/AngleRateThrottle.msg" NAME_WE)
 add_dependencies(uav_msgs_generate_messages_py _uav_msgs_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/markgodtop/catkin_ws/src/Yolov8_ros/uav_msgs/msg/DesiredStates.msg" NAME_WE)
+get_filename_component(_filename "/home/ros20/catkin_ws/src/Yolov8_ros/uav_msgs/msg/DesiredStates.msg" NAME_WE)
 add_dependencies(uav_msgs_generate_messages_py _uav_msgs_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/markgodtop/catkin_ws/src/Yolov8_ros/uav_msgs/srv/Takeoff.srv" NAME_WE)
+get_filename_component(_filename "/home/ros20/catkin_ws/src/Yolov8_ros/uav_msgs/srv/Takeoff.srv" NAME_WE)
 add_dependencies(uav_msgs_generate_messages_py _uav_msgs_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
@@ -340,7 +340,7 @@ if(TARGET std_msgs_generate_messages_nodejs)
 endif()
 
 if(genpy_INSTALL_DIR AND EXISTS ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/uav_msgs)
-  install(CODE "execute_process(COMMAND \"/home/markgodtop/miniconda3/envs/airsim/bin/python3\" -m compileall \"${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/uav_msgs\")")
+  install(CODE "execute_process(COMMAND \"/home/ros20/miniconda3/envs/airsim/bin/python3\" -m compileall \"${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/uav_msgs\")")
   # install generated code
   install(
     DIRECTORY ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/uav_msgs

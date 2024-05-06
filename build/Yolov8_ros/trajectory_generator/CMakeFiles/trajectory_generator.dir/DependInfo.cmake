@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/markgodtop/catkin_ws/src/Yolov8_ros/trajectory_generator/src/mini_jerk_traj.cpp" "/home/markgodtop/catkin_ws/build/Yolov8_ros/trajectory_generator/CMakeFiles/trajectory_generator.dir/src/mini_jerk_traj.cpp.o"
+  "/home/ros20/catkin_ws/src/Yolov8_ros/trajectory_generator/src/mini_jerk_traj.cpp" "/home/ros20/catkin_ws/build/Yolov8_ros/trajectory_generator/CMakeFiles/trajectory_generator.dir/src/mini_jerk_traj.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
@@ -19,7 +19,7 @@ set(CMAKE_TARGET_DEFINITIONS_CXX
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "/usr/include/eigen3"
-  "/home/markgodtop/catkin_ws/src/Yolov8_ros/trajectory_generator/include"
+  "/home/ros20/catkin_ws/src/Yolov8_ros/trajectory_generator/include"
   "/opt/ros/noetic/include"
   "/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp"
   )

@@ -1,4 +1,4 @@
-prefix=/home/markgodtop/catkin_ws/install
+prefix=/home/ros20/catkin_ws/install
 
 Name: tracking_controller
 Description: Description of tracking_controller

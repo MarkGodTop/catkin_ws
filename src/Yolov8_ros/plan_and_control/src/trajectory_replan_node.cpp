@@ -2,13 +2,13 @@
 
 
 
-msr::airlib::MultirotorRpcLibClient client("192.168.1.51");
+msr::airlib::MultirotorRpcLibClient client("192.168.1.84");
 ThreadPool threadPool(4);
 TrajectoryReplanNode::TrajectoryReplanNode(const ros::NodeHandle &nh, const ros::NodeHandle &nh_private) 
 :nh_(nh), nh_private_(nh_private), got_circle_flag_(false) {
     Json::Value root;
     Json::CharReaderBuilder builder;
-    std::ifstream i("/home/markgodtop/catkin_ws/1.json", std::ifstream::binary);
+    std::ifstream i("/home/ros20/catkin_ws/1.json", std::ifstream::binary);
     std::string errs;
     if (!Json::parseFromStream(builder, i, &root, &errs)) { 
         std::cerr << "Error opening or parsing JSON file: " << errs << std::endl;

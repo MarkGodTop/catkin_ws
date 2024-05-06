@@ -67,14 +67,14 @@ set(plan_and_control_CONFIG_INCLUDED TRUE)
 
 # set variables for source/devel/install prefixes
 if("FALSE" STREQUAL "TRUE")
-  set(plan_and_control_SOURCE_PREFIX /home/markgodtop/catkin_ws/src/Yolov8_ros/plan_and_control)
-  set(plan_and_control_DEVEL_PREFIX /home/markgodtop/catkin_ws/devel)
+  set(plan_and_control_SOURCE_PREFIX /home/ros20/catkin_ws/src/Yolov8_ros/plan_and_control)
+  set(plan_and_control_DEVEL_PREFIX /home/ros20/catkin_ws/devel)
   set(plan_and_control_INSTALL_PREFIX "")
   set(plan_and_control_PREFIX ${plan_and_control_DEVEL_PREFIX})
 else()
   set(plan_and_control_SOURCE_PREFIX "")
   set(plan_and_control_DEVEL_PREFIX "")
-  set(plan_and_control_INSTALL_PREFIX /home/markgodtop/catkin_ws/install)
+  set(plan_and_control_INSTALL_PREFIX /home/ros20/catkin_ws/install)
   set(plan_and_control_PREFIX ${plan_and_control_INSTALL_PREFIX})
 endif()
 
@@ -154,7 +154,7 @@ foreach(library ${libraries})
     set(lib_path "")
     set(lib "${library}-NOTFOUND")
     # since the path where the library is found is returned we have to iterate over the paths manually
-    foreach(path /home/markgodtop/catkin_ws/install/lib;/home/markgodtop/catkin_ws/devel/lib;/opt/ros/noetic/lib)
+    foreach(path /home/ros20/catkin_ws/install/lib;/home/ros20/catkin_ws/devel/lib;/opt/ros/noetic/lib)
       find_library(lib ${library}
         PATHS ${path}
         NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)

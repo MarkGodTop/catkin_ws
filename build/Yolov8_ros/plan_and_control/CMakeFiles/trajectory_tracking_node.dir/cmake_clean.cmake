@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "/home/markgodtop/catkin_ws/devel/lib/plan_and_control/trajectory_tracking_node"
-  "/home/markgodtop/catkin_ws/devel/lib/plan_and_control/trajectory_tracking_node.pdb"
+  "/home/ros20/catkin_ws/devel/lib/plan_and_control/trajectory_tracking_node"
+  "/home/ros20/catkin_ws/devel/lib/plan_and_control/trajectory_tracking_node.pdb"
   "CMakeFiles/trajectory_tracking_node.dir/src/trajectory_tracking_node.cpp.o"
 )
 

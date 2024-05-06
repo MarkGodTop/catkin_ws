@@ -1,8 +1,8 @@
-# Install script for directory: /home/markgodtop/catkin_ws/src/Yolov8_ros/yolov8_ros_msgs
+# Install script for directory: /home/ros20/catkin_ws/src/Yolov8_ros/yolov8_ros_msgs
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/markgodtop/catkin_ws/install")
+  set(CMAKE_INSTALL_PREFIX "/home/ros20/catkin_ws/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -39,55 +39,55 @@ endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/yolov8_ros_msgs/msg" TYPE FILE FILES
-    "/home/markgodtop/catkin_ws/src/Yolov8_ros/yolov8_ros_msgs/msg/BoundingBox.msg"
-    "/home/markgodtop/catkin_ws/src/Yolov8_ros/yolov8_ros_msgs/msg/BoundingBoxes.msg"
+    "/home/ros20/catkin_ws/src/Yolov8_ros/yolov8_ros_msgs/msg/BoundingBox.msg"
+    "/home/ros20/catkin_ws/src/Yolov8_ros/yolov8_ros_msgs/msg/BoundingBoxes.msg"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/yolov8_ros_msgs/cmake" TYPE FILE FILES "/home/markgodtop/catkin_ws/build/Yolov8_ros/yolov8_ros_msgs/catkin_generated/installspace/yolov8_ros_msgs-msg-paths.cmake")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/yolov8_ros_msgs/cmake" TYPE FILE FILES "/home/ros20/catkin_ws/build/Yolov8_ros/yolov8_ros_msgs/catkin_generated/installspace/yolov8_ros_msgs-msg-paths.cmake")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include" TYPE DIRECTORY FILES "/home/markgodtop/catkin_ws/devel/include/yolov8_ros_msgs")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include" TYPE DIRECTORY FILES "/home/ros20/catkin_ws/devel/include/yolov8_ros_msgs")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/roseus/ros" TYPE DIRECTORY FILES "/home/markgodtop/catkin_ws/devel/share/roseus/ros/yolov8_ros_msgs")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/roseus/ros" TYPE DIRECTORY FILES "/home/ros20/catkin_ws/devel/share/roseus/ros/yolov8_ros_msgs")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/common-lisp/ros" TYPE DIRECTORY FILES "/home/markgodtop/catkin_ws/devel/share/common-lisp/ros/yolov8_ros_msgs")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/common-lisp/ros" TYPE DIRECTORY FILES "/home/ros20/catkin_ws/devel/share/common-lisp/ros/yolov8_ros_msgs")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/gennodejs/ros" TYPE DIRECTORY FILES "/home/markgodtop/catkin_ws/devel/share/gennodejs/ros/yolov8_ros_msgs")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/gennodejs/ros" TYPE DIRECTORY FILES "/home/ros20/catkin_ws/devel/share/gennodejs/ros/yolov8_ros_msgs")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  execute_process(COMMAND "/home/markgodtop/miniconda3/envs/airsim/bin/python3" -m compileall "/home/markgodtop/catkin_ws/devel/lib/python3/dist-packages/yolov8_ros_msgs")
+  execute_process(COMMAND "/home/ros20/miniconda3/envs/airsim/bin/python3" -m compileall "/home/ros20/catkin_ws/devel/lib/python3/dist-packages/yolov8_ros_msgs")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/python3/dist-packages" TYPE DIRECTORY FILES "/home/markgodtop/catkin_ws/devel/lib/python3/dist-packages/yolov8_ros_msgs")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/python3/dist-packages" TYPE DIRECTORY FILES "/home/ros20/catkin_ws/devel/lib/python3/dist-packages/yolov8_ros_msgs")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/markgodtop/catkin_ws/build/Yolov8_ros/yolov8_ros_msgs/catkin_generated/installspace/yolov8_ros_msgs.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/ros20/catkin_ws/build/Yolov8_ros/yolov8_ros_msgs/catkin_generated/installspace/yolov8_ros_msgs.pc")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/yolov8_ros_msgs/cmake" TYPE FILE FILES "/home/markgodtop/catkin_ws/build/Yolov8_ros/yolov8_ros_msgs/catkin_generated/installspace/yolov8_ros_msgs-msg-extras.cmake")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/yolov8_ros_msgs/cmake" TYPE FILE FILES "/home/ros20/catkin_ws/build/Yolov8_ros/yolov8_ros_msgs/catkin_generated/installspace/yolov8_ros_msgs-msg-extras.cmake")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/yolov8_ros_msgs/cmake" TYPE FILE FILES
-    "/home/markgodtop/catkin_ws/build/Yolov8_ros/yolov8_ros_msgs/catkin_generated/installspace/yolov8_ros_msgsConfig.cmake"
-    "/home/markgodtop/catkin_ws/build/Yolov8_ros/yolov8_ros_msgs/catkin_generated/installspace/yolov8_ros_msgsConfig-version.cmake"
+    "/home/ros20/catkin_ws/build/Yolov8_ros/yolov8_ros_msgs/catkin_generated/installspace/yolov8_ros_msgsConfig.cmake"
+    "/home/ros20/catkin_ws/build/Yolov8_ros/yolov8_ros_msgs/catkin_generated/installspace/yolov8_ros_msgsConfig-version.cmake"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/yolov8_ros_msgs" TYPE FILE FILES "/home/markgodtop/catkin_ws/src/Yolov8_ros/yolov8_ros_msgs/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/yolov8_ros_msgs" TYPE FILE FILES "/home/ros20/catkin_ws/src/Yolov8_ros/yolov8_ros_msgs/package.xml")
 endif()
 
