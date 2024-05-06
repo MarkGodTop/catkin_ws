@@ -1,9 +1,9 @@
 file(REMOVE_RECURSE
-  "/home/ros20/catkin_ws/devel/lib/python3/dist-packages/uav_msgs/msg/_AngleRateThrottle.py"
-  "/home/ros20/catkin_ws/devel/lib/python3/dist-packages/uav_msgs/msg/_DesiredStates.py"
-  "/home/ros20/catkin_ws/devel/lib/python3/dist-packages/uav_msgs/msg/__init__.py"
-  "/home/ros20/catkin_ws/devel/lib/python3/dist-packages/uav_msgs/srv/_Takeoff.py"
-  "/home/ros20/catkin_ws/devel/lib/python3/dist-packages/uav_msgs/srv/__init__.py"
+  "/home/markgodtop/catkin_ws/devel/lib/python3/dist-packages/uav_msgs/msg/_AngleRateThrottle.py"
+  "/home/markgodtop/catkin_ws/devel/lib/python3/dist-packages/uav_msgs/msg/_DesiredStates.py"
+  "/home/markgodtop/catkin_ws/devel/lib/python3/dist-packages/uav_msgs/msg/__init__.py"
+  "/home/markgodtop/catkin_ws/devel/lib/python3/dist-packages/uav_msgs/srv/_Takeoff.py"
+  "/home/markgodtop/catkin_ws/devel/lib/python3/dist-packages/uav_msgs/srv/__init__.py"
   "CMakeFiles/uav_msgs_generate_messages_py"
 )
 

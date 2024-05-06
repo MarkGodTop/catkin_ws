@@ -2,13 +2,13 @@
 
 
 
-msr::airlib::MultirotorRpcLibClient client("192.168.1.84");
+msr::airlib::MultirotorRpcLibClient client("169.254.203.40");
 ThreadPool threadPool(4);
 TrajectoryReplanNode::TrajectoryReplanNode(const ros::NodeHandle &nh, const ros::NodeHandle &nh_private) 
 :nh_(nh), nh_private_(nh_private), got_circle_flag_(false) {
     Json::Value root;
     Json::CharReaderBuilder builder;
-    std::ifstream i("/home/ros20/catkin_ws/1.json", std::ifstream::binary);
+    std::ifstream i("/home/markgodtop/catkin_ws/1.json", std::ifstream::binary);
     std::string errs;
     if (!Json::parseFromStream(builder, i, &root, &errs)) { 
         std::cerr << "Error opening or parsing JSON file: " << errs << std::endl;
@@ -72,7 +72,7 @@ TrajectoryReplanNode::TrajectoryReplanNode(const ros::NodeHandle &nh, const ros:
         std::cout << std::endl;
     }
     // Write to YAML file
-    // std::ofstream yaml_file("/home/ros20/yolov8/catkin_ws/src/Yolov8_ros/plan_and_control/config/waypoints.yaml");
+    // std::ofstream yaml_file("/home/markgodtop/yolov8/catkin_ws/src/Yolov8_ros/plan_and_control/config/waypoints.yaml");
     // if (!yaml_file.is_open()) {
     //     std::cerr << "Error opening YAML file for writing." << std::endl;
     //     return;
@@ -103,7 +103,7 @@ TrajectoryReplanNode::TrajectoryReplanNode(const ros::NodeHandle &nh, const ros:
     //cout << "waypoint init failed!" << endl;
     
     takeoff_client_ = nh_.serviceClient<uav_msgs::Takeoff>("/airsim_node/" + vehicle + "/takeoff");//get params from sever
-    // YAML::Node config = YAML::LoadFile("/home/ros20/yolov8/catkin_ws/src/Yolov8_ros/plan_and_control/config/waypoints.yaml");
+    // YAML::Node config = YAML::LoadFile("/home/markgodtop/yolov8/catkin_ws/src/Yolov8_ros/plan_and_control/config/waypoints.yaml");
     // max_vel_ = config["max_vel"].as<double>();
     // max_acc_ = config["max_acc"].as<double>();
     // waypoint_num_ = config["waypoint_num"].as<int>();
@@ -290,7 +290,7 @@ void TrajectoryReplanNode::shared_yolo(){
     builder["indentation"] = "\t"; // 使用制表符缩进
     const std::string json_str = Json::writeString(builder, root);
     client.simUpdateLocalDetectTargetNumData(vehicle, json_str);
-    std::this_thread::sleep_for(std::chrono::milliseconds(500));  
+    // std::this_thread::sleep_for(std::chrono::milliseconds(500));  
 }
 void TrajectoryReplanNode::publishTopic_yolo(const int& data) {
     
@@ -315,7 +315,7 @@ void TrajectoryReplanNode::publishTopic_ceju(const int& data) {
     while (continuePublishing.load() && flag.load() < data) {      
         uint64_t ms = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count();    
         client.simUpdateLocalTargetDistanceData(vehicle, values.d, values.x, values.y, values.z, values.class_val, true);
-        std::this_thread::sleep_for(std::chrono::milliseconds(500));
+        // std::this_thread::sleep_for(std::chrono::milliseconds(500));
     }
 }
 void TrajectoryReplanNode::publishTopic_dingwei(const int& data) {  
@@ -323,7 +323,7 @@ void TrajectoryReplanNode::publishTopic_dingwei(const int& data) {
     while (continuePublishing.load() && flag.load() < data) {
         uint64_t ms = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count();    
         client.simUpdateLocalPositionData(vehicle, odom_->pose.pose.position.x, odom_->pose.pose.position.y, odom_->pose.pose.position.z, ms, 7);
-        std::this_thread::sleep_for(std::chrono::milliseconds(500));  
+        // std::this_thread::sleep_for(std::chrono::milliseconds(500));  
     }
 }
 void TrajectoryReplanNode::publishTopic_dingzi(const int& data) {  
@@ -331,7 +331,7 @@ void TrajectoryReplanNode::publishTopic_dingzi(const int& data) {
     while (continuePublishing.load() && flag.load() < data) {
         uint64_t ms = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count();    
         client.simUpdateLocalRotationData(vehicle, odom_->pose.pose.orientation.w, odom_->pose.pose.orientation.x, odom_->pose.pose.orientation.y,odom_->pose.pose.orientation.z, ms);
-        std::this_thread::sleep_for(std::chrono::milliseconds(500)); 
+        // std::this_thread::sleep_for(std::chrono::milliseconds(500)); 
     }
 }
 void TrajectoryReplanNode::getCircleCenter(const ros::TimerEvent &e) {

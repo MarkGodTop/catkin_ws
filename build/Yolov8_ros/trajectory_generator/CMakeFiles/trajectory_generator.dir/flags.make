@@ -6,5 +6,5 @@ CXX_FLAGS = -fPIC   -std=c++11
 
 CXX_DEFINES = -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\"trajectory_generator\" -Dtrajectory_generator_EXPORTS
 
-CXX_INCLUDES = -I/usr/include/eigen3 -I/home/ros20/catkin_ws/src/Yolov8_ros/trajectory_generator/include -I/opt/ros/noetic/include -I/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp 
+CXX_INCLUDES = -I/usr/include/eigen3 -I/home/markgodtop/catkin_ws/src/Yolov8_ros/trajectory_generator/include -I/opt/ros/noetic/include -I/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp 
 

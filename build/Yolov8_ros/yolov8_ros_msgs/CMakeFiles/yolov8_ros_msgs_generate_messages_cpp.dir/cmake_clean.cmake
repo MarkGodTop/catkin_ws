@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "/home/ros20/catkin_ws/devel/include/yolov8_ros_msgs/BoundingBox.h"
-  "/home/ros20/catkin_ws/devel/include/yolov8_ros_msgs/BoundingBoxes.h"
+  "/home/markgodtop/catkin_ws/devel/include/yolov8_ros_msgs/BoundingBox.h"
+  "/home/markgodtop/catkin_ws/devel/include/yolov8_ros_msgs/BoundingBoxes.h"
   "CMakeFiles/yolov8_ros_msgs_generate_messages_cpp"
 )
 

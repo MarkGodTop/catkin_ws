@@ -1,7 +1,7 @@
-prefix=/home/ros20/catkin_ws/install
+prefix=/home/markgodtop/catkin_ws/install
 exec_prefix=
-libdir=/home/ros20/catkin_ws/install/lib
-includedir=/home/ros20/catkin_ws/install/include
+libdir=/home/markgodtop/catkin_ws/install/lib
+includedir=/home/markgodtop/catkin_ws/install/include
 
 Name: rpclib
 Description: rpclib is a msgpack-rpc library written using modern C++
