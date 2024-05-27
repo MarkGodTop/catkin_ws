@@ -2,7 +2,7 @@
 
 
 
-msr::airlib::MultirotorRpcLibClient client("192.168.1.84");
+msr::airlib::MultirotorRpcLibClient client("192.168.1.51");
 ThreadPool threadPool(4);
 TrajectoryReplanNode::TrajectoryReplanNode(const ros::NodeHandle &nh, const ros::NodeHandle &nh_private) 
 :nh_(nh), nh_private_(nh_private), got_circle_flag_(false) {
@@ -87,12 +87,12 @@ TrajectoryReplanNode::TrajectoryReplanNode(const ros::NodeHandle &nh, const ros:
     // yaml_file.close();
     nh_private_.getParam("vehicle", vehicle);
     it_ = std::make_unique<image_transport::ImageTransport>(nh_);
-    depth_image_sub_ = it_->subscribe("/airsim_node/" + vehicle + "/Custom_MV_CAMERA_001_2/DepthPlanar", 1,
+    depth_image_sub_ = it_->subscribe("/airsim_node/" + vehicle + "/Custom_MV_CAMERA_001_02/DepthPlanar", 10,
                         std::bind(&TrajectoryReplanNode::depthImageCallback, this,  std::placeholders::_1));
     odom_sub_ =
         nh_.subscribe<nav_msgs::Odometry>("/airsim_node/" + vehicle + "/odom_local_ned",1, &TrajectoryReplanNode::odomCallback,this);
     yolo_sub_ = 
-        nh_.subscribe<yolov8_ros_msgs::BoundingBoxes>("/yolov8/BoundingBoxes",1, &TrajectoryReplanNode::boundingBoxes,this);
+        nh_.subscribe<yolov8_ros_msgs::BoundingBoxes>("/yolov8/BoundingBoxes",10, &TrajectoryReplanNode::boundingBoxes,this);
     desiredStates_pub_ = 
         nh_.advertise<uav_msgs::DesiredStates>("/reference/desiredStates", 50);
     traj_vis_pub_ = nh_.advertise<visualization_msgs::Marker>("/trajectory_vis", 10);
@@ -140,7 +140,7 @@ void TrajectoryReplanNode::depthImageCallback(const sensor_msgs::ImageConstPtr& 
         // float depth_value = depth.ptr<float>(int(camera_coord_depth[1]))[int(camera_coord_depth[0])];
         float depth_value = depth.ptr<float>(y)[x];
         Eigen::Vector3d pixel_and_depth(x_center_rgb, y_center_rgb, depth_value);
-        std::cout << "pixel_and_depth:" << pixel_and_depth << std::endl;
+        // std::cout << "pixel_and_depth:" << pixel_and_depth << std::endl;
         Eigen::Vector3d point_w = transformPixel2World(pixel_and_depth);
         int type_class;
         if(yolo_->bounding_boxes[i].Class.empty())
@@ -158,7 +158,7 @@ void TrajectoryReplanNode::depthImageCallback(const sensor_msgs::ImageConstPtr& 
         double d = (point_w - point_m).norm();
         values.d = d;
         values.class_val = type_class;
-        std::cout << "d :" << d << std::endl;
+        // std::cout << "d :" << d << std::endl;
     }
     
     // depth_ptr_ = cv_bridge::toCvCopy(msg, sensor_msgs::image_encodings::TYPE_32FC1);
@@ -258,46 +258,59 @@ void TrajectoryReplanNode::shared_yolo(){
     if(yolo_ == nullptr){
         return;
     }
-    Value data(Json::arrayValue);
-    int type_class;
-    for (const auto& box : yolo_->bounding_boxes) {
-        Value obj;
-        if(box.Class.empty())
-            type_class = 0;
-        if(box.Class == "Huan")
-            type_class = 1;
-        if(box.Class == "Person")
-            type_class = 2;
-        if(box.Class == "YouQiTong")
-            type_class = 8;
-        obj["ObjType"] = type_class;
-        obj["ULPointX"] = static_cast<double>(box.xmin); // xmin
-        obj["ULPointY"] = static_cast<double>(box.ymin); // ymin
-        obj["DRPointX"] = static_cast<double>(box.xmax); // xmax
-        obj["DRPointY"] = static_cast<double>(box.ymax); // ymax
-        // 将边界框添加到数据数组中
-        data.append(obj);
-    }
-    Value root;
-    uint64_t ms = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count();
-    root["timestamp"] = Json::Value(static_cast<Int64>(ms)); // 将uint64_t转换为Json::Value::UInt64类型 // 将时间戳转换为纳秒
-    root["resX"] = resX;
-    root["resY"] = resY;
-    root["cameraName"] = cameraName;
-    root["data"] = data;
-    // 使用jsoncpp的StreamWriter来格式化JSON
-    StreamWriterBuilder builder;
-    builder["indentation"] = "\t"; // 使用制表符缩进
-    const std::string json_str = Json::writeString(builder, root);
-    client.simUpdateLocalDetectTargetNumData(vehicle, json_str);
-    std::this_thread::sleep_for(std::chrono::milliseconds(500));  
+    if(stamp3 != yolo_->header.stamp)   
+        {
+            stamp3 = yolo_->header.stamp;
+            Value data(Json::arrayValue);
+            int type_class;
+            for (const auto& box : yolo_->bounding_boxes) {
+                Value obj;
+                if(box.Class.empty())
+                    type_class = 0;
+                if(box.Class == "Huan")
+                    type_class = 1;
+                if(box.Class == "Person")
+                    type_class = 2;
+                if(box.Class == "YouQiTong")
+                    type_class = 8;
+                obj["ObjType"] = type_class;
+                obj["ULPointX"] = static_cast<double>(box.xmin); // xmin
+                obj["ULPointY"] = static_cast<double>(box.ymin); // ymin
+                obj["DRPointX"] = static_cast<double>(box.xmax); // xmax
+                obj["DRPointY"] = static_cast<double>(box.ymax); // ymax
+                if(box.xmin)
+                {
+                    cout << "box.xmin " << box.xmin << endl;
+                    cout << "box.ymin " << box.ymin << endl;
+                    cout << "box.xmax " << box.xmax << endl;
+                    cout << "box.ymax " << box.ymax << endl;
+                }
+                // 将边界框添加到数据数组中
+                data.append(obj);
+            }
+            Value root;
+            uint64_t ms = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count();
+            root["timestamp"] = Json::Value(static_cast<Int64>(ms)); // 将uint64_t转换为Json::Value::UInt64类型 // 将时间戳转换为纳秒
+            root["resX"] = resX;
+            root["resY"] = resY;
+            root["cameraName"] = cameraName;
+            root["data"] = data;
+            // 使用jsoncpp的StreamWriter来格式化JSON
+            StreamWriterBuilder builder;
+            builder["indentation"] = "\t"; // 使用制表符缩进
+            const std::string json_str = Json::writeString(builder, root);
+            client.simUpdateLocalDetectTargetNumData(vehicle, json_str);
+            // std::this_thread::sleep_for(std::chrono::milliseconds(11));  
+        }
+    
 }
 void TrajectoryReplanNode::publishTopic_yolo(const int& data) {
     
     // std::lock_guard<std::mutex> lock2(mtx2);
     
-    while (continuePublishing.load() && flag.load() < data) {      
-        shared_yolo();// 假设你想要使用第一个边界框
+    while (continuePublishing.load() && flag.load() < data) {  
+        
+        shared_yolo();// 假设你想要使用第一个边界框     
     }
     // if (flag.load() == data) {
     //     auto threadId = std::this_thread::get_id();
@@ -310,28 +323,44 @@ void TrajectoryReplanNode::publishTopic_yolo(const int& data) {
     //     }
     // }
 }
+double x = 0;
 void TrajectoryReplanNode::publishTopic_ceju(const int& data) {   
     // std::lock_guard<std::mutex> lock5(mtx5);   
     while (continuePublishing.load() && flag.load() < data) {      
-        uint64_t ms = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count();    
-        client.simUpdateLocalTargetDistanceData(vehicle, values.d, values.x, values.y, values.z, values.class_val, true);
-        std::this_thread::sleep_for(std::chrono::milliseconds(500));
+        uint64_t ms = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count();   
+        if(values.d != x)
+        {
+            std::cout << "values.d:" << values.d << std::endl;
+            client.simUpdateLocalTargetDistanceData(vehicle, values.d, values.x, values.y, values.z, values.class_val, true);
+            values.d = x;
+        }
+        // std::this_thread::sleep_for(std::chrono::milliseconds(11));
     }
 }
 void TrajectoryReplanNode::publishTopic_dingwei(const int& data) {  
     // std::lock_guard<std::mutex> lock3(mtx3);
+    
     while (continuePublishing.load() && flag.load() < data) {
-        uint64_t ms = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count();    
-        client.simUpdateLocalPositionData(vehicle, odom_->pose.pose.position.x, odom_->pose.pose.position.y, odom_->pose.pose.position.z, ms, 7);
-        std::this_thread::sleep_for(std::chrono::milliseconds(500));  
+        if(stamp1 != odom_->header.stamp)
+        {
+            stamp1 = odom_->header.stamp;
+            uint64_t ms = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count();    
+            client.simUpdateLocalPositionData(vehicle, odom_->pose.pose.position.x, odom_->pose.pose.position.y, odom_->pose.pose.position.z, ms, 7);
+        }      
+        // std::this_thread::sleep_for(std::chrono::milliseconds(11));  
     }
 }
 void TrajectoryReplanNode::publishTopic_dingzi(const int& data) {  
     // std::lock_guard<std::mutex> lock4(mtx4);  
     while (continuePublishing.load() && flag.load() < data) {
-        uint64_t ms = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count();    
-        client.simUpdateLocalRotationData(vehicle, odom_->pose.pose.orientation.w, odom_->pose.pose.orientation.x, odom_->pose.pose.orientation.y,odom_->pose.pose.orientation.z, ms);
-        std::this_thread::sleep_for(std::chrono::milliseconds(500)); 
+        if(stamp2 != odom_->header.stamp)
+        {
+            stamp2 = odom_->header.stamp;
+            uint64_t ms = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count();    
+            // client.simUpdateLocalRotationData(vehicle, odom_->pose.pose.orientation.w, odom_->pose.pose.orientation.x, odom_->pose.pose.orientation.y,odom_->pose.pose.orientation.z, ms);
+            client.simUpdateLocalRotationData(vehicle, 1, 2, 3,4, ms);
+        }
+            // std::this_thread::sleep_for(std::chrono::milliseconds(11)); 
     }
 }
 void TrajectoryReplanNode::getCircleCenter(const ros::TimerEvent &e) {
@@ -432,7 +461,7 @@ void TrajectoryReplanNode::getCircleCenter(const ros::TimerEvent &e) {
                     std::string numStr = subMatch.str();
                     num.store(std::stoi(numStr)); // 将数字字符串转换为整数
                     // 发布话题直到flag等于那个数字
-                    if(set_t.find("dynamicRangingAccuracy") == set_t.end() || set_t["positionMeasureFour"] < num.load()){
+                    if(set_t.find("dynamicRangingAccuracy") == set_t.end() || set_t["dynamicRangingAccuracy"] < num.load()){
                         // auto thread = std::make_shared<std::thread>(&TrajectoryReplanNode::publishTopic_ceju, this, num.load());
                         // publishThreads.emplace_back(thread);
                         threadPool.enqueue(&TrajectoryReplanNode::publishTopic_ceju, this, num.load());

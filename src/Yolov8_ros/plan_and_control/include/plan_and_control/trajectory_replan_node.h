@@ -120,8 +120,8 @@ private:
     double start_yaw_, final_yaw_;
     bool got_circle_flag_;
     int row_idx_ = 1;
-    int resX = 800;
-    int resY = 600;
+    int resX = 640;
+    int resY = 480;
     std::string cameraName = "front_center_custom";
     std::string vehicle;
     bool reached_waypoint = false;
@@ -129,7 +129,9 @@ private:
     std::atomic<bool> continuePublishing = true;
     std::atomic<int> flag = 0; 
     std::atomic<int> num = 0;
-    
+    ros::Time stamp1;
+    ros::Time stamp2;
+    ros::Time stamp3;
 
 std::vector<std::shared_ptr<std::thread>> publishThreads; // 用于存储线程对象
 std::unordered_map<std::string, int> set_t;
@@ -142,7 +144,7 @@ std::unordered_map<std::string, int> set_t;
     struct MixedValues {
         double x, y, z;
         int class_val;
-        double d;
+        double d = 0;
     };
     MixedValues values;
 
