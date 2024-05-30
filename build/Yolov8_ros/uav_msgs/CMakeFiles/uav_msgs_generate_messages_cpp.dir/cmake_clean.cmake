@@ -1,7 +1,7 @@
 file(REMOVE_RECURSE
-  "/home/ros20/catkin_ws/devel/include/uav_msgs/AngleRateThrottle.h"
-  "/home/ros20/catkin_ws/devel/include/uav_msgs/DesiredStates.h"
-  "/home/ros20/catkin_ws/devel/include/uav_msgs/Takeoff.h"
+  "/home/markgodtop/catkin_ws/devel/include/uav_msgs/AngleRateThrottle.h"
+  "/home/markgodtop/catkin_ws/devel/include/uav_msgs/DesiredStates.h"
+  "/home/markgodtop/catkin_ws/devel/include/uav_msgs/Takeoff.h"
   "CMakeFiles/uav_msgs_generate_messages_cpp"
 )
 

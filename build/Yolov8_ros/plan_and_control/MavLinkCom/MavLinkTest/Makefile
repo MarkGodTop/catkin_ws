@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/ros20/catkin_ws/src
+CMAKE_SOURCE_DIR = /home/markgodtop/catkin_ws/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/ros20/catkin_ws/build
+CMAKE_BINARY_DIR = /home/markgodtop/catkin_ws/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -137,14 +137,14 @@ install/local/fast: preinstall/fast
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/ros20/catkin_ws/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/ros20/catkin_ws/build/CMakeFiles /home/ros20/catkin_ws/build/Yolov8_ros/plan_and_control/MavLinkCom/MavLinkTest/CMakeFiles/progress.marks
-	cd /home/ros20/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 Yolov8_ros/plan_and_control/MavLinkCom/MavLinkTest/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ros20/catkin_ws/build/CMakeFiles 0
+	cd /home/markgodtop/catkin_ws/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/markgodtop/catkin_ws/build/CMakeFiles /home/markgodtop/catkin_ws/build/Yolov8_ros/plan_and_control/MavLinkCom/MavLinkTest/CMakeFiles/progress.marks
+	cd /home/markgodtop/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 Yolov8_ros/plan_and_control/MavLinkCom/MavLinkTest/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/markgodtop/catkin_ws/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/ros20/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 Yolov8_ros/plan_and_control/MavLinkCom/MavLinkTest/clean
+	cd /home/markgodtop/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 Yolov8_ros/plan_and_control/MavLinkCom/MavLinkTest/clean
 .PHONY : clean
 
 # The main clean target
@@ -154,22 +154,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/ros20/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 Yolov8_ros/plan_and_control/MavLinkCom/MavLinkTest/preinstall
+	cd /home/markgodtop/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 Yolov8_ros/plan_and_control/MavLinkCom/MavLinkTest/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/ros20/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 Yolov8_ros/plan_and_control/MavLinkCom/MavLinkTest/preinstall
+	cd /home/markgodtop/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 Yolov8_ros/plan_and_control/MavLinkCom/MavLinkTest/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/ros20/catkin_ws/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/markgodtop/catkin_ws/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 Yolov8_ros/plan_and_control/MavLinkCom/MavLinkTest/CMakeFiles/MavLinkTest.dir/rule:
-	cd /home/ros20/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 Yolov8_ros/plan_and_control/MavLinkCom/MavLinkTest/CMakeFiles/MavLinkTest.dir/rule
+	cd /home/markgodtop/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 Yolov8_ros/plan_and_control/MavLinkCom/MavLinkTest/CMakeFiles/MavLinkTest.dir/rule
 .PHONY : Yolov8_ros/plan_and_control/MavLinkCom/MavLinkTest/CMakeFiles/MavLinkTest.dir/rule
 
 # Convenience name for target.
@@ -179,89 +179,89 @@ MavLinkTest: Yolov8_ros/plan_and_control/MavLinkCom/MavLinkTest/CMakeFiles/MavLi
 
 # fast build rule for target.
 MavLinkTest/fast:
-	cd /home/ros20/catkin_ws/build && $(MAKE) -f Yolov8_ros/plan_and_control/MavLinkCom/MavLinkTest/CMakeFiles/MavLinkTest.dir/build.make Yolov8_ros/plan_and_control/MavLinkCom/MavLinkTest/CMakeFiles/MavLinkTest.dir/build
+	cd /home/markgodtop/catkin_ws/build && $(MAKE) -f Yolov8_ros/plan_and_control/MavLinkCom/MavLinkTest/CMakeFiles/MavLinkTest.dir/build.make Yolov8_ros/plan_and_control/MavLinkCom/MavLinkTest/CMakeFiles/MavLinkTest.dir/build
 .PHONY : MavLinkTest/fast
 
-mnt/d/AirSim/MavLinkCom/MavLinkTest/Commands.o: mnt/d/AirSim/MavLinkCom/MavLinkTest/Commands.cpp.o
+home/markgodtop/AirSim/MavLinkCom/MavLinkTest/Commands.o: home/markgodtop/AirSim/MavLinkCom/MavLinkTest/Commands.cpp.o
 
-.PHONY : mnt/d/AirSim/MavLinkCom/MavLinkTest/Commands.o
-
-# target to build an object file
-mnt/d/AirSim/MavLinkCom/MavLinkTest/Commands.cpp.o:
-	cd /home/ros20/catkin_ws/build && $(MAKE) -f Yolov8_ros/plan_and_control/MavLinkCom/MavLinkTest/CMakeFiles/MavLinkTest.dir/build.make Yolov8_ros/plan_and_control/MavLinkCom/MavLinkTest/CMakeFiles/MavLinkTest.dir/mnt/d/AirSim/MavLinkCom/MavLinkTest/Commands.cpp.o
-.PHONY : mnt/d/AirSim/MavLinkCom/MavLinkTest/Commands.cpp.o
-
-mnt/d/AirSim/MavLinkCom/MavLinkTest/Commands.i: mnt/d/AirSim/MavLinkCom/MavLinkTest/Commands.cpp.i
-
-.PHONY : mnt/d/AirSim/MavLinkCom/MavLinkTest/Commands.i
-
-# target to preprocess a source file
-mnt/d/AirSim/MavLinkCom/MavLinkTest/Commands.cpp.i:
-	cd /home/ros20/catkin_ws/build && $(MAKE) -f Yolov8_ros/plan_and_control/MavLinkCom/MavLinkTest/CMakeFiles/MavLinkTest.dir/build.make Yolov8_ros/plan_and_control/MavLinkCom/MavLinkTest/CMakeFiles/MavLinkTest.dir/mnt/d/AirSim/MavLinkCom/MavLinkTest/Commands.cpp.i
-.PHONY : mnt/d/AirSim/MavLinkCom/MavLinkTest/Commands.cpp.i
-
-mnt/d/AirSim/MavLinkCom/MavLinkTest/Commands.s: mnt/d/AirSim/MavLinkCom/MavLinkTest/Commands.cpp.s
-
-.PHONY : mnt/d/AirSim/MavLinkCom/MavLinkTest/Commands.s
-
-# target to generate assembly for a file
-mnt/d/AirSim/MavLinkCom/MavLinkTest/Commands.cpp.s:
-	cd /home/ros20/catkin_ws/build && $(MAKE) -f Yolov8_ros/plan_and_control/MavLinkCom/MavLinkTest/CMakeFiles/MavLinkTest.dir/build.make Yolov8_ros/plan_and_control/MavLinkCom/MavLinkTest/CMakeFiles/MavLinkTest.dir/mnt/d/AirSim/MavLinkCom/MavLinkTest/Commands.cpp.s
-.PHONY : mnt/d/AirSim/MavLinkCom/MavLinkTest/Commands.cpp.s
-
-mnt/d/AirSim/MavLinkCom/MavLinkTest/UnitTests.o: mnt/d/AirSim/MavLinkCom/MavLinkTest/UnitTests.cpp.o
-
-.PHONY : mnt/d/AirSim/MavLinkCom/MavLinkTest/UnitTests.o
+.PHONY : home/markgodtop/AirSim/MavLinkCom/MavLinkTest/Commands.o
 
 # target to build an object file
-mnt/d/AirSim/MavLinkCom/MavLinkTest/UnitTests.cpp.o:
-	cd /home/ros20/catkin_ws/build && $(MAKE) -f Yolov8_ros/plan_and_control/MavLinkCom/MavLinkTest/CMakeFiles/MavLinkTest.dir/build.make Yolov8_ros/plan_and_control/MavLinkCom/MavLinkTest/CMakeFiles/MavLinkTest.dir/mnt/d/AirSim/MavLinkCom/MavLinkTest/UnitTests.cpp.o
-.PHONY : mnt/d/AirSim/MavLinkCom/MavLinkTest/UnitTests.cpp.o
+home/markgodtop/AirSim/MavLinkCom/MavLinkTest/Commands.cpp.o:
+	cd /home/markgodtop/catkin_ws/build && $(MAKE) -f Yolov8_ros/plan_and_control/MavLinkCom/MavLinkTest/CMakeFiles/MavLinkTest.dir/build.make Yolov8_ros/plan_and_control/MavLinkCom/MavLinkTest/CMakeFiles/MavLinkTest.dir/home/markgodtop/AirSim/MavLinkCom/MavLinkTest/Commands.cpp.o
+.PHONY : home/markgodtop/AirSim/MavLinkCom/MavLinkTest/Commands.cpp.o
 
-mnt/d/AirSim/MavLinkCom/MavLinkTest/UnitTests.i: mnt/d/AirSim/MavLinkCom/MavLinkTest/UnitTests.cpp.i
+home/markgodtop/AirSim/MavLinkCom/MavLinkTest/Commands.i: home/markgodtop/AirSim/MavLinkCom/MavLinkTest/Commands.cpp.i
 
-.PHONY : mnt/d/AirSim/MavLinkCom/MavLinkTest/UnitTests.i
+.PHONY : home/markgodtop/AirSim/MavLinkCom/MavLinkTest/Commands.i
 
 # target to preprocess a source file
-mnt/d/AirSim/MavLinkCom/MavLinkTest/UnitTests.cpp.i:
-	cd /home/ros20/catkin_ws/build && $(MAKE) -f Yolov8_ros/plan_and_control/MavLinkCom/MavLinkTest/CMakeFiles/MavLinkTest.dir/build.make Yolov8_ros/plan_and_control/MavLinkCom/MavLinkTest/CMakeFiles/MavLinkTest.dir/mnt/d/AirSim/MavLinkCom/MavLinkTest/UnitTests.cpp.i
-.PHONY : mnt/d/AirSim/MavLinkCom/MavLinkTest/UnitTests.cpp.i
+home/markgodtop/AirSim/MavLinkCom/MavLinkTest/Commands.cpp.i:
+	cd /home/markgodtop/catkin_ws/build && $(MAKE) -f Yolov8_ros/plan_and_control/MavLinkCom/MavLinkTest/CMakeFiles/MavLinkTest.dir/build.make Yolov8_ros/plan_and_control/MavLinkCom/MavLinkTest/CMakeFiles/MavLinkTest.dir/home/markgodtop/AirSim/MavLinkCom/MavLinkTest/Commands.cpp.i
+.PHONY : home/markgodtop/AirSim/MavLinkCom/MavLinkTest/Commands.cpp.i
 
-mnt/d/AirSim/MavLinkCom/MavLinkTest/UnitTests.s: mnt/d/AirSim/MavLinkCom/MavLinkTest/UnitTests.cpp.s
+home/markgodtop/AirSim/MavLinkCom/MavLinkTest/Commands.s: home/markgodtop/AirSim/MavLinkCom/MavLinkTest/Commands.cpp.s
 
-.PHONY : mnt/d/AirSim/MavLinkCom/MavLinkTest/UnitTests.s
+.PHONY : home/markgodtop/AirSim/MavLinkCom/MavLinkTest/Commands.s
 
 # target to generate assembly for a file
-mnt/d/AirSim/MavLinkCom/MavLinkTest/UnitTests.cpp.s:
-	cd /home/ros20/catkin_ws/build && $(MAKE) -f Yolov8_ros/plan_and_control/MavLinkCom/MavLinkTest/CMakeFiles/MavLinkTest.dir/build.make Yolov8_ros/plan_and_control/MavLinkCom/MavLinkTest/CMakeFiles/MavLinkTest.dir/mnt/d/AirSim/MavLinkCom/MavLinkTest/UnitTests.cpp.s
-.PHONY : mnt/d/AirSim/MavLinkCom/MavLinkTest/UnitTests.cpp.s
+home/markgodtop/AirSim/MavLinkCom/MavLinkTest/Commands.cpp.s:
+	cd /home/markgodtop/catkin_ws/build && $(MAKE) -f Yolov8_ros/plan_and_control/MavLinkCom/MavLinkTest/CMakeFiles/MavLinkTest.dir/build.make Yolov8_ros/plan_and_control/MavLinkCom/MavLinkTest/CMakeFiles/MavLinkTest.dir/home/markgodtop/AirSim/MavLinkCom/MavLinkTest/Commands.cpp.s
+.PHONY : home/markgodtop/AirSim/MavLinkCom/MavLinkTest/Commands.cpp.s
 
-mnt/d/AirSim/MavLinkCom/MavLinkTest/main.o: mnt/d/AirSim/MavLinkCom/MavLinkTest/main.cpp.o
+home/markgodtop/AirSim/MavLinkCom/MavLinkTest/UnitTests.o: home/markgodtop/AirSim/MavLinkCom/MavLinkTest/UnitTests.cpp.o
 
-.PHONY : mnt/d/AirSim/MavLinkCom/MavLinkTest/main.o
+.PHONY : home/markgodtop/AirSim/MavLinkCom/MavLinkTest/UnitTests.o
 
 # target to build an object file
-mnt/d/AirSim/MavLinkCom/MavLinkTest/main.cpp.o:
-	cd /home/ros20/catkin_ws/build && $(MAKE) -f Yolov8_ros/plan_and_control/MavLinkCom/MavLinkTest/CMakeFiles/MavLinkTest.dir/build.make Yolov8_ros/plan_and_control/MavLinkCom/MavLinkTest/CMakeFiles/MavLinkTest.dir/mnt/d/AirSim/MavLinkCom/MavLinkTest/main.cpp.o
-.PHONY : mnt/d/AirSim/MavLinkCom/MavLinkTest/main.cpp.o
+home/markgodtop/AirSim/MavLinkCom/MavLinkTest/UnitTests.cpp.o:
+	cd /home/markgodtop/catkin_ws/build && $(MAKE) -f Yolov8_ros/plan_and_control/MavLinkCom/MavLinkTest/CMakeFiles/MavLinkTest.dir/build.make Yolov8_ros/plan_and_control/MavLinkCom/MavLinkTest/CMakeFiles/MavLinkTest.dir/home/markgodtop/AirSim/MavLinkCom/MavLinkTest/UnitTests.cpp.o
+.PHONY : home/markgodtop/AirSim/MavLinkCom/MavLinkTest/UnitTests.cpp.o
 
-mnt/d/AirSim/MavLinkCom/MavLinkTest/main.i: mnt/d/AirSim/MavLinkCom/MavLinkTest/main.cpp.i
+home/markgodtop/AirSim/MavLinkCom/MavLinkTest/UnitTests.i: home/markgodtop/AirSim/MavLinkCom/MavLinkTest/UnitTests.cpp.i
 
-.PHONY : mnt/d/AirSim/MavLinkCom/MavLinkTest/main.i
+.PHONY : home/markgodtop/AirSim/MavLinkCom/MavLinkTest/UnitTests.i
 
 # target to preprocess a source file
-mnt/d/AirSim/MavLinkCom/MavLinkTest/main.cpp.i:
-	cd /home/ros20/catkin_ws/build && $(MAKE) -f Yolov8_ros/plan_and_control/MavLinkCom/MavLinkTest/CMakeFiles/MavLinkTest.dir/build.make Yolov8_ros/plan_and_control/MavLinkCom/MavLinkTest/CMakeFiles/MavLinkTest.dir/mnt/d/AirSim/MavLinkCom/MavLinkTest/main.cpp.i
-.PHONY : mnt/d/AirSim/MavLinkCom/MavLinkTest/main.cpp.i
+home/markgodtop/AirSim/MavLinkCom/MavLinkTest/UnitTests.cpp.i:
+	cd /home/markgodtop/catkin_ws/build && $(MAKE) -f Yolov8_ros/plan_and_control/MavLinkCom/MavLinkTest/CMakeFiles/MavLinkTest.dir/build.make Yolov8_ros/plan_and_control/MavLinkCom/MavLinkTest/CMakeFiles/MavLinkTest.dir/home/markgodtop/AirSim/MavLinkCom/MavLinkTest/UnitTests.cpp.i
+.PHONY : home/markgodtop/AirSim/MavLinkCom/MavLinkTest/UnitTests.cpp.i
 
-mnt/d/AirSim/MavLinkCom/MavLinkTest/main.s: mnt/d/AirSim/MavLinkCom/MavLinkTest/main.cpp.s
+home/markgodtop/AirSim/MavLinkCom/MavLinkTest/UnitTests.s: home/markgodtop/AirSim/MavLinkCom/MavLinkTest/UnitTests.cpp.s
 
-.PHONY : mnt/d/AirSim/MavLinkCom/MavLinkTest/main.s
+.PHONY : home/markgodtop/AirSim/MavLinkCom/MavLinkTest/UnitTests.s
 
 # target to generate assembly for a file
-mnt/d/AirSim/MavLinkCom/MavLinkTest/main.cpp.s:
-	cd /home/ros20/catkin_ws/build && $(MAKE) -f Yolov8_ros/plan_and_control/MavLinkCom/MavLinkTest/CMakeFiles/MavLinkTest.dir/build.make Yolov8_ros/plan_and_control/MavLinkCom/MavLinkTest/CMakeFiles/MavLinkTest.dir/mnt/d/AirSim/MavLinkCom/MavLinkTest/main.cpp.s
-.PHONY : mnt/d/AirSim/MavLinkCom/MavLinkTest/main.cpp.s
+home/markgodtop/AirSim/MavLinkCom/MavLinkTest/UnitTests.cpp.s:
+	cd /home/markgodtop/catkin_ws/build && $(MAKE) -f Yolov8_ros/plan_and_control/MavLinkCom/MavLinkTest/CMakeFiles/MavLinkTest.dir/build.make Yolov8_ros/plan_and_control/MavLinkCom/MavLinkTest/CMakeFiles/MavLinkTest.dir/home/markgodtop/AirSim/MavLinkCom/MavLinkTest/UnitTests.cpp.s
+.PHONY : home/markgodtop/AirSim/MavLinkCom/MavLinkTest/UnitTests.cpp.s
+
+home/markgodtop/AirSim/MavLinkCom/MavLinkTest/main.o: home/markgodtop/AirSim/MavLinkCom/MavLinkTest/main.cpp.o
+
+.PHONY : home/markgodtop/AirSim/MavLinkCom/MavLinkTest/main.o
+
+# target to build an object file
+home/markgodtop/AirSim/MavLinkCom/MavLinkTest/main.cpp.o:
+	cd /home/markgodtop/catkin_ws/build && $(MAKE) -f Yolov8_ros/plan_and_control/MavLinkCom/MavLinkTest/CMakeFiles/MavLinkTest.dir/build.make Yolov8_ros/plan_and_control/MavLinkCom/MavLinkTest/CMakeFiles/MavLinkTest.dir/home/markgodtop/AirSim/MavLinkCom/MavLinkTest/main.cpp.o
+.PHONY : home/markgodtop/AirSim/MavLinkCom/MavLinkTest/main.cpp.o
+
+home/markgodtop/AirSim/MavLinkCom/MavLinkTest/main.i: home/markgodtop/AirSim/MavLinkCom/MavLinkTest/main.cpp.i
+
+.PHONY : home/markgodtop/AirSim/MavLinkCom/MavLinkTest/main.i
+
+# target to preprocess a source file
+home/markgodtop/AirSim/MavLinkCom/MavLinkTest/main.cpp.i:
+	cd /home/markgodtop/catkin_ws/build && $(MAKE) -f Yolov8_ros/plan_and_control/MavLinkCom/MavLinkTest/CMakeFiles/MavLinkTest.dir/build.make Yolov8_ros/plan_and_control/MavLinkCom/MavLinkTest/CMakeFiles/MavLinkTest.dir/home/markgodtop/AirSim/MavLinkCom/MavLinkTest/main.cpp.i
+.PHONY : home/markgodtop/AirSim/MavLinkCom/MavLinkTest/main.cpp.i
+
+home/markgodtop/AirSim/MavLinkCom/MavLinkTest/main.s: home/markgodtop/AirSim/MavLinkCom/MavLinkTest/main.cpp.s
+
+.PHONY : home/markgodtop/AirSim/MavLinkCom/MavLinkTest/main.s
+
+# target to generate assembly for a file
+home/markgodtop/AirSim/MavLinkCom/MavLinkTest/main.cpp.s:
+	cd /home/markgodtop/catkin_ws/build && $(MAKE) -f Yolov8_ros/plan_and_control/MavLinkCom/MavLinkTest/CMakeFiles/MavLinkTest.dir/build.make Yolov8_ros/plan_and_control/MavLinkCom/MavLinkTest/CMakeFiles/MavLinkTest.dir/home/markgodtop/AirSim/MavLinkCom/MavLinkTest/main.cpp.s
+.PHONY : home/markgodtop/AirSim/MavLinkCom/MavLinkTest/main.cpp.s
 
 # Help Target
 help:
@@ -277,15 +277,15 @@ help:
 	@echo "... test"
 	@echo "... install/local"
 	@echo "... MavLinkTest"
-	@echo "... mnt/d/AirSim/MavLinkCom/MavLinkTest/Commands.o"
-	@echo "... mnt/d/AirSim/MavLinkCom/MavLinkTest/Commands.i"
-	@echo "... mnt/d/AirSim/MavLinkCom/MavLinkTest/Commands.s"
-	@echo "... mnt/d/AirSim/MavLinkCom/MavLinkTest/UnitTests.o"
-	@echo "... mnt/d/AirSim/MavLinkCom/MavLinkTest/UnitTests.i"
-	@echo "... mnt/d/AirSim/MavLinkCom/MavLinkTest/UnitTests.s"
-	@echo "... mnt/d/AirSim/MavLinkCom/MavLinkTest/main.o"
-	@echo "... mnt/d/AirSim/MavLinkCom/MavLinkTest/main.i"
-	@echo "... mnt/d/AirSim/MavLinkCom/MavLinkTest/main.s"
+	@echo "... home/markgodtop/AirSim/MavLinkCom/MavLinkTest/Commands.o"
+	@echo "... home/markgodtop/AirSim/MavLinkCom/MavLinkTest/Commands.i"
+	@echo "... home/markgodtop/AirSim/MavLinkCom/MavLinkTest/Commands.s"
+	@echo "... home/markgodtop/AirSim/MavLinkCom/MavLinkTest/UnitTests.o"
+	@echo "... home/markgodtop/AirSim/MavLinkCom/MavLinkTest/UnitTests.i"
+	@echo "... home/markgodtop/AirSim/MavLinkCom/MavLinkTest/UnitTests.s"
+	@echo "... home/markgodtop/AirSim/MavLinkCom/MavLinkTest/main.o"
+	@echo "... home/markgodtop/AirSim/MavLinkCom/MavLinkTest/main.i"
+	@echo "... home/markgodtop/AirSim/MavLinkCom/MavLinkTest/main.s"
 .PHONY : help
 
 
@@ -297,6 +297,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/ros20/catkin_ws/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/markgodtop/catkin_ws/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

@@ -2,13 +2,17 @@
 
 
 
+<<<<<<< HEAD
 msr::airlib::MultirotorRpcLibClient client("192.168.1.51");
+=======
+msr::airlib::MultirotorRpcLibClient client("169.254.203.40");
+>>>>>>> a10f18f8ce05a4099455d420f019e2b8fdeb1752
 ThreadPool threadPool(4);
 TrajectoryReplanNode::TrajectoryReplanNode(const ros::NodeHandle &nh, const ros::NodeHandle &nh_private) 
 :nh_(nh), nh_private_(nh_private), got_circle_flag_(false) {
     Json::Value root;
     Json::CharReaderBuilder builder;
-    std::ifstream i("/home/ros20/catkin_ws/1.json", std::ifstream::binary);
+    std::ifstream i("/home/markgodtop/catkin_ws/1.json", std::ifstream::binary);
     std::string errs;
     if (!Json::parseFromStream(builder, i, &root, &errs)) { 
         std::cerr << "Error opening or parsing JSON file: " << errs << std::endl;
@@ -72,7 +76,7 @@ TrajectoryReplanNode::TrajectoryReplanNode(const ros::NodeHandle &nh, const ros:
         std::cout << std::endl;
     }
     // Write to YAML file
-    // std::ofstream yaml_file("/home/ros20/yolov8/catkin_ws/src/Yolov8_ros/plan_and_control/config/waypoints.yaml");
+    // std::ofstream yaml_file("/home/markgodtop/yolov8/catkin_ws/src/Yolov8_ros/plan_and_control/config/waypoints.yaml");
     // if (!yaml_file.is_open()) {
     //     std::cerr << "Error opening YAML file for writing." << std::endl;
     //     return;
@@ -103,7 +107,7 @@ TrajectoryReplanNode::TrajectoryReplanNode(const ros::NodeHandle &nh, const ros:
     //cout << "waypoint init failed!" << endl;
     
     takeoff_client_ = nh_.serviceClient<uav_msgs::Takeoff>("/airsim_node/" + vehicle + "/takeoff");//get params from sever
-    // YAML::Node config = YAML::LoadFile("/home/ros20/yolov8/catkin_ws/src/Yolov8_ros/plan_and_control/config/waypoints.yaml");
+    // YAML::Node config = YAML::LoadFile("/home/markgodtop/yolov8/catkin_ws/src/Yolov8_ros/plan_and_control/config/waypoints.yaml");
     // max_vel_ = config["max_vel"].as<double>();
     // max_acc_ = config["max_acc"].as<double>();
     // waypoint_num_ = config["waypoint_num"].as<int>();
@@ -258,6 +262,7 @@ void TrajectoryReplanNode::shared_yolo(){
     if(yolo_ == nullptr){
         return;
     }
+<<<<<<< HEAD
     if(stamp3 != yolo_->header.stamp)   
         {
             stamp3 = yolo_->header.stamp;
@@ -303,6 +308,41 @@ void TrajectoryReplanNode::shared_yolo(){
             // std::this_thread::sleep_for(std::chrono::milliseconds(11));  
         }
     
+=======
+    Value data(Json::arrayValue);
+    int type_class;
+    for (const auto& box : yolo_->bounding_boxes) {
+        Value obj;
+        if(box.Class.empty())
+            type_class = 0;
+        if(box.Class == "Huan")
+            type_class = 1;
+        if(box.Class == "Person")
+            type_class = 2;
+        if(box.Class == "YouQiTong")
+            type_class = 8;
+        obj["ObjType"] = type_class;
+        obj["ULPointX"] = static_cast<double>(box.xmin); // xmin
+        obj["ULPointY"] = static_cast<double>(box.ymin); // ymin
+        obj["DRPointX"] = static_cast<double>(box.xmax); // xmax
+        obj["DRPointY"] = static_cast<double>(box.ymax); // ymax
+        // 将边界框添加到数据数组中
+        data.append(obj);
+    }
+    Value root;
+    uint64_t ms = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count();
+    root["timestamp"] = Json::Value(static_cast<Int64>(ms)); // 将uint64_t转换为Json::Value::UInt64类型 // 将时间戳转换为纳秒
+    root["resX"] = resX;
+    root["resY"] = resY;
+    root["cameraName"] = cameraName;
+    root["data"] = data;
+    // 使用jsoncpp的StreamWriter来格式化JSON
+    StreamWriterBuilder builder;
+    builder["indentation"] = "\t"; // 使用制表符缩进
+    const std::string json_str = Json::writeString(builder, root);
+    client.simUpdateLocalDetectTargetNumData(vehicle, json_str);
+    // std::this_thread::sleep_for(std::chrono::milliseconds(500));  
+>>>>>>> a10f18f8ce05a4099455d420f019e2b8fdeb1752
 }
 void TrajectoryReplanNode::publishTopic_yolo(const int& data) {
     
@@ -327,6 +367,7 @@ double x = 0;
 void TrajectoryReplanNode::publishTopic_ceju(const int& data) {   
     // std::lock_guard<std::mutex> lock5(mtx5);   
     while (continuePublishing.load() && flag.load() < data) {      
+<<<<<<< HEAD
         uint64_t ms = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count();   
         if(values.d != x)
         {
@@ -335,12 +376,18 @@ void TrajectoryReplanNode::publishTopic_ceju(const int& data) {
             values.d = x;
         }
         // std::this_thread::sleep_for(std::chrono::milliseconds(11));
+=======
+        uint64_t ms = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count();    
+        client.simUpdateLocalTargetDistanceData(vehicle, values.d, values.x, values.y, values.z, values.class_val, true);
+        // std::this_thread::sleep_for(std::chrono::milliseconds(500));
+>>>>>>> a10f18f8ce05a4099455d420f019e2b8fdeb1752
     }
 }
 void TrajectoryReplanNode::publishTopic_dingwei(const int& data) {  
     // std::lock_guard<std::mutex> lock3(mtx3);
     
     while (continuePublishing.load() && flag.load() < data) {
+<<<<<<< HEAD
         if(stamp1 != odom_->header.stamp)
         {
             stamp1 = odom_->header.stamp;
@@ -348,11 +395,17 @@ void TrajectoryReplanNode::publishTopic_dingwei(const int& data) {
             client.simUpdateLocalPositionData(vehicle, odom_->pose.pose.position.x, odom_->pose.pose.position.y, odom_->pose.pose.position.z, ms, 7);
         }      
         // std::this_thread::sleep_for(std::chrono::milliseconds(11));  
+=======
+        uint64_t ms = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count();    
+        client.simUpdateLocalPositionData(vehicle, odom_->pose.pose.position.x, odom_->pose.pose.position.y, odom_->pose.pose.position.z, ms, 7);
+        // std::this_thread::sleep_for(std::chrono::milliseconds(500));  
+>>>>>>> a10f18f8ce05a4099455d420f019e2b8fdeb1752
     }
 }
 void TrajectoryReplanNode::publishTopic_dingzi(const int& data) {  
     // std::lock_guard<std::mutex> lock4(mtx4);  
     while (continuePublishing.load() && flag.load() < data) {
+<<<<<<< HEAD
         if(stamp2 != odom_->header.stamp)
         {
             stamp2 = odom_->header.stamp;
@@ -361,6 +414,11 @@ void TrajectoryReplanNode::publishTopic_dingzi(const int& data) {
             client.simUpdateLocalRotationData(vehicle, 1, 2, 3,4, ms);
         }
             // std::this_thread::sleep_for(std::chrono::milliseconds(11)); 
+=======
+        uint64_t ms = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count();    
+        client.simUpdateLocalRotationData(vehicle, odom_->pose.pose.orientation.w, odom_->pose.pose.orientation.x, odom_->pose.pose.orientation.y,odom_->pose.pose.orientation.z, ms);
+        // std::this_thread::sleep_for(std::chrono::milliseconds(500)); 
+>>>>>>> a10f18f8ce05a4099455d420f019e2b8fdeb1752
     }
 }
 void TrajectoryReplanNode::getCircleCenter(const ros::TimerEvent &e) {

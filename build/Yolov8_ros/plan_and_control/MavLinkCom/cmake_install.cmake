@@ -1,8 +1,8 @@
-# Install script for directory: /mnt/d/AirSim/cmake/MavLinkCom
+# Install script for directory: /home/markgodtop/AirSim/cmake/MavLinkCom
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/ros20/catkin_ws/install")
+  set(CMAKE_INSTALL_PREFIX "/home/markgodtop/catkin_ws/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -39,7 +39,7 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/home/ros20/catkin_ws/build/Yolov8_ros/plan_and_control/MavLinkCom/MavLinkTest/cmake_install.cmake")
+  include("/home/markgodtop/catkin_ws/build/Yolov8_ros/plan_and_control/MavLinkCom/MavLinkTest/cmake_install.cmake")
 
 endif()
 

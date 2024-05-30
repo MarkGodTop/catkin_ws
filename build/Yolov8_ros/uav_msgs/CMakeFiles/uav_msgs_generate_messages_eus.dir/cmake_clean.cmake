@@ -1,8 +1,8 @@
 file(REMOVE_RECURSE
-  "/home/ros20/catkin_ws/devel/share/roseus/ros/uav_msgs/manifest.l"
-  "/home/ros20/catkin_ws/devel/share/roseus/ros/uav_msgs/msg/AngleRateThrottle.l"
-  "/home/ros20/catkin_ws/devel/share/roseus/ros/uav_msgs/msg/DesiredStates.l"
-  "/home/ros20/catkin_ws/devel/share/roseus/ros/uav_msgs/srv/Takeoff.l"
+  "/home/markgodtop/catkin_ws/devel/share/roseus/ros/uav_msgs/manifest.l"
+  "/home/markgodtop/catkin_ws/devel/share/roseus/ros/uav_msgs/msg/AngleRateThrottle.l"
+  "/home/markgodtop/catkin_ws/devel/share/roseus/ros/uav_msgs/msg/DesiredStates.l"
+  "/home/markgodtop/catkin_ws/devel/share/roseus/ros/uav_msgs/srv/Takeoff.l"
   "CMakeFiles/uav_msgs_generate_messages_eus"
 )
 

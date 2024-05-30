@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "/home/ros20/catkin_ws/devel/share/gennodejs/ros/yolov8_ros_msgs/msg/BoundingBox.js"
-  "/home/ros20/catkin_ws/devel/share/gennodejs/ros/yolov8_ros_msgs/msg/BoundingBoxes.js"
+  "/home/markgodtop/catkin_ws/devel/share/gennodejs/ros/yolov8_ros_msgs/msg/BoundingBox.js"
+  "/home/markgodtop/catkin_ws/devel/share/gennodejs/ros/yolov8_ros_msgs/msg/BoundingBoxes.js"
   "CMakeFiles/yolov8_ros_msgs_generate_messages_nodejs"
 )
 

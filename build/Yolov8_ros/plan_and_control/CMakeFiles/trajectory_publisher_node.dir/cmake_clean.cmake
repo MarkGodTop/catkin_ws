@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "/home/ros20/catkin_ws/devel/lib/plan_and_control/trajectory_publisher_node"
-  "/home/ros20/catkin_ws/devel/lib/plan_and_control/trajectory_publisher_node.pdb"
+  "/home/markgodtop/catkin_ws/devel/lib/plan_and_control/trajectory_publisher_node"
+  "/home/markgodtop/catkin_ws/devel/lib/plan_and_control/trajectory_publisher_node.pdb"
   "CMakeFiles/trajectory_publisher_node.dir/src/trajectory_publisher_node.cpp.o"
 )
 

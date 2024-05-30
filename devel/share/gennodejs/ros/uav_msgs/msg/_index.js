@@ -1,10 +1,10 @@
 
 "use strict";
 
-let DesiredStates = require('./DesiredStates.js');
 let AngleRateThrottle = require('./AngleRateThrottle.js');
+let DesiredStates = require('./DesiredStates.js');
 
 module.exports = {
-  DesiredStates: DesiredStates,
   AngleRateThrottle: AngleRateThrottle,
+  DesiredStates: DesiredStates,
 };

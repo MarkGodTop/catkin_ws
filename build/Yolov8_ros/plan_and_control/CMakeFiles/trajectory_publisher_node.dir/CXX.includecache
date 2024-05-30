@@ -6,7 +6,31 @@
 
 #IncludeRegexTransform: 
 
-/home/ros20/catkin_ws/src/Yolov8_ros/plan_and_control/include/plan_and_control/trajectory_publisher_node.h
+/home/markgodtop/catkin_ws/devel/include/uav_msgs/DesiredStates.h
+string
+-
+vector
+-
+memory
+-
+ros/types.h
+-
+ros/serialization.h
+-
+ros/builtin_message_traits.h
+-
+ros/message_operations.h
+-
+std_msgs/Header.h
+-
+geometry_msgs/Vector3.h
+-
+geometry_msgs/Vector3.h
+-
+geometry_msgs/Vector3.h
+-
+
+/home/markgodtop/catkin_ws/src/Yolov8_ros/plan_and_control/include/plan_and_control/trajectory_publisher_node.h
 ros/ros.h
 -
 uav_msgs/DesiredStates.h
@@ -24,13 +48,13 @@ memory
 Eigen/Eigen
 -
 trajectory_generator/mini_jerk_traj.h
-/home/ros20/catkin_ws/src/Yolov8_ros/plan_and_control/include/plan_and_control/trajectory_generator/mini_jerk_traj.h
+/home/markgodtop/catkin_ws/src/Yolov8_ros/plan_and_control/include/plan_and_control/trajectory_generator/mini_jerk_traj.h
 
-/home/ros20/catkin_ws/src/Yolov8_ros/plan_and_control/src/trajectory_publisher_node.cpp
+/home/markgodtop/catkin_ws/src/Yolov8_ros/plan_and_control/src/trajectory_publisher_node.cpp
 plan_and_control/trajectory_publisher_node.h
-/home/ros20/catkin_ws/src/Yolov8_ros/plan_and_control/src/plan_and_control/trajectory_publisher_node.h
+/home/markgodtop/catkin_ws/src/Yolov8_ros/plan_and_control/src/plan_and_control/trajectory_publisher_node.h
 
-/home/ros20/catkin_ws/src/Yolov8_ros/trajectory_generator/include/trajectory_generator/mini_jerk_traj.h
+/home/markgodtop/catkin_ws/src/Yolov8_ros/trajectory_generator/include/trajectory_generator/mini_jerk_traj.h
 iostream
 -
 Eigen/Eigen
