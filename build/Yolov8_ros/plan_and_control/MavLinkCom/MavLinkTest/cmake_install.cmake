@@ -1,8 +1,8 @@
-# Install script for directory: /home/markgodtop/AirSim/cmake/MavLinkCom/MavLinkTest
+# Install script for directory: /mnt/d/AirSim/cmake/MavLinkCom/MavLinkTest
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/markgodtop/catkin_ws/install")
+  set(CMAKE_INSTALL_PREFIX "/home/ros20/catkin_ws/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 

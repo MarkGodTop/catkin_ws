@@ -6,5 +6,5 @@ CXX_FLAGS =                 -Wall -Wextra                 -Wnon-virtual-dtor -Wo
 
 CXX_DEFINES = -DROS_BUILD_SHARED_LIBS=1
 
-CXX_INCLUDES = -I/home/markgodtop/AirSim/MavLinkCom -I/home/markgodtop/AirSim/MavLinkCom/common_utils -I/home/markgodtop/AirSim/MavLinkCom/include 
+CXX_INCLUDES = -I/mnt/d/AirSim/MavLinkCom -I/mnt/d/AirSim/MavLinkCom/common_utils -I/mnt/d/AirSim/MavLinkCom/include 
 

@@ -1,4 +1,4 @@
-prefix=/home/markgodtop/catkin_ws/install
+prefix=/home/ros20/catkin_ws/install
 
 Name: uav_msgs
 Description: Description of uav_msgs

@@ -1,3 +1,3 @@
 file(REMOVE_RECURSE
-  "/home/markgodtop/catkin_ws/devel/lib/libMavLinkCom.a"
+  "/home/ros20/catkin_ws/devel/lib/libMavLinkCom.a"
 )

@@ -1,7 +1,7 @@
 file(REMOVE_RECURSE
-  "/home/markgodtop/catkin_ws/devel/lib/python3/dist-packages/yolov8_ros_msgs/msg/_BoundingBox.py"
-  "/home/markgodtop/catkin_ws/devel/lib/python3/dist-packages/yolov8_ros_msgs/msg/_BoundingBoxes.py"
-  "/home/markgodtop/catkin_ws/devel/lib/python3/dist-packages/yolov8_ros_msgs/msg/__init__.py"
+  "/home/ros20/catkin_ws/devel/lib/python3/dist-packages/yolov8_ros_msgs/msg/_BoundingBox.py"
+  "/home/ros20/catkin_ws/devel/lib/python3/dist-packages/yolov8_ros_msgs/msg/_BoundingBoxes.py"
+  "/home/ros20/catkin_ws/devel/lib/python3/dist-packages/yolov8_ros_msgs/msg/__init__.py"
   "CMakeFiles/yolov8_ros_msgs_generate_messages_py"
 )
 

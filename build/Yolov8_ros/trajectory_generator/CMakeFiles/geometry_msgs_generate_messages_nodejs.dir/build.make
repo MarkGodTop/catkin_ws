@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/markgodtop/catkin_ws/src
+CMAKE_SOURCE_DIR = /home/ros20/catkin_ws/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/markgodtop/catkin_ws/build
+CMAKE_BINARY_DIR = /home/ros20/catkin_ws/build
 
 # Utility rule file for geometry_msgs_generate_messages_nodejs.
 
@@ -63,10 +63,10 @@ Yolov8_ros/trajectory_generator/CMakeFiles/geometry_msgs_generate_messages_nodej
 .PHONY : Yolov8_ros/trajectory_generator/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/build
 
 Yolov8_ros/trajectory_generator/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/clean:
-	cd /home/markgodtop/catkin_ws/build/Yolov8_ros/trajectory_generator && $(CMAKE_COMMAND) -P CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/cmake_clean.cmake
+	cd /home/ros20/catkin_ws/build/Yolov8_ros/trajectory_generator && $(CMAKE_COMMAND) -P CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/cmake_clean.cmake
 .PHONY : Yolov8_ros/trajectory_generator/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/clean
 
 Yolov8_ros/trajectory_generator/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/depend:
-	cd /home/markgodtop/catkin_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/markgodtop/catkin_ws/src /home/markgodtop/catkin_ws/src/Yolov8_ros/trajectory_generator /home/markgodtop/catkin_ws/build /home/markgodtop/catkin_ws/build/Yolov8_ros/trajectory_generator /home/markgodtop/catkin_ws/build/Yolov8_ros/trajectory_generator/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/ros20/catkin_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ros20/catkin_ws/src /home/ros20/catkin_ws/src/Yolov8_ros/trajectory_generator /home/ros20/catkin_ws/build /home/ros20/catkin_ws/build/Yolov8_ros/trajectory_generator /home/ros20/catkin_ws/build/Yolov8_ros/trajectory_generator/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : Yolov8_ros/trajectory_generator/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/depend
 

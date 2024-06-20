@@ -67,14 +67,14 @@ set(yolov8_ros_msgs_CONFIG_INCLUDED TRUE)
 
 # set variables for source/devel/install prefixes
 if("FALSE" STREQUAL "TRUE")
-  set(yolov8_ros_msgs_SOURCE_PREFIX /home/markgodtop/catkin_ws/src/Yolov8_ros/yolov8_ros_msgs)
-  set(yolov8_ros_msgs_DEVEL_PREFIX /home/markgodtop/catkin_ws/devel)
+  set(yolov8_ros_msgs_SOURCE_PREFIX /home/ros20/catkin_ws/src/Yolov8_ros/yolov8_ros_msgs)
+  set(yolov8_ros_msgs_DEVEL_PREFIX /home/ros20/catkin_ws/devel)
   set(yolov8_ros_msgs_INSTALL_PREFIX "")
   set(yolov8_ros_msgs_PREFIX ${yolov8_ros_msgs_DEVEL_PREFIX})
 else()
   set(yolov8_ros_msgs_SOURCE_PREFIX "")
   set(yolov8_ros_msgs_DEVEL_PREFIX "")
-  set(yolov8_ros_msgs_INSTALL_PREFIX /home/markgodtop/catkin_ws/install)
+  set(yolov8_ros_msgs_INSTALL_PREFIX /home/ros20/catkin_ws/install)
   set(yolov8_ros_msgs_PREFIX ${yolov8_ros_msgs_INSTALL_PREFIX})
 endif()
 
@@ -154,7 +154,7 @@ foreach(library ${libraries})
     set(lib_path "")
     set(lib "${library}-NOTFOUND")
     # since the path where the library is found is returned we have to iterate over the paths manually
-    foreach(path /home/markgodtop/catkin_ws/install/lib;/home/markgodtop/catkin_ws/devel/lib;/opt/ros/noetic/lib)
+    foreach(path /home/ros20/catkin_ws/install/lib;/home/ros20/catkin_ws/devel/lib;/opt/ros/noetic/lib)
       find_library(lib ${library}
         PATHS ${path}
         NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)

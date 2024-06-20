@@ -1,4 +1,4 @@
-prefix=/home/markgodtop/catkin_ws/install
+prefix=/home/ros20/catkin_ws/install
 
 Name: plan_and_control
 Description: Description of plan_and_control

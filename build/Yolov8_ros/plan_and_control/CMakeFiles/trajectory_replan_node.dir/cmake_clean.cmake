@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "/home/markgodtop/catkin_ws/devel/lib/plan_and_control/trajectory_replan_node"
-  "/home/markgodtop/catkin_ws/devel/lib/plan_and_control/trajectory_replan_node.pdb"
+  "/home/ros20/catkin_ws/devel/lib/plan_and_control/trajectory_replan_node"
+  "/home/ros20/catkin_ws/devel/lib/plan_and_control/trajectory_replan_node.pdb"
   "CMakeFiles/trajectory_replan_node.dir/src/trajectory_replan_node.cpp.o"
 )
 

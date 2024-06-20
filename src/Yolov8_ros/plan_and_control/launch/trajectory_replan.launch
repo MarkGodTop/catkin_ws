@@ -14,7 +14,7 @@
     </node>
     
     <!-- visualization -->
-    <node pkg="rviz" type="rviz" name="rviz" output="screen"
+    <!-- <node pkg="rviz" type="rviz" name="rviz" output="screen"
         args="-d $(find plan_and_control)/rviz/traj.rviz" >
-    </node>
+    </node> -->
 </launch>

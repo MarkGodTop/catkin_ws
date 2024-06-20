@@ -120,9 +120,9 @@ private:
     double start_yaw_, final_yaw_;
     bool got_circle_flag_;
     int row_idx_ = 1;
-    int resX = 640;
-    int resY = 480;
-    std::string cameraName = "front_center_custom";
+    int resX = 800;
+    int resY = 600;
+    std::string cameraName = "FrontCenterCamera";
     std::string vehicle;
     bool reached_waypoint = false;
     double distance1 = 0;

@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "/home/markgodtop/catkin_ws/devel/share/common-lisp/ros/yolov8_ros_msgs/msg/BoundingBox.lisp"
-  "/home/markgodtop/catkin_ws/devel/share/common-lisp/ros/yolov8_ros_msgs/msg/BoundingBoxes.lisp"
+  "/home/ros20/catkin_ws/devel/share/common-lisp/ros/yolov8_ros_msgs/msg/BoundingBox.lisp"
+  "/home/ros20/catkin_ws/devel/share/common-lisp/ros/yolov8_ros_msgs/msg/BoundingBoxes.lisp"
   "CMakeFiles/yolov8_ros_msgs_generate_messages_lisp"
 )
 

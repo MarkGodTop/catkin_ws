@@ -1,8 +1,8 @@
-# Install script for directory: /home/markgodtop/catkin_ws/src/Yolov8_ros/plan_and_control
+# Install script for directory: /home/ros20/catkin_ws/src/Yolov8_ros/plan_and_control
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/markgodtop/catkin_ws/install")
+  set(CMAKE_INSTALL_PREFIX "/home/ros20/catkin_ws/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -38,25 +38,25 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/markgodtop/catkin_ws/build/Yolov8_ros/plan_and_control/catkin_generated/installspace/plan_and_control.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/ros20/catkin_ws/build/Yolov8_ros/plan_and_control/catkin_generated/installspace/plan_and_control.pc")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/plan_and_control/cmake" TYPE FILE FILES
-    "/home/markgodtop/catkin_ws/build/Yolov8_ros/plan_and_control/catkin_generated/installspace/plan_and_controlConfig.cmake"
-    "/home/markgodtop/catkin_ws/build/Yolov8_ros/plan_and_control/catkin_generated/installspace/plan_and_controlConfig-version.cmake"
+    "/home/ros20/catkin_ws/build/Yolov8_ros/plan_and_control/catkin_generated/installspace/plan_and_controlConfig.cmake"
+    "/home/ros20/catkin_ws/build/Yolov8_ros/plan_and_control/catkin_generated/installspace/plan_and_controlConfig-version.cmake"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/plan_and_control" TYPE FILE FILES "/home/markgodtop/catkin_ws/src/Yolov8_ros/plan_and_control/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/plan_and_control" TYPE FILE FILES "/home/ros20/catkin_ws/src/Yolov8_ros/plan_and_control/package.xml")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/home/markgodtop/catkin_ws/build/Yolov8_ros/plan_and_control/rpclib_wrapper/cmake_install.cmake")
-  include("/home/markgodtop/catkin_ws/build/Yolov8_ros/plan_and_control/AirLib/cmake_install.cmake")
-  include("/home/markgodtop/catkin_ws/build/Yolov8_ros/plan_and_control/MavLinkCom/cmake_install.cmake")
+  include("/home/ros20/catkin_ws/build/Yolov8_ros/plan_and_control/rpclib_wrapper/cmake_install.cmake")
+  include("/home/ros20/catkin_ws/build/Yolov8_ros/plan_and_control/AirLib/cmake_install.cmake")
+  include("/home/ros20/catkin_ws/build/Yolov8_ros/plan_and_control/MavLinkCom/cmake_install.cmake")
 
 endif()
 
