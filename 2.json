@@ -55,7 +55,26 @@
             "PointY": 62.41,
             "PointZ": -1,
             "TaskIndicator": [
-              
+              {
+                "TaskIndicatorName": "positionMeasureFour",
+                "TaskIndicatorEnd": 4
+              },
+              {
+                "TaskIndicatorName": "iouTargetAccuracy",
+                "TaskIndicatorEnd": 4
+              },
+              {
+                "TaskIndicatorName": "dynamicRangingAccuracy",
+                "TaskIndicatorEnd": 4
+              },
+              {
+                "TaskIndicatorName": "attitudeAccuracy",
+                "TaskIndicatorEnd": 4
+              },
+              {
+                "TaskIndicatorName": "targetSmash",
+                "TaskIndicatorEnd": 2
+              }
             ]
           },
           {

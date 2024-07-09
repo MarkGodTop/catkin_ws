@@ -131,7 +131,7 @@ private:
     std::atomic<int> num = 0;
     ros::Time stamp1;
     ros::Time stamp2;
-    ros::Time stamp3;
+    int cc = 0;
 
 std::vector<std::shared_ptr<std::thread>> publishThreads; // 用于存储线程对象
 std::unordered_map<std::string, int> set_t;
@@ -142,7 +142,7 @@ std::unordered_map<std::string, int> set_t;
     cv_bridge::CvImageConstPtr color_ptr_, depth_ptr_;
     vector<vector<Point>> pt_;
     struct MixedValues {
-        double x, y, z;
+        double x , y, z;
         int class_val;
         double d = 0;
     };
@@ -189,11 +189,12 @@ public:
     Eigen::VectorXd timeAllocation(const Eigen::MatrixXd &waypoints);
     void trajectoryGenerate(const Eigen::MatrixXd &waypoints);
     void desiredStatesPub();
-    void shared_yolo();
+    // void shared_yolo();
     void publishTopic_yolo(const int& num);
     void publishTopic_dingzi(const int& data);
     void publishTopic_dingwei(const int& data);
     void publishTopic_ceju(const int& data);
+    void publishTopic_jihui(const int& data);
     void displayTrajWithColor();
     void drawCmd(const Eigen::Vector3d& pos, const Eigen::Vector3d& vec, const int& id,
                  const Eigen::Vector4d& color);

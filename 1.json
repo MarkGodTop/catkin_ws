@@ -95,7 +95,12 @@
                 "PointID": 5,
                 "PointX": 100.03,
                 "PointY": 34.25,
-                "PointZ": -9.52
+                "PointZ": -9.52,
+                "TaskIndicator": [
+                  {
+                    "TaskIndicatorName": "targetSmash"
+                  }
+                ]
             }     
           ]
         },
