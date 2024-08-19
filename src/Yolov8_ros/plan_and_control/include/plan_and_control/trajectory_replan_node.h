@@ -122,8 +122,9 @@ private:
     int row_idx_ = 1;
     int resX = 800;
     int resY = 600;
-    std::string cameraName = "FrontCenterCamera";
+    std::string cameraName = "Custom_MV_CAMERA_001_01";
     std::string vehicle;
+    std::string json_cpp;
     bool reached_waypoint = false;
     double distance1 = 0;
     std::atomic<bool> continuePublishing = true;
@@ -131,6 +132,7 @@ private:
     std::atomic<int> num = 0;
     ros::Time stamp1;
     ros::Time stamp2;
+    ros::Time stamp3;
     int cc = 0;
 
 std::vector<std::shared_ptr<std::thread>> publishThreads; // 用于存储线程对象
@@ -189,7 +191,7 @@ public:
     Eigen::VectorXd timeAllocation(const Eigen::MatrixXd &waypoints);
     void trajectoryGenerate(const Eigen::MatrixXd &waypoints);
     void desiredStatesPub();
-    // void shared_yolo();
+    void shared_yolo();
     void publishTopic_yolo(const int& num);
     void publishTopic_dingzi(const int& data);
     void publishTopic_dingwei(const int& data);

@@ -5,12 +5,14 @@
         <rosparam command="load" file="$(find plan_and_control)/config/controller_gains.yaml" />   
         <!-- <param name="vehicle" value="CustomFlyingPawn_1" />  -->
         <param name="vehicle" value="UnmannedAirplane_1" />  
+        
     </node>
 
     <!--trajectory replanning-->>
     <node pkg="plan_and_control" type="trajectory_replan_node" name="trajectory_replan_node" output="screen" >
         <!-- <param name="vehicle" value="UnmannedCrawlerCar_1" /> -->
         <param name="vehicle" value="UnmannedAirplane_1" />
+        <param name="json_cpp" value="/home/ros20/catkin_ws/3.json" />
     </node>
     
     <!-- visualization -->

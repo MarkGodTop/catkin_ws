@@ -8,7 +8,8 @@ TrajectoryReplanNode::TrajectoryReplanNode(const ros::NodeHandle &nh, const ros:
 :nh_(nh), nh_private_(nh_private), got_circle_flag_(false) {
     Json::Value root;
     Json::CharReaderBuilder builder;
-    std::ifstream i("/home/ros20/catkin_ws/1.json", std::ifstream::binary);
+    nh_private_.getParam("json_cpp", json_cpp);
+    std::ifstream i(json_cpp, std::ifstream::binary);
     std::string errs;
     if (!Json::parseFromStream(builder, i, &root, &errs)) { 
         std::cerr << "Error opening or parsing JSON file: " << errs << std::endl;
@@ -160,7 +161,6 @@ void TrajectoryReplanNode::depthImageCallback(const sensor_msgs::ImageConstPtr& 
         values.d = d;
         values.class_val = type_class;
         cc = 1;
-        // std::cout << "d :" << d << std::endl;
     }
     
     // depth_ptr_ = cv_bridge::toCvCopy(msg, sensor_msgs::image_encodings::TYPE_32FC1);
@@ -261,57 +261,52 @@ void TrajectoryReplanNode::trajectoryGenerate(const Eigen::MatrixXd &waypoints) 
     }
 }
 
-// void TrajectoryReplanNode::shared_yolo(){
-//     // std::lock_guard<std::mutex> lock1(mtx1);
-//     if(yolo_ == nullptr){
-//         return;
-//     }
-//     if(stamp3 != yolo_->header.stamp)   
-//         {
-//             stamp3 = yolo_->header.stamp;
-//             Value data(Json::arrayValue);
-//             int type_class;
-//             for (const auto& box : yolo_->bounding_boxes) {
-//                 Value obj;
-//                 if(box.Class.empty())
-//                     type_class = 0;
-//                 if(box.Class == "Huan")
-//                     type_class = 1;
-//                 if(box.Class == "Person")
-//                     type_class = 2;
-//                 if(box.Class == "YouQiTong")
-//                     type_class = 8;
-//                 obj["ObjType"] = type_class;
-//                 obj["ULPointX"] = static_cast<double>(box.xmin); // xmin
-//                 obj["ULPointY"] = static_cast<double>(box.ymin); // ymin
-//                 obj["DRPointX"] = static_cast<double>(box.xmax); // xmax
-//                 obj["DRPointY"] = static_cast<double>(box.ymax); // ymax
-//                 if(box.xmin)
-//                 {
-//                     cout << "box.xmin " << box.xmin << endl;
-//                     cout << "box.ymin " << box.ymin << endl;
-//                     cout << "box.xmax " << box.xmax << endl;
-//                     cout << "box.ymax " << box.ymax << endl;
-//                 }
-//                 // 将边界框添加到数据数组中
-//                 data.append(obj);
-//             }
-//             Value root;
-//             uint64_t ms = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count();
-//             root["timestamp"] = Json::Value(static_cast<Int64>(ms)); // 将uint64_t转换为Json::Value::UInt64类型 // 将时间戳转换为纳秒
-//             root["resX"] = resX;
-//             root["resY"] = resY;
-//             root["cameraName"] = cameraName;
-//             root["data"] = data;
-//             // 使用jsoncpp的StreamWriter来格式化JSON
-//             StreamWriterBuilder builder;
-//             builder["indentation"] = "\t"; // 使用制表符缩进
-//             const std::string json_str = Json::writeString(builder, root);
-//             client.simUpdateLocalDetectTargetNumData(vehicle, json_str);
-//             // std::this_thread::sleep_for(std::chrono::milliseconds(11));  
-//         }
+void TrajectoryReplanNode::shared_yolo(){
+    // std::lock_guard<std::mutex> lock1(mtx1);
+    if(yolo_ == nullptr){
+        return;
+    }
+    if(stamp3 != yolo_->header.stamp)   
+        {
+            stamp3 = yolo_->header.stamp;
+            Value data(Json::arrayValue);
+            std::string type_class;
+            for (const auto& box : yolo_->bounding_boxes) {
+                Value obj;
+                if(box.Class.empty())
+                    type_class = "0";
+                if(box.Class == "class_1")
+                    type_class = "1";
+                if(box.Class == "class_0")
+                    type_class = "8";
+                obj["ObjType"] = type_class;
+                obj["ULPointX"] = static_cast<double>(box.xmin); // xmin
+                obj["ULPointY"] = static_cast<double>(box.ymin); // ymin
+                obj["DRPointX"] = static_cast<double>(box.xmax); // xmax
+                obj["DRPointY"] = static_cast<double>(box.ymax); // ymax
+                if(box.xmin)
+                {
+                    std::cout << "obj contains: " << obj.toStyledString() << std::endl;
+                }
+                // 将边界框添加到数据数组中
+                data.append(obj);
+            }
+            Value root;
+            uint64_t ms = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count();
+            root["timestamp"] = Json::Value(static_cast<Int64>(ms)); // 将uint64_t转换为Json::Value::UInt64类型 // 将时间戳转换为纳秒
+            root["resX"] = resX;
+            root["resY"] = resY;
+            root["cameraName"] = cameraName;
+            root["data"] = data;
+            // 使用jsoncpp的StreamWriter来格式化JSON
+            StreamWriterBuilder builder;
+            builder["indentation"] = "\t"; // 使用制表符缩进
+            const std::string json_str = Json::writeString(builder, root);
+            client.simUpdateLocalDetectTargetNumData(vehicle, json_str);
+            // std::this_thread::sleep_for(std::chrono::milliseconds(11));  
+        }
     
-// }
+}
 double x1 = 0;
 double x2 = 0;
 double x3 = 0;
@@ -320,25 +315,15 @@ void TrajectoryReplanNode::publishTopic_yolo(const int& data) {
     // std::lock_guard<std::mutex> lock2(mtx2);
     
     while (continuePublishing.load() && flag.load() < data) {  
-       if(values.x != x3 && cc == 1)   
-        {
-            // client.simUpdateLocalDetectTargetPreData(vehicle, values.x, values.y, values.z, values.class_val);
-            client.simUpdateLocalDetectTargetPreData(vehicle, values.x, values.y, values.z, values.class_val);
-            x3 = values.x;
+    //    if(values.x != x3 && cc == 1)   
+    //     {
+    //         // client.simUpdateLocalDetectTargetPreData(vehicle, values.x, values.y, values.z, values.class_val);
+    //         // client.simUpdateLocalDetectTargetPreData(vehicle, values.x, values.y, values.z, values.class_val);
+    //         x3 = values.x;
 
-        }
-        // shared_yolo();// 假设你想要使用第一个边界框     
-    }
-    // if (flag.load() == data) {
-    //     auto threadId = std::this_thread::get_id();
-    //     for (auto it = publishThreads.begin(); it != publishThreads.end(); ++it) {
-    //         if ((*it)->get_id() == threadId) {
-    //             (*it)->detach(); // 分离线程，使其成为后台线程
-    //             publishThreads.erase(it); // 从线程向量中删除线程
-    //             break;
-    //         }
     //     }
-    // }
+        shared_yolo();// 假设你想要使用第一个边界框     
+    }
 }
 
 void TrajectoryReplanNode::publishTopic_ceju(const int& data) {   
@@ -585,11 +570,6 @@ void TrajectoryReplanNode::desiredStatesPub() {
     desiredPose_pub_.publish(desiredPose_);    
     dir_ << cos(cmd_.yaw), sin(cmd_.yaw), 0;
     drawCmd(desired_pos_, 2 * dir_, 1, Eigen::Vector4d(1, 1, 0, 0.7));
-    // for (auto& thread : publishThreads) {
-    //     if (thread.joinable()) {
-    //         thread.join();
-    //     }
-    // }
 }
 void TrajectoryReplanNode::boundingBoxes(const yolov8_ros_msgs::BoundingBoxesConstPtr &msg){
     if (!msg) {
